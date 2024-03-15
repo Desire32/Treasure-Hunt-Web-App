@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #treasureHunts {
+            list-style-type: none;
+        }
+        #treasureHunts li {
+            border: 1px solid black;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background-color: lightgray;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="treasureHunts">
+
+</ul>
+
+<script>
+    let treasureHuntsListElement = document.getElementById("treasureHunts");
+    fetch("https://codecyprus.org/th/api/list")
+    .then(response => response.json())
+    .then(jsonObject => {
+        let html = "";
+        for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
+            html += `<li onclick="handleClick('${jsonObject.treasureHunts[i].uuid}')">${jsonObject.treasureHunts[i].name}</li>`;
+        }
+        treasureHuntsListElement.innerHTML = html;
+    });
+
+    function handleClick(uuid) {
+        location.href = "start.html?uuid=" + uuid
+    }
+</script>
+
+</body>
+</html>
