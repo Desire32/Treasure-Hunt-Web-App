@@ -1,0 +1,84 @@
+/* main.css, which used for index.html file, needed for working with main part of the page */
+
+main {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  margin: 1% 2%;
+  flex-direction: column;
+  width: auto;
+  min-height: 80vh;
+}
+
+.frontPage h1 {
+  color: #34516c;
+  font-weight: 650;
+  font-size: 4.2rem;
+  margin-bottom: 10px;
+}
+
+.frontPage h2 {
+  color: #34516c;
+  font-weight: 650;
+  font-size: 3rem;
+  margin: 30px 0 10px 0;
+}
+
+main .videoPart h1,
+.framePart h1 {
+  font-size: 2.6rem;
+  color: #F2BE1A;
+  padding: 20px 0 10px 0;
+
+}
+
+main .videoPart video {
+  width: 100%;
+  max-width: 780px;
+
+}
+
+main .framePart iframe {
+  width: 100%;
+  min-height: 330px;
+
+}
+
+.frontPage p {
+  font-size: 1.7rem;
+}
+
+@media only screen and (max-width: 1192px) {
+  .frontPage h1 {
+    font-size: 5rem;
+  }
+
+  .frontPage p {
+    font-size: 1.8rem;
+  }
+
+  main .videoPart h1,
+  .framePart h1 {
+    font-size: 3.2rem;
+  }
+
+  main .videoPart video {
+    max-width: 820px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .frontPage h1 {
+    font-size: 3.3rem;
+  }
+
+  .frontPage p {
+    font-size: 1.5rem;
+  }
+
+  main .videoPart h1,
+  .framePart h1 {
+    font-size: 2.2rem;
+  }
+
+}
