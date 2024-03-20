@@ -1,1 +1,2 @@
-# Ass1ComputingChallenge
+# Treasure Hunt Web App
+# Assignment 1
