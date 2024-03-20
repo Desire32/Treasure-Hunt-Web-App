@@ -8,7 +8,6 @@ fetch('https://codecyprus.org/th/api/list')
 		}
 		treasureHuntsListElement.innerHTML = html
 	})
-
-function handleClick(uuid) {
-	location.href = 'start.html?uuid=' + uuid
-};
+	function handleClick(uuid) {
+		location.href = 'start.html?uuid=' + uuid
+	}

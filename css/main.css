@@ -45,6 +45,13 @@ main {
   font-size: 1.7rem;
 }
 
+
+.errorMessage{
+  font-size: 2rem;
+}
+
+
+
 @media only screen and (max-width: 1192px) {
   .frontPage h1 {
     font-size: 5rem;
