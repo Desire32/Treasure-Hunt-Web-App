@@ -1,24 +1,21 @@
-let SeenQuestion = document.getElementById('question')
+
+
+let SeenQuestion = document.getElementById('questionField')
 
 let params = new URLSearchParams(window.location.search)
-let uuid = params.get('uuid') 
+let uuid = params.get('uuid')
+console.log(uuid)
 
-let url = 'https://codecyprus.org/th/api/question?' + params.toString()
-
-fetch(url)
+fetch('https://codecyprus.org/th/api/question?session=' + uuid)
 	.then(response => response.json())
 	.then(jsonObject => {
+		console.log(jsonObject)
 		let html = ''
-		for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-			html += `<li class="errorMessage">${jsonObject.errorMessages[i]}</li>`
-		}
+		html += `<li class="errorMessage">${jsonObject.errorMessages}</li>`
 		SeenQuestion.innerHTML = html
 	})
-
-  function handleClick(uuid) {
-		location.href = 'list.html?uuid=' + uuid
-	}
-
-
-
-
+	.catch(error => {
+		console.error('Error fetching question:', error)
+		SeenQuestion.innerHTML =
+			'<li class="errorMessage">Error fetching question. Please try again later.</li>'
+	})

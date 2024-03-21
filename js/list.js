@@ -1,13 +1,19 @@
 let treasureHuntsListElement = document.getElementById('treasureHunts')
+
 fetch('https://codecyprus.org/th/api/list')
 	.then(response => response.json())
 	.then(jsonObject => {
+		console.log(jsonObject)
+		
 		let html = ''
-		for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
-			html += `<li class="treasureHuntFontSize" onclick="handleClick('${jsonObject.treasureHunts[i].uuid}')">${jsonObject.treasureHunts[i].name}</li>`
-		}
+		jsonObject.treasureHunts.forEach(treasureHunt => {
+			html += `<li class="treasureHuntFontSize" onclick="handleClick('${treasureHunt.uuid}')">${treasureHunt.name}</li>`
+		})
 		treasureHuntsListElement.innerHTML = html
 	})
-	function handleClick(uuid) {
-		location.href = 'start.html?uuid=' + uuid
-	}
+	.catch(error => {
+		console.error('Error fetching treasure hunts list:', error)
+		treasureHuntsListElement.innerHTML =
+			'<li class="errorMessage">Error fetching treasure hunts list. Please try again later.</li>'
+	})
+
