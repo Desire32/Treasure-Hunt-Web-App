@@ -49,8 +49,9 @@ main {
 .errorMessage{
   font-size: 2rem;
 }
-
-
+.errorMessagesSize {
+  font-size: 3rem;
+}
 
 @media only screen and (max-width: 1192px) {
   .frontPage h1 {

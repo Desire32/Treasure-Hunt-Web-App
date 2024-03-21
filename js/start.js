@@ -1,11 +1,10 @@
 let startTestListElement = document.getElementById('startTest')
-
 let playerNameInput = document.getElementById('playerName')
 let nameButton = document.getElementById('nameButton')
-
 let params = new URLSearchParams(window.location.search)
 let uuid = params.get('uuid')
 console.log(uuid)
+
 
 nameButton.addEventListener('click', function () {
 	let playerName = playerNameInput.value.trim()

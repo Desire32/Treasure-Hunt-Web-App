@@ -1,5 +1,9 @@
 let treasureHuntsListElement = document.getElementById('treasureHunts')
 
+treasureHuntsListElement.addEventListener('click', function () {
+	document.querySelector('.userInput').style.display = 'block'
+})
+
 fetch('https://codecyprus.org/th/api/list')
 	.then(response => response.json())
 	.then(jsonObject => {
