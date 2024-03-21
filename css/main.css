@@ -9,8 +9,6 @@ main {
   min-height: 80vh;
 }
 
-
-
 .frontPage button{
   font-size: 2rem;
   padding: 15px;
@@ -45,12 +43,27 @@ main {
   font-size: 1.7rem;
 }
 
-
-.errorMessage{
-  font-size: 2rem;
-}
 .errorMessagesSize {
   font-size: 3rem;
+  margin: 15px 0px 15px 0px;
+}
+
+#treasureHunts {
+  list-style-type: none;
+}
+
+#treasureHunts li {
+  border: 1px solid black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: lightgray;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.treasureHuntFontSize {
+  font-size: 3rem;
+  margin: 30px 0px 30px 0px;
 }
 
 @media only screen and (max-width: 1192px) {
@@ -72,4 +85,14 @@ main {
     font-size: 1.5rem;
   }
 
+}
+
+footer {
+  background-color: #acb3b8;
+  width: 100%;
+  color: white;
+  display: flex;
+  position: static;
+  justify-content: space-between;
+  padding: 45px 2%;
 }
