@@ -40,23 +40,32 @@
     <main>
 
         <ul id="treasureHunts"></ul>
-
-        <ul class="userInput" style="display: none;">
-            <input class="errorMessagesSize" type="text" id="playerName" name="playerName" />
-            <input class="errorMessagesSize" id="nameButton" type="button" onclick="start()" value="Start" />
-
+        
+        <ul id="userInput" class="userInput" style="display: none;">
+            <li>
+                <p style="font-size: 1.5rem;">Name: </p>
+                <input class="PersonInfoPanel" type="text" id="playerName" name="playerName" />
+            </li>
+            <li>
+                <input class="PersonInfoPanel" id="nameButton" type="button" onclick="start()" value="Start" />
+            </li>
         </ul>
-
-        <ul class="errorMessagesSize" id="testInfo"></ul>
+        
+        <ul class="PersonInfoPanel" id="testInfo" style="display: block;"></ul>
+        
+        <ul class="PersonInfoPanel" id="questionField" style="display: none;">
+            <li>
+                <input class="PersonInfoPanel" type="text" id="playerAnswer" name="playerAnswer" />
+            </li>
+        </ul>
 
     </main>
 
     <footer id="footer">
     </footer>
 
-    <script src='js/list.js'></script>
-    <script src='js/start.js'></script>
+    <script src='js/regPage.js'></script>
     <script src='js/burger-menu.js'></script>
-
+    
 </body>
 </html>
