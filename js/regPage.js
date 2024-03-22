@@ -1,11 +1,9 @@
 let SeenQuestion = document.getElementById('questionField')
-let uuid
 let treasureHuntsListElement = document.getElementById('treasureHunts')
 let testElements = document.getElementById('testInfo')
 let testNameElement = document.getElementById('testInfo')
 let playerNameInput = document.getElementById('playerName')
 let nameButton = document.getElementById('nameButton')
-let sessionID = localStorage.getItem('sessionID')
 
 function loadDataAndStart() {
 	fetch('https://codecyprus.org/th/api/list')
@@ -58,21 +56,6 @@ function start() {
 		addWordToStorage()
 	}
 }
-
-function getQuestion() {
-	let url =
-		'https://codecyprus.org/th/api/question?session=' + sessionID;
-	fetch(url)
-		.then(response => response.json())
-		.then(jsonObject => {
-			document.getElementById('userInput').style.display = 'none'
-			SeenQuestion.style.display = 'block'
-			let html = ''
-			html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
-			SeenQuestion.innerHTML = html
-		})
-}
-
 function addWordToStorage() {
 	let word = playerNameInput.value.trim()
 	if (word !== '') {
