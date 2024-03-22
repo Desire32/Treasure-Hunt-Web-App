@@ -3,12 +3,17 @@ let playerNameInput = document.getElementById('playerName')
 let nameButton = document.getElementById('nameButton')
 let uuid = localStorage.getItem('uuid')
 
-function start() {
 
+function start() {
 	let playerName = playerNameInput.value.trim()
 	if (playerName !== '') {
 		let url =
-			'https://codecyprus.org/th/api/start' + '?player=' + playerName + '&app=ComputerLegendsApp' + '&treasure-hunt-id=' + uuid
+			'https://codecyprus.org/th/api/start' +
+			'?player=' +
+			playerName +
+			'&app=ComputerLegendsApp' +
+			'&treasure-hunt-id=' +
+			uuid
 
 		fetch(url)
 			.then(response => response.json())
