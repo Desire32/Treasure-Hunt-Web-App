@@ -1,37 +1,35 @@
 let SeenQuestion = document.getElementById('questionField')
 let treasureHuntsListElement = document.getElementById('treasureHunts')
-let testElements = document.getElementById('testInfo')
-let testNameElement = document.getElementById('testInfo')
 let playerNameInput = document.getElementById('playerName')
 let nameButton = document.getElementById('nameButton')
-let sessionID = localStorage.getItem('sessionID')
+//let sessionID = localStorage.getItem('sessionID')
 
-function loadDataAndStart() {
+fetchTreasureHunts()
+
+function fetchTreasureHunts() {
 	fetch('https://codecyprus.org/th/api/list')
 		.then(response => response.json())
 		.then(jsonObject => {
-			console.log(jsonObject)
 			let html = ''
 			jsonObject.treasureHunts.forEach(treasureHunt => {
 				html += `<li class="treasureHuntFontSize" data-uuid="${treasureHunt.uuid}">${treasureHunt.name}</li>`
 			})
 			treasureHuntsListElement.innerHTML = html
 
-			treasureHuntsListElement.addEventListener('click', function (event) {
+			treasureHuntsListElement.addEventListener('click', async function (event) {
 				let clickedElement = event.target
 				uuid = clickedElement.getAttribute('data-uuid')
 				localStorage.setItem('uuid', uuid)
 				if (uuid) {
 					document.querySelector('.userInput').style.display = 'block'
 					treasureHunts.style.display = 'none'
+					await start()
 				}
 			})
 		})
 }
 
-loadDataAndStart()
-
-function start() {
+async function start() {
 	uuid = localStorage.getItem('uuid')
 	let playerName = playerNameInput.value.trim()
 	if (playerName !== '') {
@@ -43,16 +41,21 @@ function start() {
 			'&treasure-hunt-id=' +
 			uuid
 
-		fetch(url)
-			.then(response => response.json())
-			.then(jsonObject => {
-				console.log(jsonObject)
-				localStorage.setItem('sessionID', jsonObject.session)
-				getQuestion()
-			})
+		let response = await fetch(url)
+		let jsonObject = await response.json()
+		console.log(jsonObject)
+		sessionID = jsonObject.session
+		localStorage.setItem('sessionID', jsonObject.session)
 		addWordToStorage()
+		getQuestion(sessionID)
+		return sessionID
 	}
 }
+
+start().then(sessionID => {
+	getQuestion(sessionID)
+})
+
 function addWordToStorage() {
 	let word = playerNameInput.value.trim()
 	if (word !== '') {

@@ -1,4 +1,4 @@
-function getQuestion() {
+function getQuestion(sessionID) {
 	let url = 'https://codecyprus.org/th/api/question?session=' + sessionID
 	fetch(url)
 		.then(response => response.json())
