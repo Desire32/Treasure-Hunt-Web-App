@@ -30,7 +30,7 @@ function fetchTreasureHunts() {
 }
 
 async function start() {
-	uuid = localStorage.getItem('uuid')
+	let uuid = localStorage.getItem('uuid')
 	let playerName = playerNameInput.value.trim()
 	if (playerName !== '') {
 		let url =
@@ -44,8 +44,8 @@ async function start() {
 		let response = await fetch(url)
 		let jsonObject = await response.json()
 		console.log(jsonObject)
-		sessionID = jsonObject.session
-		localStorage.setItem('sessionID', jsonObject.session)
+		let sessionID = jsonObject.session
+		localStorage.setItem('sessionID', sessionID)
 		addWordToStorage()
 		getQuestion(sessionID)
 		return sessionID

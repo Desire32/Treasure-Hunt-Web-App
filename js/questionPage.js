@@ -1,3 +1,4 @@
+
 function getQuestion(sessionID) {
 	let url = 'https://codecyprus.org/th/api/question?session=' + sessionID
 	fetch(url)
@@ -55,19 +56,19 @@ function getQuestion(sessionID) {
 
 	document.addEventListener('click', function (event) {
 		if (event.target && event.target.id === 'SubmitButton') {
-			submitAnswer()
+			submitAnswer(null, null, sessionID)
 		} else if (event.target.classList.contains('trueButton')) {
-			submitAnswer(true)
+			submitAnswer(true, null, sessionID)
 		} else if (event.target.classList.contains('falseButton')) {
-			submitAnswer(false)
+			submitAnswer(false, null, sessionID)
 		} else if (event.target.classList.contains('mcqOption')) {
 			let mcqAnswer = event.target.getAttribute('value')
-			submitAnswer(null, mcqAnswer)
+			submitAnswer(null, mcqAnswer, sessionID)
 		}
 	})
 }
 
-function submitAnswer(booleanAnswer = null, mcqAnswer = null) {
+function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 	let answerInput
 	if (booleanAnswer !== null) {
 		answerInput = booleanAnswer.toString()
@@ -87,11 +88,11 @@ function submitAnswer(booleanAnswer = null, mcqAnswer = null) {
 		.then(response => response.json())
 		.then(jsonObject => {
 			console.log(jsonObject)
-			getQuestion()
+			getQuestion(sessionID)
 		})
 		.catch(error => {
 			console.error('Error submitting answer:', error)
-			getQuestion() 
+			getQuestion(sessionID)
 		})
 }
 
