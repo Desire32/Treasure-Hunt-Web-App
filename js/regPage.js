@@ -4,6 +4,7 @@ let testElements = document.getElementById('testInfo')
 let testNameElement = document.getElementById('testInfo')
 let playerNameInput = document.getElementById('playerName')
 let nameButton = document.getElementById('nameButton')
+let sessionID = localStorage.getItem('sessionID')
 
 function loadDataAndStart() {
 	fetch('https://codecyprus.org/th/api/list')
@@ -23,8 +24,6 @@ function loadDataAndStart() {
 				if (uuid) {
 					document.querySelector('.userInput').style.display = 'block'
 					treasureHunts.style.display = 'none'
-					//testElements.innerHTML = `<li>UUID: ${uuid}</li>`
-					start() 
 				}
 			})
 		})
@@ -48,10 +47,8 @@ function start() {
 			.then(response => response.json())
 			.then(jsonObject => {
 				console.log(jsonObject)
-				if (jsonObject.status === 'OK') {
-					getQuestion()
-				}
-
+				localStorage.setItem('sessionID', jsonObject.session)
+				getQuestion()
 			})
 		addWordToStorage()
 	}
@@ -68,9 +65,6 @@ function addWordToStorage() {
 			storedWords.push(word)
 			localStorage.setItem('storedWords', JSON.stringify(storedWords))
 			playerNameInput.value = ''
-
-			let lastWordArray = storedWords[storedWords.length - 1]
-			//testElements.innerHTML += `<li>Name: ${lastWordArray}</li>`
 		} catch (error) {
 			console.error('Reading error')
 		}
