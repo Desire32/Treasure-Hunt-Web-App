@@ -1,22 +1,20 @@
-function getQuestion(sessionID) {
-	let url = 'https://codecyprus.org/th/api/question?session=' + sessionID
-	fetch(url)
-		.then(response => response.json())
-		.then(jsonObject => {
-			console.log(jsonObject)
-			if (jsonObject.status === 'OK') {
-				document.getElementById('userInput').style.display = 'none'
-				elements.SeenQuestion.style.display = 'block'
-				elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
-			}
-		})
+async function getQuestion(sessionID) {
+	let questionURL =
+		'https://codecyprus.org/th/api/question?session=' + sessionID
+	const response = await fetch(questionURL)
+	const jsonObject = await response.json()
+	if (jsonObject) {
+		document.getElementById('userInput').style.display = 'none'
+		elements.SeenQuestion.style.display = 'block'
+		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+	}
 }
 
 function generateQuestionHTML(jsonObject) {
-	let html = '';
-	html += `<div class="questionContainer">`;
-	if (jsonObject.currentQuestionIndex < 6) {
-		html += `<h3>Question ${jsonObject.currentQuestionIndex + 1}</h3>`;
+	let html = ''
+	html += `<div class="questionContainer">`
+	if (jsonObject.currentQuestionIndex < jsonObject.numOfQuestions) {
+		html += `<h3>Question ${jsonObject.currentQuestionIndex + 1}</h3>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
 				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
@@ -72,27 +70,27 @@ function generateQuestionHTML(jsonObject) {
 				break
 		}
 	}
-	html += `</div>`;
-	return html;
+	html += `</div>`
+	return html
 }
 
-document.addEventListener('click', function (event) {
+document.addEventListener('click', async function (event) {
 	let sessionID = localStorage.getItem('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
-		submitAnswer(null, null, sessionID)
+		await submitAnswer(null, null, sessionID)
 	} else if (event.target.classList.contains('trueButton')) {
-		submitAnswer(true, null, sessionID)
+		await submitAnswer(true, null, sessionID)
 	} else if (event.target.classList.contains('falseButton')) {
-		submitAnswer(false, null, sessionID)
+		await submitAnswer(false, null, sessionID)
 	} else if (event.target.classList.contains('mcqOption')) {
 		let mcqAnswer = event.target.getAttribute('value')
-		submitAnswer(null, mcqAnswer, sessionID)
+		await submitAnswer(null, mcqAnswer, sessionID)
 	} else if (event.target.classList.contains('skipButton')) {
-		skipQuestion(sessionID)
+		await skipQuestion(sessionID)
 	}
 })
 
-function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
+async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 	let answerInput
 	if (booleanAnswer !== null) {
 		answerInput = booleanAnswer.toString()
@@ -108,45 +106,36 @@ function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 		'&answer=' +
 		encodeURIComponent(answerInput)
 
-	fetch(answerURL)
-		.then(response => response.json())
-		.then(jsonObject => {
-			console.log(jsonObject)
-				if (jsonObject.status === 'OK') {
-						getQuestion(sessionID)
-						loadScore(sessionID)
-				}
-		})
+	const response = await fetch(answerURL)
+	const jsonObject = await response.json()
+	console.log(jsonObject)
+	if (jsonObject) {
+	  await getQuestion(sessionID)
+		await loadScore(sessionID)
+	}
 }
 
-function skipQuestion(sessionID) {
+async function skipQuestion(sessionID) {
 	let skipURL = 'https://codecyprus.org/th/api/skip?session=' + sessionID
 
-	fetch(skipURL)
-		.then(response => response.json())
-		.then(jsonObject => {
-			console.log(jsonObject)
-			if (jsonObject.status === 'OK' && jsonObject.completed === false) {
-				getQuestion(sessionID)
-				loadScore(sessionID)
-			} else {
-				console.error('Failed to skip question')
-			}
-		})
+	const response = await fetch(skipURL)
+	const jsonObject = await response.json()
+	console.log(jsonObject)
+	if (jsonObject.status === 'OK' && jsonObject.completed === false) {
+		await getQuestion(sessionID)
+		await loadScore(sessionID)
+	}
 }
 
-function loadScore(sessionID) {
+async function loadScore(sessionID) {
 	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
 	let scoreElement = document.getElementById('score')
 
-	fetch(scoreURL)
-		.then(response => response.json())
-		.then(jsonObject => {
-			console.log(jsonObject)
-			if (jsonObject.status === 'OK') {
-				scoreElement.textContent = 'Score: ' + jsonObject.score
-			}
-		})
+	const response = await fetch(scoreURL)
+	const jsonObject = await response.json()
+	if (jsonObject.status === 'OK') {
+		scoreElement.textContent = 'Score: ' + jsonObject.score
+	}
 }
 
 start().then(sessionID => {

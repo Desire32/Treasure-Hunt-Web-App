@@ -18,7 +18,6 @@ function fetchTreasureHunts() {
 				html += `<li class="treasureHuntFontSize" data-uuid="${treasureHunt.uuid}">${treasureHunt.name}</li>`
 			})
 			elements.treasureHuntsListElement.innerHTML = html
-
 			elements.treasureHuntsListElement.addEventListener(
 				'click',
 				async function (event) {
