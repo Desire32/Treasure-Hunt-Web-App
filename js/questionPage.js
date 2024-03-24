@@ -6,8 +6,8 @@ function getQuestion(sessionID) {
 			console.log(jsonObject)
 			if (jsonObject.status === 'OK') {
 				document.getElementById('userInput').style.display = 'none'
-				SeenQuestion.style.display = 'block'
-				SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+				elements.SeenQuestion.style.display = 'block'
+				elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 			}
 		})
 }
@@ -114,6 +114,7 @@ function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 			console.log(jsonObject)
 				if (jsonObject.status === 'OK') {
 						getQuestion(sessionID)
+						loadScore(sessionID)
 				}
 		})
 }
@@ -127,6 +128,7 @@ function skipQuestion(sessionID) {
 			console.log(jsonObject)
 			if (jsonObject.status === 'OK' && jsonObject.completed === false) {
 				getQuestion(sessionID)
+				loadScore(sessionID)
 			} else {
 				console.error('Failed to skip question')
 			}
