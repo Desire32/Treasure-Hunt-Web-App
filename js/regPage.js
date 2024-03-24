@@ -52,6 +52,11 @@ async function start() {
 	}
 }
 
+nameButton.addEventListener('click', async function() {
+    let sessionID = await start();
+    loadScore(sessionID);
+});
+
 start().then(sessionID => {
 	getQuestion(sessionID)
 })

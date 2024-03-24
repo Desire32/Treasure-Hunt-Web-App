@@ -10,9 +10,6 @@ function getQuestion(sessionID) {
 				SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 			}
 		})
-		.catch(error => {
-			console.error('Error fetching question:', error)
-		})
 }
 
 function generateQuestionHTML(jsonObject) {
@@ -79,7 +76,6 @@ function generateQuestionHTML(jsonObject) {
 	return html;
 }
 
-
 document.addEventListener('click', function (event) {
 	let sessionID = localStorage.getItem('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
@@ -120,9 +116,6 @@ function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 						getQuestion(sessionID)
 				}
 		})
-		.catch(error => {
-			console.error('Error submitting answer:', error)
-		})
 }
 
 function skipQuestion(sessionID) {
@@ -138,7 +131,22 @@ function skipQuestion(sessionID) {
 				console.error('Failed to skip question')
 			}
 		})
-		.catch(error => {
-			console.error('Error skipping question:', error)
+}
+
+function loadScore(sessionID) {
+	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
+	let scoreElement = document.getElementById('score')
+
+	fetch(scoreURL)
+		.then(response => response.json())
+		.then(jsonObject => {
+			console.log(jsonObject)
+			if (jsonObject.status === 'OK') {
+				scoreElement.textContent = 'Score: ' + jsonObject.score
+			}
 		})
 }
+
+start().then(sessionID => {
+	loadScore(sessionID)
+})
