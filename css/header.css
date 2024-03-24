@@ -14,7 +14,7 @@
 }
 
 .header-main {
-  width: 100%;
+  width: auto;
   height: 130px;
   background-color: #acb3b8;
   display: flex;
@@ -70,20 +70,22 @@ body {
 
 @media only screen and (max-width: 1192px) {
 
-  .header-main-nav ul li,
+  .header-main-nav ul li{
+    font-size: 3rem;
+  }
   .header-main-name {
-    font-size: 2rem;
+    font-size: 3.8rem;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .header-main-logo img {
     width: 200px;
-    height: 74px;
+    height: auto;
   }
 
   .header-main-name {
-    font-size: 1.8rem;
+    font-size: 2.7rem;
   }
 
   .header-main-nav {
@@ -94,7 +96,7 @@ body {
     display: block;
     width: 50px;
     height: 50px;
-    background-image: url('/burger-menu.png');
+    background-image: url('/images/burger-menu.png');
     background-size: cover;
   }
 
