@@ -68,6 +68,47 @@ main {
   list-style-type: none;
 }
 
+/* Style for the main container */
+#quizContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style for question list items */
+.PersonInfoPanel {
+  margin-bottom: 10px;
+}
+
+/* Style for buttons */
+.PersonInfoPanel button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.PersonInfoPanel button:hover {
+  background-color: #bc1621;
+}
+
+/* Style for input fields */
+.PersonInfoPanel input[type="text"],
+.PersonInfoPanel input[type="button"] {
+  padding: 8px;
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for the question container */
+#SeenQuestion {
+  display: none;
+}
+
 #treasureHunts li {
   border: 1px solid black;
   padding: 10px 15px;
