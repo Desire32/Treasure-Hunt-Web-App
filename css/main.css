@@ -12,8 +12,12 @@ main {
 .frontPage button{
   font-size: 2rem;
   padding: 15px;
-  border-color: blue;
+  border-color: #283e53;
   margin: 15px 0px 15px 0px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(40, 62, 83);
+  background-color: rgba(40, 62, 83, 0.35);
+
 }
 .frontPage h1 {
   color: #34516c;
@@ -72,18 +76,16 @@ main {
   list-style-type: none;
 }
 
-/* Style for the main container */
 #quizContainer {
   max-width: 600px;
   margin: 0 auto;
+
 }
 
-/* Style for question list items */
 .PersonInfoPanel {
   margin-bottom: 10px;
 }
 
-/* Style for buttons */
 .PersonInfoPanel button {
   margin-right: 10px;
   padding: 8px 16px;
@@ -92,13 +94,15 @@ main {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 0 5px rgb(76, 175, 80);
 }
 
 .PersonInfoPanel button:hover {
   background-color: #bc1621;
+  box-shadow: 0 0 5px rgb(255, 0, 0);
+
 }
 
-/* Style for input fields */
 .PersonInfoPanel input[type="text"],
 .PersonInfoPanel input[type="button"] {
   padding: 8px;
@@ -108,10 +112,51 @@ main {
   border-radius: 4px;
 }
 
-/* Style for the question container */
 #SeenQuestion {
   display: none;
 }
+
+.PersonInfoPanel {
+  border: 2px solid #c90c0c;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
+}
+
+.trueButton,
+.falseButton,
+.mcqOption,
+#SubmitButton {
+  border: 1px solid rgba(14, 7, 7, 0.53);
+  background-color: rgba(49, 48, 48, 0.46);
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.trueButton:hover,
+.falseButton:hover,
+.mcqOption:hover,
+#SubmitButton:hover {
+  background-color: #4caf50;
+  box-shadow: 0 0 10px rgb(76, 175, 80);
+}
+
+#PlayerAnswer {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 5px;
+  margin: 5px;
+  width: 200px;
+}
+
+#SeenQuestion {
+  display: none;
+}
+
+
+
 
 #treasureHunts li {
   border: 1px solid black;
@@ -172,3 +217,5 @@ footer {
   justify-content: space-between;
   padding: 15px 2%;
 }
+
+logo
