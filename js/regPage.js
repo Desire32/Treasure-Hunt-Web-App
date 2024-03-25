@@ -23,7 +23,7 @@ function fetchTreasureHunts() {
 				async function (event) {
 					let clickedElement = event.target
 					let uuid = clickedElement.getAttribute('data-uuid')
-					localStorage.setItem('uuid', uuid)
+					setCookie('uuid', uuid, 30)
 					if (uuid) {
 						elements.userInput.style.display = 'block'
 						elements.treasureHuntsListElement.style.display = 'none'
@@ -35,7 +35,7 @@ function fetchTreasureHunts() {
 }
 
 async function start() {
-	let uuid = localStorage.getItem('uuid')
+	let uuid = getCookie('uuid')
 	let playerName = elements.playerNameInput.value.trim()
 	if (playerName !== '') {
 		let url =
@@ -50,7 +50,7 @@ async function start() {
 		let jsonObject = await response.json()
 		console.log(jsonObject)
 		let sessionID = jsonObject.session
-		localStorage.setItem('sessionID', sessionID)
+		setCookie('sessionID', sessionID, 30)
 		addWordToStorage()
 		getQuestion(sessionID)
 		return sessionID
@@ -75,13 +75,13 @@ function addWordToStorage() {
 	let word = elements.playerNameInput.value.trim()
 	if (word !== '') {
 		try {
-			let storedWords = JSON.parse(localStorage.getItem('storedWords')) || []
+			let storedWords = JSON.parse(getCookie('storedWords')) || []
 			if (storedWords.includes(word)) {
 				alert('Such name has already been used before, try again')
 				return
 			}
 			storedWords.push(word)
-			localStorage.setItem('storedWords', JSON.stringify(storedWords))
+			setCookie('storedWords', JSON.stringify(storedWords), 30)
 			elements.playerNameInput.value = ''
 		} catch (error) {
 			console.error('Reading error')

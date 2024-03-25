@@ -75,7 +75,7 @@ function generateQuestionHTML(jsonObject) {
 }
 
 document.addEventListener('click', async function (event) {
-	let sessionID = localStorage.getItem('sessionID')
+	let sessionID = getCookie('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
 		await submitAnswer(null, null, sessionID)
 	} else if (event.target.classList.contains('trueButton')) {
@@ -143,14 +143,17 @@ start().then(sessionID => {
 })
 
 
-async function loadLocation(sessionID)
-{
-	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
-	let scoreElement = document.getElementById('score')
-
-	const response = await fetch(scoreURL)
-	const jsonObject = await response.json()
+async function getLocation(sessionID) {
+	
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			showPosition(position, sessionID) 
+		})
+	}
 }
+
+
+
 
 
 
