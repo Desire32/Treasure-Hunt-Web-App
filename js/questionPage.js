@@ -143,19 +143,14 @@ start().then(sessionID => {
 })
 
 
-function getLocation() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition)
-	} else {
-		alert('Geolocation is not supported by your browser.')
-	}
+async function loadLocation(sessionID)
+{
+	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
+	let scoreElement = document.getElementById('score')
+
+	const response = await fetch(scoreURL)
+	const jsonObject = await response.json()
 }
-function showPosition(position) {
-	alert(
-		'Latitude: ' +
-			position.coords.latitude +
-			', Longitude: ' +
-			position.coords.longitude
-	)
-}
-getLocation()
+
+
+
