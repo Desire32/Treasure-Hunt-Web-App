@@ -12,14 +12,19 @@ main {
 .frontPage button{
   font-size: 2rem;
   padding: 15px;
-  border-color: blue;
+  border-color: #283e53;
   margin: 15px 0px 15px 0px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(40, 62, 83);
+  background-color: rgba(40, 62, 83, 0.35);
+
 }
 .frontPage h1 {
   color: #34516c;
   font-weight: 650;
-  font-size: 3.2rem;
-  margin-bottom: 10px;
+  font-size: 6rem;
+  width: 65%;
+  margin: 3% 0px 3% 0px;
 }
 
 .frontPage h2 {
@@ -29,15 +34,47 @@ main {
   margin: 30px 0 10px 0;
 }
 
+.socialNetworksTable{
+  width: 25%;
+}
+
+.PersonInfoPanel{
+  font-size: 2.3rem;
+}
+
 .socialNetworksTable ul{
   display: flex;
   flex-direction: row;
-  font-size: 3rem;
+  
+  align-items: center;
   list-style-type: none;
 }
+
+.socialNetworksTable img {
+  width: 90px;
+  border:solid #b9c1ca;
+  border-radius: 1px;
+  transition: border-color 0.3s ease;
+
+}
+
+.socialNetworksTable img:hover {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+.socialNetworksTable ul li{
+  flex: 1;
+  padding-right:3%;
+}
+
 .teamTable ul{
-  font-size: 3rem;
+  font-size: 2.5rem;
   list-style-type: none;
+  color:#34516c;
+
+}
+.teamTable ul h1{
+  font-size: 2rem;
 }
 .frontPage p {
   font-size: 1.7rem;
@@ -52,13 +89,109 @@ main {
   list-style-type: none;
 }
 
+#quizContainer {
+  max-width: 600px;
+  margin: 0 auto;
+
+}
+
+.PersonInfoPanel {
+  margin-bottom: 10px;
+}
+
+.PersonInfoPanel button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgb(76, 175, 80);
+}
+
+.PersonInfoPanel button:hover {
+  background-color: #bc1621;
+  box-shadow: 0 0 5px rgb(255, 0, 0);
+
+}
+
+.PersonInfoPanel input[type="text"],
+.PersonInfoPanel input[type="button"] {
+  padding: 8px;
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#SeenQuestion {
+  display: none;
+}
+
+#questionField{
+  list-style: none;
+}
+
+
+.PersonInfoPanel {
+  border: 2px solid #d0c0f1;
+  padding: 20px 250px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
+}
+
+
+
+.trueButton,
+.falseButton,
+.mcqOption,
+#SubmitButton {
+  border: 1px solid rgba(14, 7, 7, 0.53);
+  background-color: rgba(49, 48, 48, 0.46);
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.trueButton:hover,
+.falseButton:hover,
+.mcqOption:hover,
+#SubmitButton:hover {
+  background-color: #4caf50;
+  box-shadow: 0 0 10px rgb(76, 175, 80);
+}
+
+#PlayerAnswer {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 5px;
+  margin: 5px;
+}
+
+#SeenQuestion {
+  display: none;
+}
+
+.questionContainer .skipButton{
+ position: relative;
+ left: 20%;
+}
+
 #treasureHunts li {
   border: 1px solid black;
-  padding: 10px 15px;
+  padding: 15px 250px;
   border-radius: 10px;
-  background-color: lightgray;
+  background-color: rgb(76, 175, 80);
   margin-top: 10px;
   cursor: pointer;
+  box-shadow: 0 0 5px rgb(76, 175, 80);
+}
+#treasureHunts li:hover {
+  background-color: rgb(188, 22, 33);
+  box-shadow: 0 0 5px rgb(188, 22, 33);
+
 }
 
 .treasureHuntFontSize {
@@ -74,17 +207,32 @@ main {
   .frontPage p {
     font-size: 1.8rem;
   }
+  .teamTable ul{
+    font-size: 2rem;
+    color:#34516c;
+
+  }
+  .teamTable ul h1{
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .frontPage h1 {
-    font-size: 3.3rem;
+    font-size: 4rem;
   }
-
   .frontPage p {
     font-size: 1.5rem;
   }
-
+  .teamTable ul{
+    font-size: 1.5rem;
+  }
+  .teamTable ul h1{
+    font-size: 1.5rem;
+  }
+  .socialNetworksTable img {
+       width: 75px;
+  }
 }
 
 footer {
@@ -92,7 +240,9 @@ footer {
   width: 100%;
   color: white;
   display: flex;
-  position: static;
+  position: fixed;
+  bottom: 0;
   justify-content: space-between;
-  padding: 45px 2%;
+  padding: 15px 2%;
+  height: 150px;
 }

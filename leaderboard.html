@@ -1,0 +1,82 @@
+<DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="leaderboard.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <script>
+      
+      // Define the createTable function
+      function createTable() {
+          var numCols = 4;
+          var numRows = 10;
+          var tableHtml = "<table border='1'>";
+
+          // Creating headers
+        
+          tableHtml += "<tr>";
+          tableHtml += "<th>Rank</th>";
+          tableHtml += "<th>Name</th>";
+          tableHtml += "<th>Points</th>";
+          tableHtml += "<th>Completion Time</th>";
+          tableHtml += "</tr>";
+
+          // Creating empty rows
+          for (var i = 0; i < numRows; i++) {
+              tableHtml += "<tr>";
+              for (var j = 0; j < numCols; j++) {
+                  tableHtml += "<td></td>"; // Empty cell
+              }
+              tableHtml += "</tr>";
+          }
+
+          tableHtml += "</table>";
+          document.getElementById("tableContainer").innerHTML = tableHtml;
+      }
+
+      // Automatically call createTable when the page loads
+      window.onload = createTable;
+  </script>
+  </head>
+
+  <body> 
+    <header class="header-main" id="header">
+      <div class="header-main-logo">
+          <img src="images/logo.png" alt="logo Uni">
+          
+      </div>
+      <nav class="header-main-nav">
+          <ul class="logoList">
+              <li><a href="index.html">Main page</a></li>
+              <li><a href="notes.html">Notes</a></li>
+              <li><a href="test.html">Test</a></li>
+              <li><a href="leaderboard.html">Leaderboard</a></li>
+          </ul>
+      </nav>
+      <div class="burger-menu-button">
+      </div>
+  </header>
+
+    <div id="tableContainer"></div>
+    <style>
+      table {
+          width: 100%; /* Adjust the width as needed */
+          border-collapse: collapse;
+      }
+
+      th, td {
+          border: 5px solid rgb(54, 54, 54);
+          padding: 40px;
+          text-align: center;
+          font-size: 24px;
+      }
+  </style>
+  </body>
+  
+</html>
+  
