@@ -14,7 +14,9 @@ function generateQuestionHTML(jsonObject) {
 	let html = ''
 	html += `<div class="questionContainer">`
 	if (jsonObject.currentQuestionIndex < jsonObject.numOfQuestions) {
-		html += `<h3>Question ${jsonObject.currentQuestionIndex + 1}</h3>`
+		html += `<h3 style="font-size: 2rem;">Question ${
+			jsonObject.currentQuestionIndex + 1
+		}</h3>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
 				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
