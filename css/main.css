@@ -22,8 +22,9 @@ main {
 .frontPage h1 {
   color: #34516c;
   font-weight: 650;
-  font-size: 3.2rem;
-  margin-bottom: 10px;
+  font-size: 6rem;
+  width: 65%;
+  margin: 3% 0px 3% 0px;
 }
 
 .frontPage h2 {
@@ -34,7 +35,7 @@ main {
 }
 
 .socialNetworksTable{
-  width: 30%;
+  width: 25%;
 }
 
 .PersonInfoPanel{
@@ -44,10 +45,22 @@ main {
 .socialNetworksTable ul{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  
   align-items: center;
   list-style-type: none;
-  width: 100%;
+}
+
+.socialNetworksTable img {
+  width: 90px;
+  border:solid #b9c1ca;
+  border-radius: 1px;
+  transition: border-color 0.3s ease;
+
+}
+
+.socialNetworksTable img:hover {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
 }
 .socialNetworksTable ul li{
   flex: 1;
@@ -55,13 +68,13 @@ main {
 }
 
 .teamTable ul{
-  font-size: 3rem;
+  font-size: 2.5rem;
   list-style-type: none;
   color:#34516c;
 
 }
 .teamTable ul h1{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .frontPage p {
   font-size: 1.7rem;
@@ -116,13 +129,20 @@ main {
   display: none;
 }
 
+#questionField{
+  list-style: none;
+}
+
+
 .PersonInfoPanel {
-  border: 2px solid #c90c0c;
+  border: 2px solid #d0c0f1;
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
 }
+
+
 
 .trueButton,
 .falseButton,
@@ -148,15 +168,16 @@ main {
   border: 1px solid rgb(255, 255, 255);
   padding: 5px;
   margin: 5px;
-  width: 200px;
 }
 
 #SeenQuestion {
   display: none;
 }
 
-
-
+.questionContainer .skipButton{
+ position: relative;
+ left: 20%;
+}
 
 #treasureHunts li {
   border: 1px solid black;
@@ -165,6 +186,10 @@ main {
   background-color: lightgray;
   margin-top: 10px;
   cursor: pointer;
+  box-shadow: 0 0 5px rgb(76, 175, 80);
+}
+#treasureHunts li:hover {
+  background-color: #4caf50;
 }
 
 .treasureHuntFontSize {
@@ -190,12 +215,10 @@ main {
   }
 }
 
-
 @media only screen and (max-width: 768px) {
   .frontPage h1 {
-    font-size: 3.3rem;
+    font-size: 4rem;
   }
-
   .frontPage p {
     font-size: 1.5rem;
   }
@@ -205,7 +228,9 @@ main {
   .teamTable ul h1{
     font-size: 1.5rem;
   }
-
+  .socialNetworksTable img {
+       width: 75px;
+  }
 }
 
 footer {
@@ -213,9 +238,9 @@ footer {
   width: 100%;
   color: white;
   display: flex;
-  position: static;
+  position: fixed;
+  bottom: 0;
   justify-content: space-between;
   padding: 15px 2%;
+  height: 150px;
 }
-
-logo
