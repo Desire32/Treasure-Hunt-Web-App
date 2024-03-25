@@ -25,8 +25,7 @@ function eraseCookie(name) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  
-  let sessionID = getCookie('sessionID')
+	let sessionID = getCookie('sessionID')
 	getLocation(sessionID)
 	if (!sessionID) {
 		sessionID = start()

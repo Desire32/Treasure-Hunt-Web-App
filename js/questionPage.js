@@ -143,14 +143,17 @@ start().then(sessionID => {
 })
 
 
-async function getLocation(sessionID)
-{
-	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
-	let scoreElement = document.getElementById('score')
-
-	const response = await fetch(scoreURL)
-	const jsonObject = await response.json()
+async function getLocation(sessionID) {
+	
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			showPosition(position, sessionID) 
+		})
+	}
 }
+
+
+
 
 
 

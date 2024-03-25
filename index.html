@@ -72,6 +72,11 @@
     </footer>
 
     <script>
+
+         document.getElementById('buttonStart').addEventListener('click', function () {
+                window.location.href = 'app.html';
+            });
+            
         document.addEventListener('DOMContentLoaded', function () {
             
                 let latitude = getCookie('latitude');
@@ -87,7 +92,7 @@
                 }
             }
 
-            function showPosition(position) {
+            function showPosition(position, sessionID) {
                 setCookie('latitude', position.coords.latitude, 1);
                 setCookie('longitude', position.coords.longitude, 1);
             }
