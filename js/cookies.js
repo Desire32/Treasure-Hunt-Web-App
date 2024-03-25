@@ -2,7 +2,7 @@ function setCookie(cookieName, cookieValue, expireDays) {
 	let date = new Date()
 	date.setTime(date.getTime() + expireDays * 24 * 60 * 60 * 1000)
 	let expires = 'expires=' + date.toUTCString()
-	document.cookie = cookieName + '=' + cookieValue + ';' + expires + ';path=/'
+	document.cookie = `${cookieName}=${cookieValue}; ${expires}; path=/; SameSite=None; Secure`
 }
 
 function getCookie(name) {
@@ -25,13 +25,18 @@ function eraseCookie(name) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-	getLocation()
-	let sessionID = getCookie('sessionID')
+  
+  let sessionID = getCookie('sessionID')
+	getLocation(sessionID)
 	if (!sessionID) {
 		sessionID = start()
-		setCookie('sessionID', sessionID, 30) 
+		setCookie('sessionID', sessionID, 30)
 	}
 	loadScore(sessionID)
+
+	let storedWordsCookie = getCookie('storedWords')
+	if (storedWordsCookie) {
+		let storedWords = JSON.parse(storedWordsCookie)
+		console.log('Stored words:', storedWords)
+	}
 })
-
-

@@ -75,7 +75,7 @@ function generateQuestionHTML(jsonObject) {
 }
 
 document.addEventListener('click', async function (event) {
-	let sessionID = localStorage.getItem('sessionID')
+	let sessionID = getCookie('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
 		await submitAnswer(null, null, sessionID)
 	} else if (event.target.classList.contains('trueButton')) {
@@ -143,7 +143,7 @@ start().then(sessionID => {
 })
 
 
-async function loadLocation(sessionID)
+async function getLocation(sessionID)
 {
 	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
 	let scoreElement = document.getElementById('score')
