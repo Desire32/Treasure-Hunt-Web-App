@@ -4,7 +4,7 @@ what everyone has done and is working on to help stop confusion.
 Due to our team members changing because of some absent individuals and the closure of some other teams we started
 allot later than many of the other teams which means we need to work more as a team and harder to reach the deadline.
 
-lesson time
+22/3 lesson time
 Everyone is working and updating the code AlexPh and Orlando have worked extensive on the landing page by
 adding url and correct icons for all the teams social medias updating the names of the valid team members
 and editing the css files to edit text size, spacing, background font color and more. AlexPh will also add a
@@ -12,13 +12,13 @@ picture of the finished landing page to our instagram and x accounts. Nikita wor
 also working on the api by designing registering the answers and the questions fixed api reader and general fixes
 of the code added so far.
 
-During the weekend
+23-24/3 During the weekend
 Nikita further worked on advancing the api by adding a skip score and a fixed score panel of 80%
 Orlando worked further on the landing page by adding polish for different screen sizes and devices.Merged remote-tracking
 branch 'origin/main' while Constantinos created the leaderboard html.
 
-During the week
-Nikita created jekyll-gh-pages.yml. Advanced the api by adding cookies and basic location gathering with a script
-adding alerts for players exiting or not in the boundaries for the questions while also further fixing the leaderboard panel.
-Giorgos added buttons to begin the treasure hunt while Costantinos added a table to the leaderboard html file.Due to some changes
-to our landing page AlexPh had added this info to our social media accounts with photo evidence to instagram and x.
+25/3 During the week
+Nikita Advanced the api by adding cookies and basic location gathering with a script adding alerts for players exiting or not in the
+boundaries for the questions while also further fixing the leaderboard panel. Giorgos added buttons to begin the treasure hunt
+while Costantinos added a table to the leaderboard html file.Due to some changes to our landing page AlexPh had added this info to our
+ social media accounts with photo evidence to instagram and x.
