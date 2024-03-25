@@ -24,7 +24,7 @@ main {
   font-weight: 650;
   font-size: 6rem;
   width: 65%;
-  margin: 2% 0px 3% 0px;
+  margin: 3% 0px 3% 0px;
 }
 
 .frontPage h2 {
@@ -35,7 +35,7 @@ main {
 }
 
 .socialNetworksTable{
-  width: 30%;
+  width: 25%;
 }
 
 .PersonInfoPanel{
@@ -51,7 +51,7 @@ main {
 }
 
 .socialNetworksTable img {
-  width: 100px;
+  width: 90px;
   border:solid #b9c1ca;
   border-radius: 1px;
   transition: border-color 0.3s ease;
@@ -68,13 +68,13 @@ main {
 }
 
 .teamTable ul{
-  font-size: 3rem;
+  font-size: 2.5rem;
   list-style-type: none;
   color:#34516c;
 
 }
 .teamTable ul h1{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .frontPage p {
   font-size: 1.7rem;
@@ -209,12 +209,10 @@ main {
   }
 }
 
-
 @media only screen and (max-width: 768px) {
   .frontPage h1 {
-    font-size: 3.3rem;
+    font-size: 4rem;
   }
-
   .frontPage p {
     font-size: 1.5rem;
   }
@@ -224,7 +222,9 @@ main {
   .teamTable ul h1{
     font-size: 1.5rem;
   }
-
+  .socialNetworksTable img {
+       width: 75px;
+  }
 }
 
 footer {
@@ -232,8 +232,9 @@ footer {
   width: 100%;
   color: white;
   display: flex;
-  position: static;
+  position: fixed;
+  bottom: 0;
   justify-content: space-between;
   padding: 15px 2%;
+  height: 150px;
 }
-

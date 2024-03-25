@@ -45,7 +45,9 @@
 
 .header-main-nav ul li {
   display: inline-block;
-  font-size: 2.7rem;
+  font-size: 3rem;
+  font-weight: lighter;
+  font-style: italic;
 }
 
 .header-main-nav ul li a {
@@ -58,7 +60,7 @@
   margin-left: 15px;
   align-self: center;
   font-weight:lighter;
-  font-size: 2.6rem;
+  font-size: 3rem;
   color: black;
 }
 
