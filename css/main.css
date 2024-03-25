@@ -142,6 +142,8 @@ main {
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
 }
 
+
+
 .trueButton,
 .falseButton,
 .mcqOption,
@@ -174,7 +176,7 @@ main {
 
 .questionContainer .skipButton{
  position: relative;
- left: 80%;
+ left: 20%;
 }
 
 #treasureHunts li {
@@ -184,6 +186,10 @@ main {
   background-color: lightgray;
   margin-top: 10px;
   cursor: pointer;
+  box-shadow: 0 0 5px rgb(76, 175, 80);
+}
+#treasureHunts li:hover {
+  background-color: #4caf50;
 }
 
 .treasureHuntFontSize {
