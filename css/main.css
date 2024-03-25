@@ -136,8 +136,8 @@ main {
 
 .PersonInfoPanel {
   border: 2px solid #d0c0f1;
-  padding: 20px 250px;
-  margin: 20px;
+  padding: 10px 70px;
+  margin: 7px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
 }
@@ -241,8 +241,14 @@ footer {
   color: white;
   display: flex;
   position: fixed;
-  bottom: 0;
+  bottom: -25px;
   justify-content: space-between;
   padding: 15px 2%;
-  height: 150px;
+  height: 175px;
+}
+
+.questionImage {
+  width: 100px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Adjust spacing as needed */
 }
