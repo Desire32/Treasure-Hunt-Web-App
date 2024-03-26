@@ -20,13 +20,8 @@ function getCookie(name) {
 	return null
 }
 
-function eraseCookie(name) {
-	document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-}
-
 document.addEventListener('DOMContentLoaded', function () {
 	let sessionID = getCookie('sessionID')
-	getLocation(sessionID)
 	if (!sessionID) {
 		sessionID = start()
 		setCookie('sessionID', sessionID, 30)
