@@ -106,11 +106,12 @@ function fetchTreasureHunts() {
 async function start() {
 	let uuid = getCookie('uuid')
 	let playerName = elements.playerNameInput.value.trim()
+
 	if (playerName !== '') {
 		try {
 			let storedWords = JSON.parse(getCookie('storedWords')) || []
 			if (storedWords.includes(playerName)) {
-				alert('Such name has already been used before, try again')
+				alert(jsonObject.errorMessages[0])
 				return false
 			}
 			if (
@@ -142,6 +143,13 @@ async function start() {
 			'&app=ComputerLegendsApp' +
 			'&treasure-hunt-id=' +
 			uuid
+
+		let urlObj = new URL(url)
+		if (!urlObj.searchParams.has('app')) {
+			alert(jsonObject.errorMessages[1])
+			return false
+		}
+		
 		let response = await fetch(url)
 		let jsonObject = await response.json()
 		console.log(jsonObject)
@@ -151,12 +159,8 @@ async function start() {
 			getQuestion(sessionID)
 			return sessionID
 		} else {
-			alert('Error: ' + jsonObject.errorMessages[0])
 			return false
 		}
-	} else {
-		alert('Please enter a valid name.')
-		return false
 	}
 }
 
