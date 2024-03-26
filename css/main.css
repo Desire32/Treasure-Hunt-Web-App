@@ -145,7 +145,7 @@ main {
 
 .PersonInfoPanel {
   border: 2px solid #d0c0f1;
-  padding: 10px 70px;
+  padding: 10px 26px;
   margin: 7px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
@@ -190,15 +190,17 @@ main {
   border: 1px solid black;
   padding: 15px 250px;
   border-radius: 10px;
+  /*
   background-color: rgb(76, 175, 80);
+  */
+  background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
+
   margin-top: 10px;
   cursor: pointer;
-  box-shadow: 0 0 5px rgb(76, 175, 80);
+  box-shadow: 0 0 5px rgb(79, 187, 241);
 }
 #treasureHunts li:hover {
-  background-color: rgba(108, 204, 219, 0.7);
-  box-shadow: 0 0 7px rgb(108, 204, 219);
-
+  background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
 }
 
 .treasureHuntFontSize {
@@ -264,6 +266,56 @@ footer {
   width:  200px;
 }
 
+@media only screen and (max-width: 768px) {
+
+  .header-main-logo {
+    width: 80%;
+    text-align: center;
+  }
+  .header-main-name {
+    display: block;
+    text-align: center;
+  }
+  .header-main-nav {
+    display: none;
+  }
+  .burger-menu-button {
+    display: block;
+  }
+  .burger-menu {
+    display: none;
+  }
+  main {
+    padding-bottom: 100px;
+  }
+  #robot {
+    width: 150px;
+  }
+  .frontPage h1 {
+    font-size: 3rem;
+  }
+  .frontPage h2 {
+    font-size: 2rem;
+  }
+  .socialNetworksTable {
+    width: 60%;
+  }
+  .socialNetworksTable img {
+    width: 50px;
+  }
+  .teamTable ul,
+  .teamTable ul h1 {
+    font-size: 1.5rem;
+  }
+  .frontPage p {
+    font-size: 1.3rem;
+  }
+
+  footer {
+    height: auto;
+    flex-wrap: wrap;
+  }
+}
 
 
 
