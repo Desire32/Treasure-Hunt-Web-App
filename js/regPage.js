@@ -7,8 +7,8 @@ const elements = {
 	userInput: document.querySelector('.userInput'),
 }
 
-fetchTreasureHunts()
 
+fetchTreasureHunts()
 function fetchTreasureHunts() {
 	fetch('https://codecyprus.org/th/api/list')
 		.then(response => response.json())
@@ -27,7 +27,7 @@ function fetchTreasureHunts() {
 					if (uuid) {
 						elements.userInput.style.display = 'block'
 						elements.treasureHuntsListElement.style.display = 'none'
-						await start()
+						//await start()
 					}
 				}
 			)
@@ -36,76 +36,67 @@ function fetchTreasureHunts() {
 
 async function start() {
 	let uuid = getCookie('uuid')
-	let playerName = elements.playerNameInput.value.trim()
-	if (
-		playerName !== '' &&
-		!/^\d+$/.test(playerName) &&
-		playerName.length <= 50
-	) {
-		let storedWords = JSON.parse(getCookie('storedWords')) || []
-		if (storedWords.includes(playerName)) {
-			alert(
-				'This name has already been used before. Please enter a different name.'
-			)
-			return false
-		}
 
-		let url =
-			'https://codecyprus.org/th/api/start' +
-			'?player=' +
-			playerName +
-			'&app=ComputerLegendsApp' +
-			'&treasure-hunt-id=' +
-			uuid
-
-		let response = await fetch(url)
-		let jsonObject = await response.json()
-		console.log(jsonObject)
-		let sessionID = jsonObject.session
-		setCookie('sessionID', sessionID, 30)
-		addWordToStorage()
-		getQuestion(sessionID)
-		return sessionID
-	} else {
-		if (/^\d+$/.test(playerName)) {
-			alert('Name cannot consist only of numbers.')
-		} else if (playerName.length > 50) {
-			alert('Name should not exceed 50 characters.')
-		} else {
-			alert('Please enter a valid name.')
-		}
-		return false
+	if (!addWordToStorage()) {
+		return
 	}
+
+	let url =
+		'https://codecyprus.org/th/api/start' +
+		'?player=' +
+		playerName +
+		'&app=ComputerLegendsApp' +
+		'&treasure-hunt-id=' +
+		uuid
+
+	let response = await fetch(url)
+	let jsonObject = await response.json()
+	console.log(jsonObject)
+	let sessionID = jsonObject.session
+	setCookie('sessionID', sessionID, 30)
+	return sessionID
 }
 
 elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
+		getQuestion(sessionID)
 		loadScore(sessionID)
 		document.getElementById('score').style.display = 'block'
 	}
 })
 
-start().then(sessionID => {
+/*start().then(sessionID => {
 	getQuestion(sessionID)
-})
+})*/
 
 function addWordToStorage() {
-	let word = elements.playerNameInput.value.trim()
-	if (word !== '') {
+	let playerName = elements.playerNameInput.value.trim()
+	if (playerName !== '') {
 		try {
 			let storedWords = JSON.parse(getCookie('storedWords')) || []
-			if (storedWords.includes(word)) {
+			if (storedWords.includes(playerName)) {
 				alert('Such name has already been used before, try again')
-				return
+				return false
 			}
-			storedWords.push(word)
+			if (playerName === '' || /^\d+$/.test(playerName) || playerName.length > 50) {
+				if (/^\d+$/.test(playerName)) {
+					alert('Name cannot consist only of numbers.')
+				} else if (playerName.length > 50) {
+					alert('Name should not exceed 50 characters.')
+				} else {
+					alert('Please enter a valid name.')
+				}
+				return false
+			}
+			storedWords.push(playerName)
 			setCookie('storedWords', JSON.stringify(storedWords), 30)
 			elements.playerNameInput.value = ''
 		} catch (error) {
 			console.error('Reading error')
 		}
 	}
+	return true
 }
 
 async function loadScore(sessionID) {
@@ -121,4 +112,3 @@ async function loadScore(sessionID) {
 		console.error('Error fetching score:', error)
 	}
 }
-
