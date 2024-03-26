@@ -17,66 +17,61 @@ function generateQuestionHTML(jsonObject) {
 		html += `<h3 style="font-size: 2rem;">Question ${
 			jsonObject.currentQuestionIndex + 1
 		}</h3>`
+		html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
-				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
-				html += `<li class="PersonInfoPanel">Please select true or false:</li>`
 				html += `<button class="PersonInfoPanel trueButton">True</button>`
 				html += `<button class="PersonInfoPanel falseButton">False</button>`
-				if (jsonObject.canBeSkipped) {
-					html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
-				}
 				break
 			case 'INTEGER':
-				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
-				html += `<li class="PersonInfoPanel">Please enter an integer answer:</li>`
 				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
 				html +=
-					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" />'
-				if (jsonObject.canBeSkipped) {
-					html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
-				}
+					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
 			case 'NUMERIC':
-				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
-				html += `<li class="PersonInfoPanel">Please enter a numeric answer:</li>`
 				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
 				html +=
-					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" />'
-				if (jsonObject.canBeSkipped) {
-					html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
-				}
+					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
 			case 'MCQ':
-				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
-				html += `<li class="PersonInfoPanel">Please select one of the following options:</li>`
 				html += `<button class="PersonInfoPanel mcqOption" value="A">A</button>`
 				html += `<button class="PersonInfoPanel mcqOption" value="B">B</button>`
 				html += `<button class="PersonInfoPanel mcqOption" value="C">C</button>`
 				html += `<button class="PersonInfoPanel mcqOption" value="D">D</button>`
-				if (jsonObject.canBeSkipped) {
-					html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
-				}
 				break
 			case 'TEXT':
-				html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
-				html += `<li class="PersonInfoPanel">Please enter a single word answer:</li>`
 				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
 				html +=
-					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" />'
-				if (jsonObject.canBeSkipped) {
-					html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
-				}
+					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
 			default:
 				break
+		}
+		if (jsonObject.canBeSkipped) {
+			html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
 		}
 	} else {
 		html += `<li class="PersonInfoPanel">Congratulations! Game over</li>`
 		html += `<a class="PersonInfoPanel" href="leaderboard.html">Leaderboard</a>`
 	}
+	if (jsonObject.requiresLocation) {
+		let latitude = getCookie('latitude')
+		let longitude = getCookie('longitude')
+		if (latitude && longitude) {
+			html += `<li class="PersonInfoPanel">Your current location is: Latitude ${latitude}, Longitude ${longitude}</li>`
+		} else {
+			html += `<li class="PersonInfoPanel">This question requires your location.</li>`
+		}
+	}
 	html += `</div>`
 	return html
+}
+
+function checkInputValue() {
+	let inputValue = document.getElementById('PlayerAnswer').value.trim()
+	if (inputValue === '') {
+		alert('Please enter a value for this field.')
+	}
 }
 
 document.addEventListener('click', async function (event) {
