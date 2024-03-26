@@ -1,72 +1,3 @@
-/*
-//alert(jsonObject.errorMessages[0]) FOR NIKITA
-
-
-async function start() {
-	let uuid = getCookie('uuid')
-	let playerName = elements.playerNameInput.value.trim()
-
-	let url =
-		'https://codecyprus.org/th/api/start' +
-		'?player=' +
-		playerName +
-		'&app=ComputerLegendsApp' +
-		'&treasure-hunt-id=' +
-		uuid
-
-	addWordToStorage()
-	let response = await fetch(url)
-	let jsonObject = await response.json()
-	console.log(jsonObject)
-	let sessionID = jsonObject.session
-	setCookie('sessionID', sessionID, 30)
-	return sessionID
-}
-
-
-elements.nameButton.addEventListener('click', async function () {
-	let sessionID = await start()
-	if (sessionID) {
-		loadScore(sessionID)
-		elements.appName.style.display = 'none'
-	}
-})
-
-start().then(sessionID => {
-	getQuestion(sessionID)
-})
-
-function addWordToStorage() {
-	let playerName = elements.playerNameInput.value.trim()
-	if (playerName !== '') {
-		try {
-			let storedWords = JSON.parse(getCookie('storedWords')) || []
-			if (storedWords.includes(playerName)) {
-				alert('Such name has already been used before, try again')
-				return false
-			}
-			if (playerName === '' || /^\d+$/.test(playerName) || playerName.length > 50) {
-				if (/^\d+$/.test(playerName)) {
-					alert('Name cannot consist only of numbers.')
-				} else if (playerName.length > 50) {
-					alert('Name should not exceed 50 characters.')
-				} else {
-					alert('Please enter a valid name.')
-				}
-				return false
-			}
-			storedWords.push(playerName)
-			setCookie('storedWords', JSON.stringify(storedWords), 30)
-			elements.playerNameInput.value = ''
-		} catch (error) {
-			console.error('Reading error')
-		}
-	}
-	return true
-}
-
-}*/
-
 const elements = {
 	SeenQuestion: document.getElementById('questionField'),
 	treasureHuntsListElement: document.getElementById('treasureHunts'),
@@ -111,7 +42,7 @@ async function start() {
 		try {
 			let storedWords = JSON.parse(getCookie('storedWords')) || []
 			if (storedWords.includes(playerName)) {
-				alert(jsonObject.errorMessages[0])
+				alert('This name is already in use, try a new one')
 				return false
 			}
 			if (
@@ -149,7 +80,7 @@ async function start() {
 			alert(jsonObject.errorMessages[1])
 			return false
 		}
-		
+
 		let response = await fetch(url)
 		let jsonObject = await response.json()
 		console.log(jsonObject)

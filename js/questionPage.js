@@ -129,20 +129,9 @@ async function skipQuestion(sessionID) {
 	}
 }
 
-async function loadScore(sessionID) {
-	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
-	let scoreElement = document.getElementById('score')
-
-	const response = await fetch(scoreURL)
-	const jsonObject = await response.json()
-	if (jsonObject.status === 'OK') {
-		scoreElement.textContent = 'Score: ' + jsonObject.score
-	}
-}
-
-start().then(sessionID => {
+/*start().then(sessionID => {
 	loadScore(sessionID)
-})
+})*/
 
 async function getLocation(sessionID) {
 	if (navigator.geolocation) {
