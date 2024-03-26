@@ -5,43 +5,10 @@
     <title>Title</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="leaderboard.css">
     <link rel="stylesheet" type="text/css" href="css/header.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/leaderboard.css">
 
-    <script>
-      
-      // Define the createTable function
-      function createTable() {
-          var numCols = 4;
-          var numRows = 10;
-          var tableHtml = "<table border='1'>";
-
-          // Creating headers
-        
-          tableHtml += "<tr>";
-          tableHtml += "<th>Rank</th>";
-          tableHtml += "<th>Name</th>";
-          tableHtml += "<th>Points</th>";
-          tableHtml += "<th>Completion Time</th>";
-          tableHtml += "</tr>";
-
-          // Creating empty rows
-          for (var i = 0; i < numRows; i++) {
-              tableHtml += "<tr>";
-              for (var j = 0; j < numCols; j++) {
-                  tableHtml += "<td></td>"; // Empty cell
-              }
-              tableHtml += "</tr>";
-          }
-
-          tableHtml += "</table>";
-          document.getElementById("tableContainer").innerHTML = tableHtml;
-      }
-
-      // Automatically call createTable when the page loads
-      window.onload = createTable;
-  </script>
   </head>
 
   <body> 
@@ -75,19 +42,7 @@
     </nav>
 
     <div id="tableContainer"></div>
-    <style>
-      table {
-          width: 100%; /* Adjust the width as needed */
-          border-collapse: collapse;
-      }
-
-      th, td {
-          border: 5px solid rgb(54, 54, 54);
-          padding: 40px;
-          text-align: center;
-          font-size: 24px;
-      }
-  </style>
+    
     <div id="footerSpace"></div>
 
 <footer id="footer">
