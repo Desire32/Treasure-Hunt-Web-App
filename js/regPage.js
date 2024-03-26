@@ -63,7 +63,7 @@ elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
 		loadScore(sessionID)
-		elements.appName.style.display = 'none'
+		document.getElementById('score').style.display = 'block'
 	}
 })
 

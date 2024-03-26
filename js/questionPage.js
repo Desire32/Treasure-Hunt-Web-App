@@ -1,15 +1,21 @@
 async function getQuestion(sessionID) {
-	let questionURL =
-		'https://codecyprus.org/th/api/question?session=' + sessionID
-	const response = await fetch(questionURL)
-	const jsonObject = await response.json()
-	if (jsonObject) {
-		document.getElementById('userInput').style.display = 'none'
-		elements.SeenQuestion.style.display = 'block'
-		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+	try {
+		let questionURL =
+			'https://codecyprus.org/th/api/question?session=' + sessionID
+		const response = await fetch(questionURL)
+		if (!response.ok) {
+			throw new Error('Network response was not ok')
+		}
+		const jsonObject = await response.json()
+		if (jsonObject) {
+			document.getElementById('userInput').style.display = 'none'
+			elements.SeenQuestion.style.display = 'block'
+			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+		}
+	} catch (error) {
+		console.error('Error fetching question:', error)
 	}
 }
-
 
 function generateQuestionHTML(jsonObject) {
 	let html = ''
@@ -94,27 +100,34 @@ document.addEventListener('click', async function (event) {
 })
 
 async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
-	let answerInput
-	if (booleanAnswer !== null) {
-		answerInput = booleanAnswer.toString()
-	} else if (mcqAnswer !== null) {
-		answerInput = mcqAnswer
-	} else {
-		answerInput = document.getElementById('PlayerAnswer').value.trim()
-	}
+	try {
+		let answerInput
+		if (booleanAnswer !== null) {
+			answerInput = booleanAnswer.toString()
+		} else if (mcqAnswer !== null) {
+			answerInput = mcqAnswer
+		} else {
+			answerInput = document.getElementById('PlayerAnswer').value.trim()
+		}
 
-	let answerURL =
-		'https://codecyprus.org/th/api/answer?session=' +
-		sessionID +
-		'&answer=' +
-		encodeURIComponent(answerInput)
+		let answerURL =
+			'https://codecyprus.org/th/api/answer?session=' +
+			sessionID +
+			'&answer=' +
+			encodeURIComponent(answerInput)
 
-	const response = await fetch(answerURL)
-	const jsonObject = await response.json()
-	console.log(jsonObject)
-	if (jsonObject) {
-	  await getQuestion(sessionID)
-		await loadScore(sessionID)
+		const response = await fetch(answerURL)
+		if (!response.ok) {
+			throw new Error('Network response was not ok')
+		}
+		const jsonObject = await response.json()
+		console.log(jsonObject)
+		if (jsonObject) {
+			await getQuestion(sessionID)
+			await loadScore(sessionID)
+		}
+	} catch (error) {
+		console.error('Error submitting answer:', error)
 	}
 }
 
@@ -145,18 +158,10 @@ start().then(sessionID => {
 	loadScore(sessionID)
 })
 
-
 async function getLocation(sessionID) {
-	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
-			showPosition(position, sessionID) 
+			showPosition(position, sessionID)
 		})
 	}
 }
-
-
-
-
-
-
