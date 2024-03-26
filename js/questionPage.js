@@ -71,6 +71,9 @@ function generateQuestionHTML(jsonObject) {
 			default:
 				break
 		}
+	} else {
+		html += `<li class="PersonInfoPanel">Congratulations! Game over</li>`
+		html += `<a class="PersonInfoPanel" href="leaderboard.html">Leaderboard</a>`
 	}
 	html += `</div>`
 	return html

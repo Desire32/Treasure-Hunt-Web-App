@@ -82,24 +82,26 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
+                let latitude = getCookie('latitude');
+                let longitude = getCookie('longitude');
+                let locationRequested = getCookie('locationRequested');
 
-            let latitude = getCookie('latitude');
-            let longitude = getCookie('longitude');
-            if (!latitude || !longitude) {
-                getLocation();
+                if (!latitude || !longitude || locationRequested !== 'true') {
+                    getLocation();
+                    setCookie('locationRequested', 'true', 30);
+                }
+            });
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
             }
-        });
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+            function showPosition(position, sessionID) {
+                setCookie('latitude', position.coords.latitude, 30);
+                setCookie('longitude', position.coords.longitude, 30);
             }
-        }
-
-        function showPosition(position, sessionID) {
-            setCookie('latitude', position.coords.latitude, 30);
-            setCookie('longitude', position.coords.longitude, 30);
-        }
 
     </script>
 
