@@ -196,8 +196,8 @@ main {
   box-shadow: 0 0 5px rgb(76, 175, 80);
 }
 #treasureHunts li:hover {
-  background-color: rgb(243, 239, 239);
-  box-shadow: 0 0 5px rgb(249, 248, 248);
+  background-color: rgba(108, 204, 219, 0.7);
+  box-shadow: 0 0 7px rgb(108, 204, 219);
 
 }
 
@@ -260,8 +260,10 @@ footer {
   height: 175px;
 }
 
-.questionImage {
-  width: 100px; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 10px; /* Adjust spacing as needed */
+#robot{
+  width:  200px;
 }
+
+
+
+
