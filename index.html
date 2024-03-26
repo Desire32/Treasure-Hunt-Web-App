@@ -43,7 +43,7 @@
     <main>
         <div class="frontPage">
             <h1>Our Project aims to develop a fully functional Treasure Hunt Web app.</h1>
-            <button id="buttonStart">Let's get started!</button>
+            <a href="app.html" id="buttonStart">Let's get started!</a>
         </div>
     </main>
 
@@ -76,11 +76,6 @@
     </footer>
 
     <script>
-
-        document.getElementById('buttonStart').addEventListener('click', function () {
-            window.location.href = 'app.html';
-        });
-
         document.addEventListener('DOMContentLoaded', function () {
                 let locationRequested = getCookie('locationRequested');
 
@@ -95,7 +90,7 @@
                     navigator.geolocation.getCurrentPosition(showPosition);
                 }
             }
-            function showPosition(position, sessionID) {
+            function showPosition(position) {
                 setCookie('latitude', position.coords.latitude, 30);
                 setCookie('longitude', position.coords.longitude, 30);
             }
