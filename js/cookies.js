@@ -20,15 +20,19 @@ function getCookie(name) {
 	return null
 }
 
-function eraseCookie(name) {
-	document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-}
+const LOCATION_REQUESTED = 'locationRequested'
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
 	let sessionID = getCookie('sessionID')
-	getLocation(sessionID)
+	let locationRequested = getCookie(LOCATION_REQUESTED)
+
+	if (!locationRequested) {
+		await getLocation(sessionID)
+		setCookie(LOCATION_REQUESTED, 'true', 30)
+	}
+
 	if (!sessionID) {
-		sessionID = start()
+		sessionID = await start()
 		setCookie('sessionID', sessionID, 30)
 	}
 	loadScore(sessionID)
@@ -39,3 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log('Stored words:', storedWords)
 	}
 })
+
+async function getLocation(sessionID) {
+	return new Promise((resolve, reject) => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				showPosition(position, sessionID)
+				resolve()
+			})
+		} else {
+			reject(new Error('Geolocation is not supported'))
+		}
+	})
+}
+
+async function showPosition(position, sessionID) {
+	setCookie('latitude', position.coords.latitude, 30)
+	setCookie('longitude', position.coords.longitude, 30)
+}
