@@ -11,7 +11,6 @@ async function getQuestion(sessionID) {
 			document.getElementById('userInput').style.display = 'none'
 			elements.SeenQuestion.style.display = 'block'
 			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
-			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject);
       setCookie('currentQuestionId', jsonObject.questionId, 30);
 		}
 	} catch (error) {
@@ -87,6 +86,19 @@ function generateQuestionHTML(jsonObject) {
 
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
+	if (event.target && event.target.id === 'SubmitButton') {
+		await submitAnswer(null, null, sessionID)
+	} else if (event.target.classList.contains('trueButton')) {
+		await submitAnswer(true, null, sessionID)
+	} else if (event.target.classList.contains('falseButton')) {
+		await submitAnswer(false, null, sessionID)
+	} else if (event.target.classList.contains('mcqOption')) {
+		let mcqAnswer = event.target.getAttribute('value')
+		await submitAnswer(null, mcqAnswer, sessionID)
+	} else if (event.target.classList.contains('skipButton')) {
+		await skipQuestion(sessionID)
+	}
+
 	getLocation(sessionID)
 	if (!sessionID) {
 		sessionID = await start()
@@ -104,21 +116,7 @@ document.addEventListener('click', async function (event) {
 	if (currentQuestionId) {
 		await getQuestionWithId(currentQuestionId, sessionID)
 	}
-
-	if (event.target && event.target.id === 'SubmitButton') {
-		await submitAnswer(null, null, sessionID)
-	} else if (event.target.classList.contains('trueButton')) {
-		await submitAnswer(true, null, sessionID)
-	} else if (event.target.classList.contains('falseButton')) {
-		await submitAnswer(false, null, sessionID)
-	} else if (event.target.classList.contains('mcqOption')) {
-		let mcqAnswer = event.target.getAttribute('value')
-		await submitAnswer(null, mcqAnswer, sessionID)
-	} else if (event.target.classList.contains('skipButton')) {
-		await skipQuestion(sessionID)
-	}
 })
-
 
 async function getQuestionWithId(questionId, sessionID) {
 	try {
@@ -128,9 +126,6 @@ async function getQuestionWithId(questionId, sessionID) {
 			'&questionId=' +
 			questionId
 		const response = await fetch(questionURL)
-		if (!response.ok) {
-			throw new Error('Network response was not ok')
-		}
 		const jsonObject = await response.json()
 		if (jsonObject) {
 			document.getElementById('userInput').style.display = 'none'
@@ -143,7 +138,6 @@ async function getQuestionWithId(questionId, sessionID) {
 }
 
 async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
-	try {
 		let answerInput
 		if (booleanAnswer !== null) {
 			answerInput = booleanAnswer.toString()
@@ -160,18 +154,12 @@ async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 			encodeURIComponent(answerInput)
 
 		const response = await fetch(answerURL)
-		if (!response.ok) {
-			throw new Error('Network response was not ok')
-		}
 		const jsonObject = await response.json()
 		console.log(jsonObject)
 		if (jsonObject) {
 			await getQuestion(sessionID)
 			await loadScore(sessionID)
 		}
-	} catch (error) {
-		console.error('Error submitting answer:', error)
-	}
 }
 
 async function skipQuestion(sessionID) {
