@@ -3,7 +3,6 @@ const elements = {
 	treasureHuntsListElement: document.getElementById('treasureHunts'),
 	playerNameInput: document.getElementById('playerName'),
 	nameButton: document.getElementById('nameButton'),
-	scoreName: document.getElementById('score'),
 	userInput: document.querySelector('.userInput'),
 }
 
@@ -99,7 +98,6 @@ elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
 		loadScore(sessionID)
-		elements.scoreName.style.display = 'block'
 	}
 })
 
