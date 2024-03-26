@@ -82,11 +82,9 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-                let latitude = getCookie('latitude');
-                let longitude = getCookie('longitude');
                 let locationRequested = getCookie('locationRequested');
 
-                if (!latitude || !longitude || locationRequested !== 'true') {
+                if (locationRequested !== 'true') {
                     getLocation();
                     setCookie('locationRequested', 'true', 30);
                 }
@@ -97,12 +95,10 @@
                     navigator.geolocation.getCurrentPosition(showPosition);
                 }
             }
-
             function showPosition(position, sessionID) {
                 setCookie('latitude', position.coords.latitude, 30);
                 setCookie('longitude', position.coords.longitude, 30);
             }
-
     </script>
 
     <script src='js/burger-menu.js'></script>
