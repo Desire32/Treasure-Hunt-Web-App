@@ -74,6 +74,8 @@ function checkInputValue() {
 	}
 }
 
+
+
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {

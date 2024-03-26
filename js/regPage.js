@@ -7,7 +7,7 @@ const elements = {
 	userInput: document.querySelector('.userInput'),
 }
 
-
+//alert(jsonObject.errorMessages[0]) FOR NIKITA
 fetchTreasureHunts()
 function fetchTreasureHunts() {
 	fetch('https://codecyprus.org/th/api/list')

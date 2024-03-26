@@ -40,32 +40,3 @@ function Rank(score, maxScore, time, totalTime) {
 
 	return rank
 }
-function getname() {
-	const URL =
-		'https://codecyprus.org/th/api/name?session=' + getCookies(sessionID)
-	fetch(URL)
-		.then(response => response.json())
-		.then(jsonObject => {
-			if (jsonObject.status === 'OK') {
-				const nameText = jsonObject.nameText
-				nameTextElement.innerHTML = nameText
-			} else {
-				alert(jsonObject.errorMessages[0])
-			}
-		})
-}
-getScore()
-function getScore() {
-	const URL =
-		'https://codecyprus.org/th/api/score?session=' + getCookies(sessionID)
-	fetch(URL)
-		.then(response => response.json())
-		.then(jsonObject => {
-			if (jsonObject.status === 'OK') {
-				const scoreField = jsonObject.scoreField
-				scoreFieldElement.innerHTML = scoreField
-			} else {
-				alert(jsonObject.errorMessages[0])
-			}
-		})
-}
