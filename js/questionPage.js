@@ -11,6 +11,8 @@ async function getQuestion(sessionID) {
 			document.getElementById('userInput').style.display = 'none'
 			elements.SeenQuestion.style.display = 'block'
 			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject);
+      setCookie('currentQuestionId', jsonObject.questionId, 30);
 		}
 	} catch (error) {
 		console.error('Error fetching question:', error)
@@ -85,6 +87,24 @@ function generateQuestionHTML(jsonObject) {
 
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
+	getLocation(sessionID)
+	if (!sessionID) {
+		sessionID = await start()
+		setCookie('sessionID', sessionID, 30)
+	}
+	loadScore(sessionID)
+
+	let storedWordsCookie = getCookie('storedWords')
+	if (storedWordsCookie) {
+		let storedWords = JSON.parse(storedWordsCookie)
+		console.log('Stored words:', storedWords)
+	}
+
+	let currentQuestionId = getCookie('currentQuestionId')
+	if (currentQuestionId) {
+		await getQuestionWithId(currentQuestionId, sessionID)
+	}
+
 	if (event.target && event.target.id === 'SubmitButton') {
 		await submitAnswer(null, null, sessionID)
 	} else if (event.target.classList.contains('trueButton')) {
@@ -98,6 +118,29 @@ document.addEventListener('click', async function (event) {
 		await skipQuestion(sessionID)
 	}
 })
+
+
+async function getQuestionWithId(questionId, sessionID) {
+	try {
+		let questionURL =
+			'https://codecyprus.org/th/api/question?session=' +
+			sessionID +
+			'&questionId=' +
+			questionId
+		const response = await fetch(questionURL)
+		if (!response.ok) {
+			throw new Error('Network response was not ok')
+		}
+		const jsonObject = await response.json()
+		if (jsonObject) {
+			document.getElementById('userInput').style.display = 'none'
+			elements.SeenQuestion.style.display = 'block'
+			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+		}
+	} catch (error) {
+		console.error('Error fetching question:', error)
+	}
+}
 
 async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 	try {
