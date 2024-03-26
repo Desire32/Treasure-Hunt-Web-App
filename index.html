@@ -76,13 +76,14 @@
     </footer>
 
     <script>
+        const LOCATION_REQUESTED = 'locationRequested';
         document.addEventListener('DOMContentLoaded', function () {
-                let locationRequested = getCookie('locationRequested');
+            let locationRequested = getCookie(LOCATION_REQUESTED);
 
-                if (locationRequested !== 'true') {
-                    getLocation();
-                    setCookie('locationRequested', 'true', 30);
-                }
+            if (locationRequested !== 'true') {
+                getLocation();
+                setCookie(LOCATION_REQUESTED, 'true', 30);
+            }
             });
 
             function getLocation() {
