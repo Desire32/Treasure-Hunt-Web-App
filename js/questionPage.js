@@ -74,8 +74,6 @@ function checkInputValue() {
 	}
 }
 
-
-
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
@@ -128,10 +126,6 @@ async function skipQuestion(sessionID) {
 		await loadScore(sessionID)
 	}
 }
-
-/*start().then(sessionID => {
-	loadScore(sessionID)
-})*/
 
 async function getLocation(sessionID) {
 	if (navigator.geolocation) {
