@@ -60,7 +60,7 @@
   margin-left: 15px;
   align-self: center;
   font-weight:lighter;
-  font-size: 3rem;
+  font-size: 3.8rem;
   color: black;
 }
 
@@ -76,7 +76,7 @@ body {
     font-size: 3rem;
   }
   .header-main-name {
-    font-size: 3.8rem;
+    font-size: 3rem;
   }
 }
 
