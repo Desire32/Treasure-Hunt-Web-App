@@ -84,13 +84,18 @@ main {
 .frontPage #buttonStart {
   margin-right: 10px;
     padding: 8px 16px;
-    background-color: #4caf50;
-    color: white;
+  background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
+    color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 0 5px rgb(76, 175, 80);
+    box-shadow: 0 0 5px rgb(79, 187, 241);
     font-size: 30px;
+}
+
+#buttonStart:hover{
+  background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
+
 }
 
 .errorMessagesSize {
@@ -144,12 +149,30 @@ main {
 
 
 .PersonInfoPanel {
-  border: 2px solid #d0c0f1;
+  border: 2px solid #0e0404;
   padding: 10px 26px;
   margin: 7px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.66);
+  box-shadow: 0 0 5px rgb(79, 187, 241);
+  cursor: pointer
 }
+
+.StarButton{
+  border: 2px solid rgb(14, 4, 4);
+  padding: 10px 26px;
+  margin: 7px;
+  border-radius: 5px;
+  background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
+  box-shadow: 0 0 5px rgb(79, 187, 241);
+  cursor: pointer;
+  font-size:25px;
+  color:white;
+}
+
+.StarButton:hover{
+  background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
+}
+
 
 .trueButton,
 .falseButton,
@@ -187,17 +210,14 @@ main {
 }
 
 #treasureHunts li {
-  border: 1px solid black;
-  padding: 15px 250px;
+  border: 1px solid #ffffff;
+  padding: 25px 50px;
   border-radius: 10px;
-  /*
-  background-color: rgb(76, 175, 80);
-  */
   background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
-
   margin-top: 10px;
   cursor: pointer;
   box-shadow: 0 0 5px rgb(79, 187, 241);
+  color: white;
 }
 #treasureHunts li:hover {
   background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
@@ -206,12 +226,6 @@ main {
 .treasureHuntFontSize {
   font-size: 3rem;
   margin: 30px 0px 30px 0px;
-  background-color: #4caf50;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgb(76, 175, 80);
 }
 
 @media only screen and (max-width: 1192px) {
