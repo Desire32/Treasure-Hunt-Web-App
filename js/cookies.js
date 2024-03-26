@@ -20,10 +20,19 @@ function getCookie(name) {
 	return null
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+const LOCATION_REQUESTED = 'locationRequested'
+
+document.addEventListener('DOMContentLoaded', async function () {
 	let sessionID = getCookie('sessionID')
+	let locationRequested = getCookie(LOCATION_REQUESTED)
+
+	if (!locationRequested) {
+		await getLocation(sessionID)
+		setCookie(LOCATION_REQUESTED, 'true', 30)
+	}
+
 	if (!sessionID) {
-		sessionID = start()
+		sessionID = await start()
 		setCookie('sessionID', sessionID, 30)
 	}
 	loadScore(sessionID)
@@ -34,3 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log('Stored words:', storedWords)
 	}
 })
+
+async function getLocation(sessionID) {
+	return new Promise((resolve, reject) => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				showPosition(position, sessionID)
+				resolve()
+			})
+		} else {
+			reject(new Error('Geolocation is not supported'))
+		}
+	})
+}
+
+async function showPosition(position, sessionID) {
+	setCookie('latitude', position.coords.latitude, 30)
+	setCookie('longitude', position.coords.longitude, 30)
+}

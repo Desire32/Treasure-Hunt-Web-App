@@ -76,25 +76,6 @@
     </footer>
 
     <script>
-        const LOCATION_REQUESTED = 'locationRequested';
-        document.addEventListener('DOMContentLoaded', function () {
-            let locationRequested = getCookie(LOCATION_REQUESTED);
-
-            if (locationRequested !== 'true') {
-                getLocation();
-                setCookie(LOCATION_REQUESTED, 'true', 30);
-            }
-            });
-
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                }
-            }
-            function showPosition(position) {
-                setCookie('latitude', position.coords.latitude, 30);
-                setCookie('longitude', position.coords.longitude, 30);
-            }
     </script>
 
     <script src='js/burger-menu.js'></script>
