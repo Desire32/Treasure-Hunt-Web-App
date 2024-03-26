@@ -1,20 +1,12 @@
 async function getQuestion(sessionID) {
-	try {
-		let questionURL =
-			'https://codecyprus.org/th/api/question?session=' + sessionID
-		const response = await fetch(questionURL)
-		if (!response.ok) {
-			throw new Error('Network response was not ok')
-		}
-		const jsonObject = await response.json()
-		if (jsonObject) {
-			document.getElementById('userInput').style.display = 'none'
-			elements.SeenQuestion.style.display = 'block'
-			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
-      setCookie('currentQuestionId', jsonObject.questionId, 30);
-		}
-	} catch (error) {
-		console.error('Error fetching question:', error)
+	let questionURL =
+		'https://codecyprus.org/th/api/question?session=' + sessionID
+	const response = await fetch(questionURL)
+	const jsonObject = await response.json()
+	if (jsonObject) {
+		document.getElementById('userInput').style.display = 'none'
+		elements.SeenQuestion.style.display = 'block'
+		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 	}
 }
 
@@ -98,68 +90,31 @@ document.addEventListener('click', async function (event) {
 	} else if (event.target.classList.contains('skipButton')) {
 		await skipQuestion(sessionID)
 	}
-
-	getLocation(sessionID)
-	if (!sessionID) {
-		sessionID = await start()
-		setCookie('sessionID', sessionID, 30)
-	}
-	loadScore(sessionID)
-
-	let storedWordsCookie = getCookie('storedWords')
-	if (storedWordsCookie) {
-		let storedWords = JSON.parse(storedWordsCookie)
-		console.log('Stored words:', storedWords)
-	}
-
-	let currentQuestionId = getCookie('currentQuestionId')
-	if (currentQuestionId) {
-		await getQuestionWithId(currentQuestionId, sessionID)
-	}
 })
 
-async function getQuestionWithId(questionId, sessionID) {
-	try {
-		let questionURL =
-			'https://codecyprus.org/th/api/question?session=' +
-			sessionID +
-			'&questionId=' +
-			questionId
-		const response = await fetch(questionURL)
-		const jsonObject = await response.json()
-		if (jsonObject) {
-			document.getElementById('userInput').style.display = 'none'
-			elements.SeenQuestion.style.display = 'block'
-			elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
-		}
-	} catch (error) {
-		console.error('Error fetching question:', error)
-	}
-}
-
 async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
-		let answerInput
-		if (booleanAnswer !== null) {
-			answerInput = booleanAnswer.toString()
-		} else if (mcqAnswer !== null) {
-			answerInput = mcqAnswer
-		} else {
-			answerInput = document.getElementById('PlayerAnswer').value.trim()
-		}
+	let answerInput
+	if (booleanAnswer !== null) {
+		answerInput = booleanAnswer.toString()
+	} else if (mcqAnswer !== null) {
+		answerInput = mcqAnswer
+	} else {
+		answerInput = document.getElementById('PlayerAnswer').value.trim()
+	}
 
-		let answerURL =
-			'https://codecyprus.org/th/api/answer?session=' +
-			sessionID +
-			'&answer=' +
-			encodeURIComponent(answerInput)
+	let answerURL =
+		'https://codecyprus.org/th/api/answer?session=' +
+		sessionID +
+		'&answer=' +
+		encodeURIComponent(answerInput)
 
-		const response = await fetch(answerURL)
-		const jsonObject = await response.json()
-		console.log(jsonObject)
-		if (jsonObject) {
-			await getQuestion(sessionID)
-			await loadScore(sessionID)
-		}
+	const response = await fetch(answerURL)
+	const jsonObject = await response.json()
+	console.log(jsonObject)
+	if (jsonObject) {
+		await getQuestion(sessionID)
+		await loadScore(sessionID)
+	}
 }
 
 async function skipQuestion(sessionID) {
