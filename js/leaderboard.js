@@ -1,5 +1,5 @@
-
 let sessionID = getCookie('sessionID')
+let leaderboardData
 
 async function fetchLeaderboard(sessionID) {
 	let leaderboardURL =
@@ -38,11 +38,18 @@ function createTable(leaderboardData) {
 }
 
 async function fetchAndCreateTable(sessionID) {
-	let leaderboardData = await fetchLeaderboard(sessionID)
-	console.log(leaderboardData) 
+	leaderboardData = await fetchLeaderboard(sessionID)
+	console.log(leaderboardData)
 	createTable(leaderboardData.leaderboard)
 }
 
+function sortAndRecreateTable() {
+	leaderboardData.leaderboard.sort((a, b) => b.score - a.score)
+	createTable(leaderboardData.leaderboard)
+}
+
+document
+	.getElementById('sortButton')
+	.addEventListener('click', sortAndRecreateTable)
+
 fetchAndCreateTable(sessionID)
-
-
