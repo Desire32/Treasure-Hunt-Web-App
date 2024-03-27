@@ -109,14 +109,6 @@ async function loadScore(sessionID) {
 	let jsonObject = await response.json()
 	console.log(jsonObject)
 	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
-
-	if (jsonObject.completed === true) {
-		const scoreData = {
-			playerName: jsonObject.player,
-			score: jsonObject.score,
-		}
-		return scoreData
-	}
 }
 
 

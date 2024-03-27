@@ -74,12 +74,17 @@ function checkInputValue() {
 	}
 }
 
+
+document
+	.getElementById('showLeaderboardButton')
+	.addEventListener('click', function () {
+		let sessionID = getCookie('sessionID')
+		fetchLeaderboard(sessionID)
+	})
+
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
-	if (event.target && event.target.id === 'showLeaderboardButton') {
-		await fetchLeaderboard(sessionID)
-	}
-	else if (event.target && event.target.id === 'SubmitButton') {
+	if (event.target && event.target.id === 'SubmitButton') {
 		await submitAnswer(null, null, sessionID)
 	} else if (event.target.classList.contains('trueButton')) {
 		await submitAnswer(true, null, sessionID)
