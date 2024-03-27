@@ -75,12 +75,12 @@ function checkInputValue() {
 }
 
 
-document
+/*document
 	.getElementById('showLeaderboardButton')
 	.addEventListener('click', function () {
 		let sessionID = getCookie('sessionID')
 		fetchLeaderboard(sessionID)
-	})
+	})*/
 
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
