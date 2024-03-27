@@ -8,6 +8,9 @@ async function getQuestion(sessionID) {
 		elements.SeenQuestion.style.display = 'block'
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 	}
+	if(jsonObject.completed) {
+		fetchLeaderboard(sessionID)
+	}
 }
 
 
@@ -145,4 +148,10 @@ async function fetchLeaderboard(sessionID) {
 	let response = await fetch(leaderboardURL)
 	let jsonObject = await response.json()
 	console.log(jsonObject)
+
+	let numOfPlayers = jsonObject.numOfPlayers
+	let status = jsonObject.status
+
+	console.log('Number of Players: ' + numOfPlayers)
+	console.log('Status: ' + status)
 }
