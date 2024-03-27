@@ -3,8 +3,8 @@ const elements = {
 	treasureHuntsListElement: document.getElementById('treasureHunts'),
 	playerNameInput: document.getElementById('playerName'),
 	nameButton: document.getElementById('nameButton'),
-	appName: document.getElementById('appName'),
 	userInput: document.querySelector('.userInput'),
+	scoreElement: document.getElementById('score')
 }
 
 fetchTreasureHunts()
@@ -37,7 +37,36 @@ function fetchTreasureHunts() {
 async function start() {
 	let uuid = getCookie('uuid')
 	let playerName = elements.playerNameInput.value.trim()
+
 	if (playerName !== '') {
+		try {
+			let storedWords = JSON.parse(getCookie('storedWords')) || []
+			if (storedWords.includes(playerName)) {
+				alert('This name is already in use, try a new one')
+				return false
+			}
+			if (
+				playerName === '' ||
+				/^\d+$/.test(playerName) ||
+				playerName.length > 50
+			) {
+				if (/^\d+$/.test(playerName)) {
+					alert('Name cannot consist only of numbers.')
+				} else if (playerName.length > 50) {
+					alert('Name should not exceed 50 characters.')
+				} else {
+					alert('Please enter a valid name.')
+				}
+				return false
+			}
+			storedWords.push(playerName)
+			setCookie('storedWords', JSON.stringify(storedWords), 30)
+			elements.playerNameInput.value = ''
+		} catch (error) {
+			console.error('Reading error')
+			return false
+		}
+
 		let url =
 			'https://codecyprus.org/th/api/start' +
 			'?player=' +
@@ -46,16 +75,23 @@ async function start() {
 			'&treasure-hunt-id=' +
 			uuid
 
+		let urlObj = new URL(url)
+		if (!urlObj.searchParams.has('app')) {
+			alert(jsonObject.errorMessages[1])
+			return false
+		}
+
 		let response = await fetch(url)
 		let jsonObject = await response.json()
 		console.log(jsonObject)
-		let sessionID = jsonObject.session
-		setCookie('sessionID', sessionID, 30)
-		addWordToStorage()
-		getQuestion(sessionID)
-		return sessionID
-	} else {
-		return false
+		if (jsonObject.status === 'OK') {
+			let sessionID = jsonObject.session
+			setCookie('sessionID', sessionID, 30)
+			getQuestion(sessionID)
+			return sessionID
+		} else {
+			return false
+		}
 	}
 }
 
@@ -63,42 +99,24 @@ elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
 		loadScore(sessionID)
-		elements.appName.style.display = 'none'
+		elements.scoreElement.style.display = 'block'
 	}
 })
-
-start().then(sessionID => {
-	getQuestion(sessionID)
-})
-
-function addWordToStorage() {
-	let word = elements.playerNameInput.value.trim()
-	if (word !== '') {
-		try {
-			let storedWords = JSON.parse(getCookie('storedWords')) || []
-			if (storedWords.includes(word)) {
-				alert('Such name has already been used before, try again')
-				return
-			}
-			storedWords.push(word)
-			setCookie('storedWords', JSON.stringify(storedWords), 30)
-			elements.playerNameInput.value = ''
-		} catch (error) {
-			console.error('Reading error')
-		}
-	}
-}
 
 async function loadScore(sessionID) {
 	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
-	let scoreElement = document.getElementById('score')
+	let response = await fetch(scoreURL)
+	let jsonObject = await response.json()
+	console.log(jsonObject)
+	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 
-	try {
-		let response = await fetch(scoreURL)
-		let jsonObject = await response.json()
-		console.log(jsonObject)
-		scoreElement.textContent = `Score: ${jsonObject.score}`
-	} catch (error) {
-		console.error('Error fetching score:', error)
+	if (jsonObject.completed === true) {
+		const scoreData = {
+			playerName: jsonObject.player,
+			score: jsonObject.score,
+		}
+		return scoreData
 	}
 }
+
+
