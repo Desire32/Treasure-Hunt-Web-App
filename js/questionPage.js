@@ -67,20 +67,13 @@ function generateQuestionHTML(jsonObject) {
 	return html
 }
 
+
 function checkInputValue() {
 	let inputValue = document.getElementById('PlayerAnswer').value.trim()
 	if (inputValue === '') {
 		alert('Please enter a value for this field.')
 	}
 }
-
-
-/*document
-	.getElementById('showLeaderboardButton')
-	.addEventListener('click', function () {
-		let sessionID = getCookie('sessionID')
-		fetchLeaderboard(sessionID)
-	})*/
 
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
