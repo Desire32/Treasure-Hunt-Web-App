@@ -27,6 +27,12 @@ td {
     white-space: normal; 
 }
 
+main h1{
+    font-size: 3.5rem;
+    color: rgb(109, 103, 138);
+    font-style: italic;
+}
+
 #sortButton,
 #resetButton {
     margin-right: 10px;
