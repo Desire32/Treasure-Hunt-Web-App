@@ -7,14 +7,6 @@ async function getQuestion(sessionID) {
 		document.getElementById('userInput').style.display = 'none'
 		elements.SeenQuestion.style.display = 'block'
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
-
-		if (jsonObject.completed) {
-			
-			const scoreData = await loadScore(sessionID)
-			if (scoreData) {
-				console.log(scoreData)
-			}
-		}
 	}
 }
 

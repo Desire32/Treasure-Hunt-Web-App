@@ -119,3 +119,7 @@ async function loadScore(sessionID) {
 	}
 }
 
+if (scoreData) {
+	console.log(scoreData)
+}
+
