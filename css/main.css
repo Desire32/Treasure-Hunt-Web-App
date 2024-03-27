@@ -236,9 +236,24 @@ main {
   margin: 30px 0px 30px 0px;
 }
 
+#testLinks{
+  color: #34516c;
+  font-weight: 650;
+  font-size: 10rem;
+  width: 65%;
+  margin: 3% 0px 3% 0px;
+}
+
 @media only screen and (max-width: 1192px) {
   .frontPage h1 {
     font-size: 5rem;
+  }
+  #testLinks{
+    color: #34516c;
+    font-weight: 650;
+    font-size: 6rem;
+    width: 65%;
+    margin: 3% 0px 3% 0px;
   }
 
   .frontPage p {
@@ -257,6 +272,13 @@ main {
 @media only screen and (max-width: 768px) {
   .frontPage h1 {
     font-size: 4rem;
+  }
+  #testLinks{
+    color: #34516c;
+    font-weight: 650;
+    font-size: 5rem;
+    width: 65%;
+    margin: 3% 0px 3% 0px;
   }
   .frontPage p {
     font-size: 1.5rem;
