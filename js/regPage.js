@@ -116,7 +116,6 @@ async function loadScore(sessionID) {
 
 	if (jsonObject.completed === true) {
 		const scoreData = {
-			finished: jsonObject.finished,
 			playerName: jsonObject.player,
 			score: jsonObject.score,
 		}
