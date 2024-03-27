@@ -6,7 +6,6 @@ async function fetchLeaderboard(sessionID) {
 		'https://codecyprus.org/th/api/leaderboard?session=' + sessionID
 	let response = await fetch(leaderboardURL)
 	let jsonObject = await response.json()
-	console.log(jsonObject)
 	return jsonObject
 }
 
