@@ -52,7 +52,7 @@ function generateQuestionHTML(jsonObject) {
 		}
 	} else {
 		html += `<li class="PersonInfoPanel">Congratulations! Game over</li>`
-		html += `<button class="PersonInfoPanel" id="showLeaderboardButton">Leaderboard</button>`
+		html += `<a class="PersonInfoPanel" id="showLeaderboardButton" href="leaderboard.html">Leaderboard</a>`
 	}
 	if (jsonObject.requiresLocation) {
 		let latitude = getCookie('latitude')
