@@ -71,14 +71,14 @@ main {
 }
 
 .frontPage #buttonStart {
-    padding: 8px 16px;
+    padding: 15px 25px;
   background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
     color: #ffffff;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 0 5px rgb(79, 187, 241);
-    font-size: 30px;
+    font-size: 37px;
     text-decoration: none;
 }
 
@@ -140,10 +140,20 @@ main {
 .PersonInfoPanel {
   border: 2px solid #0e0404;
   padding: 10px 26px;
-  margin: 7px;
+  margin: 25px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgb(79, 187, 241);
   cursor: pointer
+}
+
+.PersonInfoPanel2 {
+  padding: 10px 26px;
+  margin: 25px;
+  cursor: pointer;
+  font-size: 3rem;
+  font-style: italic;
+  line-height: 1.5;
+  font-family: Arial, sans-serif
 }
 
 .StarButton{
@@ -258,8 +268,8 @@ footer {
   width: 100%;
   color: white;
   display: flex;
-  position: fixed;
-  bottom: -25px;
+  position: relative;
+  bottom: 0px;
   justify-content: space-between;
   padding: 15px 2%;
   height: 175px;

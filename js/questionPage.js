@@ -23,7 +23,7 @@ function generateQuestionHTML(jsonObject) {
 		html += `<h3 style="font-size: 2rem;">Question ${
 			jsonObject.currentQuestionIndex + 1
 		}</h3>`
-		html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
+		html += `<li class="PersonInfoPanel2">${jsonObject.questionText}</li>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
 				html += `<button class="PersonInfoPanel trueButton">True</button>`
@@ -57,14 +57,14 @@ function generateQuestionHTML(jsonObject) {
 			html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
 		}
 	} else {
-		html += `<li class="PersonInfoPanel">Congratulations! Game over</li>`
-		html += `<a class="PersonInfoPanel" id="showLeaderboardButton" href="leaderboard.html">Leaderboard</a>`
+		html += `<li class="PersonInfoPanel2">Congratulations! Game over</li>`
+		html += `<a class="PersonInfoPanel2" id="showLeaderboardButton" href="leaderboard.html">Leaderboard</a>`
 	}
 	if (jsonObject.requiresLocation) {
 		let latitude = getCookie('latitude')
 		let longitude = getCookie('longitude')
 		if (latitude && longitude) {
-			html += `<li class="PersonInfoPanel">Your current location is: Latitude ${latitude}, Longitude ${longitude}</li>`
+			html += `<li class="PersonInfoPanel2">Your current location is: Latitude ${latitude}, Longitude ${longitude}</li>`
 		} else {
 			html += `<li class="PersonInfoPanel">This question requires your location.</li>`
 		}
