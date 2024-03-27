@@ -30,7 +30,7 @@ function generateQuestionHTML(jsonObject) {
 				html += `<button class="PersonInfoPanel falseButton">False</button>`
 				break
 			case 'INTEGER':
-				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="number"/>'
+				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
 				html +=
 					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
