@@ -4,6 +4,7 @@ const elements = {
 	playerNameInput: document.getElementById('playerName'),
 	nameButton: document.getElementById('nameButton'),
 	userInput: document.querySelector('.userInput'),
+	scoreElement: document.getElementById('score')
 }
 
 fetchTreasureHunts()
@@ -98,17 +99,17 @@ elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
 		loadScore(sessionID)
+		elements.scoreElement.style.display = 'block'
 	}
 })
 
 async function loadScore(sessionID) {
 	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
-	let scoreElement = document.getElementById('score')
 	try {
 		let response = await fetch(scoreURL)
 		let jsonObject = await response.json()
 		console.log(jsonObject)
-		scoreElement.textContent = `Score: ${jsonObject.score}`
+		elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 	} catch (error) {
 		console.error('Error fetching score:', error)
 	}
