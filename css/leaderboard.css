@@ -5,12 +5,6 @@
 #tableContainer table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #0e0404;
-    padding: 10px 26px;
-    margin: 25px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgb(79, 187, 241);
-    cursor: pointer;
 }
 
 #tableContainer th,
@@ -18,6 +12,11 @@ td {
     padding: 40px;
     text-align: center;
     font-size: 24px;
+    border: 2px solid #0e0404;
+    margin: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(79, 187, 241);
+    cursor: pointer;
 }
 
 #tableContainer {
@@ -35,13 +34,12 @@ td {
 
 #sortButton, #resetButton{
     font-size: 2rem;
-    padding: 20px;
     margin: 0px 2% 0px 2%;
-    cursor: pointer;
     border: 1px solid #ffffff;
+    padding: 25px 50px;
     border-radius: 10px;
     background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
-    margin-top: 10px;
+    cursor: pointer;
     box-shadow: 0 0 5px rgb(79, 187, 241);
     color: white;
 }
