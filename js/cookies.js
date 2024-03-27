@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 	let storedWordsCookie = getCookie('storedWords')
 	if (storedWordsCookie) {
 		let storedWords = JSON.parse(storedWordsCookie)
-		console.log('Stored words:', storedWords)
 	}
 })
 
