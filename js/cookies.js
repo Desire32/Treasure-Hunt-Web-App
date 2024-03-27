@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 		sessionID = await start()
 		setCookie('sessionID', sessionID, 30)
 	}
-	loadScore(sessionID)
+	//loadScore(sessionID)
 
-	let storedWordsCookie = getCookie('storedWords')
-	if (storedWordsCookie) {
-		let storedWords = JSON.parse(storedWordsCookie)
-	}
+	//let storedWordsCookie = getCookie('storedWords')
+	//if (storedWordsCookie) {
+	//	let storedWords = JSON.parse(storedWordsCookie)
+	//}
 })
 
 async function getLocation(sessionID) {
@@ -56,7 +56,7 @@ async function getLocation(sessionID) {
 	})
 }
 
-async function showPosition(position, sessionID) {
+async function showPosition(position) {
 	setCookie('latitude', position.coords.latitude, 30)
 	setCookie('longitude', position.coords.longitude, 30)
 }
