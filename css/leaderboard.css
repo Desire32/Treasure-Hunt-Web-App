@@ -2,13 +2,13 @@
     padding-bottom: 200px;
 }
 
-table {
+#tableContainer table {
     width: 100%;
     /* Adjust the width as needed */
     border-collapse: collapse;
 }
 
-th,
+#tableContainer th,
 td {
     border: 5px solid rgb(54, 54, 54);
     padding: 40px;
