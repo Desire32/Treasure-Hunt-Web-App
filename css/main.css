@@ -41,7 +41,7 @@ main {
 }
 
 .socialNetworksTable img {
-  width: 90px;
+  width: 75px;
   border:solid #b9c1ca;
   border-radius: 1px;
   transition: border-color 0.3s ease;
