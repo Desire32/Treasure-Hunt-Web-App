@@ -13,6 +13,14 @@
   color: black;
 }
 
+#logo {
+  transition: brightness 0.3s ease;
+}
+
+#logo:hover {
+  cursor: pointer;
+}
+
 .header-main {
   width: auto;
   height: 130px;
@@ -24,6 +32,7 @@
 .header-main-logo {
   width: fit-content;
   display: flex;
+  align-items: center;
 }
 
 .header-main-logo img {
