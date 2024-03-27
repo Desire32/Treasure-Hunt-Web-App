@@ -99,7 +99,10 @@ elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
 		let scoreData = await loadScore(sessionID)
-		console.log(scoreData)
+		if(scoreData)
+		{
+			console.log(scoreData)
+		}
 		elements.scoreElement.style.display = 'block'
 	}
 })
@@ -111,7 +114,7 @@ async function loadScore(sessionID) {
 	console.log(jsonObject)
 	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 
-	if (jsonObject.completed === 'true') {
+	if (jsonObject.completed === true) {
 		const scoreData = {
 			finished: jsonObject.finished,
 			playerName: jsonObject.player,
