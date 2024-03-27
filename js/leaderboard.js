@@ -36,7 +36,7 @@ function createTable(leaderboardData) {
 
 async function fetchAndCreateTable(sessionID) {
 	let leaderboardData = await fetchLeaderboard(sessionID)
-	window.onload = createTable(leaderboardData.leaderboard)
+	createTable(leaderboardData.leaderboard)
 }
 
 fetchAndCreateTable(sessionID)
