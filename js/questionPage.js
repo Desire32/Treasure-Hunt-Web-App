@@ -10,6 +10,9 @@ async function getQuestion(sessionID) {
 	}
 }
 
+
+//
+
 function generateQuestionHTML(jsonObject) {
 	let html = ''
 	html += `<div class="questionContainer">`

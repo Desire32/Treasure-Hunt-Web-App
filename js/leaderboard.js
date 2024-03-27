@@ -28,6 +28,7 @@ function createTable() {
 
 // Automatically call createTable when the page loads
 window.onload = createTable
+//
 
 function Rank(score, maxScore, time, totalTime) {
 	let percentage = (score / maxScore) * 100
