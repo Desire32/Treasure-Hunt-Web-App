@@ -111,6 +111,7 @@ async function loadScore(sessionID) {
 	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 
 	if (jsonObject.completed === true) {
+		fetchLeaderboard(sessionID)
 		const scoreData = {
 			playerName: jsonObject.player,
 			score: jsonObject.score,
@@ -119,7 +120,4 @@ async function loadScore(sessionID) {
 	}
 }
 
-if (scoreData) {
-	console.log(scoreData)
-}
 

@@ -38,36 +38,11 @@ function Rank(score, maxScore, time, totalTime) {
 	return rank
 }
 
-/*async function fetchLeaderboard(
-	sessionID,
-	treasureHuntID,
-	sorted = true,
-	limit = 10
-) {
-	let apiUrl = 'https://codecyprus.org/th/api/leaderboard?'
+async function fetchLeaderboard(sessionID){
+	let leaderboardURL =
+		'https://codecyprus.org/th/api/leaderboard?session=' + sessionID
+	let response = await fetch(leaderboardURL)
+	let jsonObject = await response.json()
+	console.log(jsonObject)
+}
 
-	if (sessionID) {
-		apiUrl += `session=${sessionID}`
-	} else if (treasureHuntID) {
-		apiUrl += `treasure-hunt-id=${treasureHuntID}`
-	} else {
-		console.error('Please provide either sessionID or treasureHuntID.')
-		return
-	}
-
-	if (sorted) {
-		apiUrl += '&sorted'
-		if (Number.isInteger(limit) && limit >= 5) {
-			apiUrl += `&limit=${limit}`
-		}
-	}
-
-	try {
-		const response = await fetch(apiUrl)
-		const leaderboardData = await response.json()
-		return leaderboardData
-	} catch (error) {
-		console.error('Error fetching leaderboard:', error)
-		return null
-	}
-}*/
