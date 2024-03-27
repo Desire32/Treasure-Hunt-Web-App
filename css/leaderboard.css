@@ -27,3 +27,8 @@ td {
     white-space: normal; 
 }
 
+#sortButton, #resetButton{
+    font-size: 2rem;
+    padding: 20px;
+}
+
