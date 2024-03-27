@@ -5,12 +5,6 @@
 #tableContainer table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #0e0404;
-    padding: 10px 26px;
-    margin: 25px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgb(79, 187, 241);
-    cursor: pointer;
 }
 
 #tableContainer th,
@@ -33,8 +27,8 @@ td {
     white-space: normal; 
 }
 
-#sortButton, #resetButton{
-<<<<<<<<< Temporary merge branch 1
+#sortButton,
+#resetButton {
     margin-right: 10px;
     font-size: 2.3rem;
     padding: 8px 16px;
@@ -46,23 +40,10 @@ td {
     box-shadow: 0 0 5px rgb(76, 175, 80);
 }
 
-
-#sortButton:hover, #resetButton:hover {
+#sortButton:hover,
+#resetButton:hover {
     background-color: #bc1621;
     box-shadow: 0 0 5px rgb(255, 0, 0);
-
-=========
-    font-size: 2rem;
-    padding: 20px;
-    margin: 0px 2% 0px 2%;
-    cursor: pointer;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
-    background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
-    margin-top: 10px;
-    box-shadow: 0 0 5px rgb(79, 187, 241);
-    color: white;
->>>>>>>>> Temporary merge branch 2
 }
 
 .buttonsContainer{
