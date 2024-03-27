@@ -137,3 +137,11 @@ async function getLocation(sessionID) {
 		})
 	}
 }
+
+async function fetchLeaderboard(sessionID) {
+	let leaderboardURL =
+		'https://codecyprus.org/th/api/leaderboard?session=' + sessionID
+	let response = await fetch(leaderboardURL)
+	let jsonObject = await response.json()
+	console.log(jsonObject)
+}
