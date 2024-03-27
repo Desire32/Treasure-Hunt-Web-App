@@ -15,6 +15,11 @@ td {
     font-size: 24px;
 }
 
+#tableContainer {
+    width: 50%;
+    margin: 0 auto;
+}
+
 #tableContainer th:nth-child(2),
 #tableContainer td:nth-child(2) {
     max-width: 200px;
