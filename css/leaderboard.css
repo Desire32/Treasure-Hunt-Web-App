@@ -30,5 +30,12 @@ td {
 #sortButton, #resetButton{
     font-size: 2rem;
     padding: 20px;
+    margin: 0px 2% 0px 2%;
+}
+
+.buttonsContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 2% 0px 2% 0px;
 }
 
