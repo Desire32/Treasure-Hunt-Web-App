@@ -8,9 +8,9 @@ async function getQuestion(sessionID) {
 		elements.SeenQuestion.style.display = 'block'
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 	}
-	if(jsonObject.completed) {
-		fetchLeaderboard(sessionID)
-	}
+	//if(jsonObject.completed) {
+	//	fetchLeaderboard(sessionID)
+	//}
 }
 
 
@@ -142,10 +142,3 @@ async function getLocation(sessionID) {
 	}
 }
 
-async function fetchLeaderboard(sessionID) {
-	let leaderboardURL =
-		'https://codecyprus.org/th/api/leaderboard?session=' + sessionID
-	let response = await fetch(leaderboardURL)
-	let jsonObject = await response.json()
-	console.log(jsonObject)
-}
