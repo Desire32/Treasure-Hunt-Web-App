@@ -14,8 +14,10 @@ function fetchTreasureHunts() {
 		.then(response => response.json())
 		.then(jsonObject => {
 			let html = ''
+			let treasureHunts = {}
 			jsonObject.treasureHunts.forEach(treasureHunt => {
 				html += `<li class="treasureHuntFontSize" data-uuid="${treasureHunt.uuid}">${treasureHunt.name}</li>`
+				treasureHunts[treasureHunt.uuid] = treasureHunt
 			})
 			elements.treasureHuntsListElement.innerHTML = html
 			elements.treasureHuntsListElement.addEventListener(
@@ -23,11 +25,15 @@ function fetchTreasureHunts() {
 				async function (event) {
 					let clickedElement = event.target
 					let uuid = clickedElement.getAttribute('data-uuid')
-					setCookie('uuid', uuid, 30)
-					if (uuid) {
-						elements.userInput.style.display = 'block'
-						elements.treasureHuntsListElement.style.display = 'none'
-						await start()
+					if (treasureHunts[uuid].shuffled) {
+						setCookie('uuid', uuid, 30)
+						if (uuid) {
+							elements.userInput.style.display = 'block'
+							elements.treasureHuntsListElement.style.display = 'none'
+							await start()
+						}
+					} else {
+						alert('This treasure hunt is unavailable')
 					}
 				}
 			)

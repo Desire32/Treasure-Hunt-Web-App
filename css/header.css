@@ -3,8 +3,8 @@
 *, *::before, *::after {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 62.5%;
-  margin: 0;
-  padding: 0;
+  margin: -2px;
+  padding: 1px;
   box-sizing: border-box;
 }
 

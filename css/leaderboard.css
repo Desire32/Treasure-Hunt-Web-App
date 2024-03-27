@@ -16,7 +16,7 @@ td {
 
 #tableContainer {
     width: 50%;
-    margin: 5% auto;
+    margin: 2% auto;
 }
 
 #tableContainer th:nth-child(2),
@@ -25,6 +25,12 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal; 
+}
+
+main h1{
+    font-size: 3.5rem;
+    color: rgb(109, 103, 138);
+    font-style: italic;
 }
 
 #sortButton,
