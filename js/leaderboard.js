@@ -29,9 +29,6 @@ function createTable() {
 // Automatically call createTable when the page loads
 window.onload = createTable
 
-const nameTextElement = document.getElementById('nameText')
-const scoreFieldElement = document.getElementById('scoreField')
-getname()
 function Rank(score, maxScore, time, totalTime) {
 	let percentage = (score / maxScore) * 100
 	let timePercentage = ((totalTime - time) / totalTime) * 100
@@ -40,3 +37,37 @@ function Rank(score, maxScore, time, totalTime) {
 
 	return rank
 }
+
+/*async function fetchLeaderboard(
+	sessionID,
+	treasureHuntID,
+	sorted = true,
+	limit = 10
+) {
+	let apiUrl = 'https://codecyprus.org/th/api/leaderboard?'
+
+	if (sessionID) {
+		apiUrl += `session=${sessionID}`
+	} else if (treasureHuntID) {
+		apiUrl += `treasure-hunt-id=${treasureHuntID}`
+	} else {
+		console.error('Please provide either sessionID or treasureHuntID.')
+		return
+	}
+
+	if (sorted) {
+		apiUrl += '&sorted'
+		if (Number.isInteger(limit) && limit >= 5) {
+			apiUrl += `&limit=${limit}`
+		}
+	}
+
+	try {
+		const response = await fetch(apiUrl)
+		const leaderboardData = await response.json()
+		return leaderboardData
+	} catch (error) {
+		console.error('Error fetching leaderboard:', error)
+		return null
+	}
+}*/

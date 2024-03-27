@@ -105,12 +105,19 @@ elements.nameButton.addEventListener('click', async function () {
 
 async function loadScore(sessionID) {
 	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
-	try {
-		let response = await fetch(scoreURL)
-		let jsonObject = await response.json()
-		console.log(jsonObject)
-		elements.scoreElement.textContent = `Score: ${jsonObject.score}`
-	} catch (error) {
-		console.error('Error fetching score:', error)
+	let response = await fetch(scoreURL)
+	let jsonObject = await response.json()
+	console.log(jsonObject)
+	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
+
+	if (jsonObject.completed === 'true') {
+		const scoreData = {
+			finished: jsonObject.finished,
+			playerName: jsonObject.player,
+			score: jsonObject.score,
+		}
+		console.log(scoreData)
+		return scoreData
 	}
 }
+
