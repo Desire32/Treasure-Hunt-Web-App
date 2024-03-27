@@ -4,7 +4,6 @@
 
 #tableContainer table {
     width: 100%;
-    /* Adjust the width as needed */
     border-collapse: collapse;
 }
 
@@ -17,18 +16,14 @@ td {
 
 #tableContainer {
     width: 50%;
-    margin: 0 auto;
+    margin: 5% auto;
 }
 
 #tableContainer th:nth-child(2),
 #tableContainer td:nth-child(2) {
     max-width: 200px;
-    
     overflow: hidden;
-    
     text-overflow: ellipsis;
-    
-    white-space: nowrap;
-    
+    white-space: normal; 
 }
 

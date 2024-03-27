@@ -19,7 +19,7 @@ function createTable(leaderboardData) {
 
 	tableHtml += '<tr>'
 	for (var j = 0; j < numCols; j++) {
-		tableHtml += '<th>' + headers[j] + '</th>'
+		tableHtml += '<th style="color: gray;">' + headers[j] + '</th>'
 	}
 	tableHtml += '</tr>'
 
