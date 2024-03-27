@@ -52,4 +52,8 @@ document
 	.getElementById('sortButton')
 	.addEventListener('click', sortAndRecreateTable)
 
+	document
+		.getElementById('resetButton')
+		.addEventListener('click', () => fetchAndCreateTable(sessionID))
+
 fetchAndCreateTable(sessionID)
