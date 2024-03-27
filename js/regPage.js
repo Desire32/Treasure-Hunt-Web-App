@@ -98,11 +98,7 @@ async function start() {
 elements.nameButton.addEventListener('click', async function () {
 	let sessionID = await start()
 	if (sessionID) {
-		let scoreData = await loadScore(sessionID)
-		if(scoreData)
-		{
-			console.log(scoreData)
-		}
+		loadScore(sessionID)
 		elements.scoreElement.style.display = 'block'
 	}
 })

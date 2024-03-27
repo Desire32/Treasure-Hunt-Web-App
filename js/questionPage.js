@@ -9,7 +9,11 @@ async function getQuestion(sessionID) {
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 
 		if (jsonObject.completed) {
-			await loadScore(sessionID)
+			
+			const scoreData = await loadScore(sessionID)
+			if (scoreData) {
+				console.log(scoreData)
+			}
 		}
 	}
 }
