@@ -152,6 +152,4 @@ async function fetchLeaderboard(sessionID) {
 	let numOfPlayers = jsonObject.numOfPlayers
 	let status = jsonObject.status
 
-	console.log('Number of Players: ' + numOfPlayers)
-	console.log('Status: ' + status)
 }
