@@ -91,6 +91,7 @@ document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
 		await submitAnswer(null, null, sessionID)
+		onQuestionAnswered(jsonObject)
 	} else if (event.target.classList.contains('trueButton')) {
 		await submitAnswer(true, null, sessionID)
 	} else if (event.target.classList.contains('falseButton')) {

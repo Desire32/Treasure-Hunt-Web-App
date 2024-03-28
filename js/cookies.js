@@ -55,5 +55,11 @@ async function showPosition(position) {
 	setCookie('longitude', position.coords.longitude, 30)
 }
 
-
+function onQuestionAnswered(jsonObject) {
+	var currentQuestion = {
+		questionText: jsonObject.questionText,
+		questionType: jsonObject.questionType,
+	}
+	setCookie('currentQuestion', JSON.stringify(currentQuestion), 30)
+}
 //
