@@ -4,7 +4,8 @@ const elements = {
 	playerNameInput: document.getElementById('playerName'),
 	nameButton: document.getElementById('nameButton'),
 	userInput: document.querySelector('.userInput'),
-	scoreElement: document.getElementById('score')
+	scoreElement: document.getElementById('score'),
+	qrCodeElement: document.getElementById('qrCode'),
 }
 
 fetchTreasureHunts()
@@ -109,6 +110,7 @@ elements.nameButton.addEventListener('click', async function () {
 	if (sessionID) {
 		loadScore(sessionID)
 		elements.scoreElement.style.display = 'block'
+		elements.qrCodeElement.style.display = 'block'
 	}
 })
 
