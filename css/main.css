@@ -92,8 +92,20 @@ main {
 
 #CameraButton, #SwitchCameraButton{
   font-size: 2rem;
+  margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(76, 175, 80);
 }
 
+#CameraButton:hover,  #SwitchCameraButton:hover {
+  background-color: #bc1621;
+    box-shadow: 0 0 5px rgb(255, 0, 0);
+}
 #buttonStart:hover{
   background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
 
@@ -167,6 +179,7 @@ main {
   line-height: 1.5;
   font-family: Arial, sans-serif
 }
+
 
 .StarButton{
   border: 2px solid rgb(14, 4, 4);
