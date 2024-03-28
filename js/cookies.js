@@ -57,12 +57,12 @@ async function showPosition(position) {
 	setCookie('longitude', position.coords.longitude, 30)
 }
 
-function loadCookies(jsonObject) {
+/*function loadCookies(jsonObject) {
 	var currentQuestion = {
 		questionText: jsonObject.questionText,
 		questionType: jsonObject.questionType,
 	}
 	setCookie('currentQuestion', JSON.stringify(currentQuestion), 30)
 	console.log(currentQuestion)
-}
+}*/
 //
