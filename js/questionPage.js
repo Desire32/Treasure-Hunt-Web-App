@@ -8,13 +8,7 @@ async function getQuestion(sessionID) {
 		elements.SeenQuestion.style.display = 'block'
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
 	}
-	//if(jsonObject.completed) {
-	//	fetchLeaderboard(sessionID)
-	//}
 }
-
-
-//
 
 function generateQuestionHTML(jsonObject) {
 	let html = ''

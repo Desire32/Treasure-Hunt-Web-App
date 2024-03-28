@@ -35,12 +35,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 		sessionID = await start()
 		setCookie('sessionID', sessionID, 30)
 	}
-	//loadScore(sessionID)
-
-	//let storedWordsCookie = getCookie('storedWords')
-	//if (storedWordsCookie) {
-	//	let storedWords = JSON.parse(storedWordsCookie)
-	//}
 })
 
 async function getLocation(sessionID) {
