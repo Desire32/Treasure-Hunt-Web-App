@@ -24,6 +24,7 @@ function stopCamera() {
 					document.getElementById('preview').style.display = 'block'
 					isActive = true
 				} else {
+					console.error('No cameras found.')
 					alert('Camera is not found')
 				}
 			})
@@ -34,20 +35,20 @@ function stopCamera() {
 	}
 }
 
-document.getElementById('qrCode').addEventListener('click', function () {
-	stopCamera()
-})
 
-document.getElementById('button').addEventListener('click', function () {
-	Instascan.Camera.getCameras().then(function (cameras) {
-		if (cameras.length > 0) {
-			scanner.start(cameras[0])
-			isActive = true
-			document.getElementById('preview').style.display = 'block'
-		} else {
-			alert('Camera is not found')
-		}
-	})
+document.getElementById('CameraButton').addEventListener('click', function () {
+	Instascan.Camera.getCameras()
+		.then(function (cameras) {
+			if (cameras.length > 0) {
+				scanner.start(cameras[0])
+			} else {
+				console.error('No cameras found.')
+				alert('No cameras found.')
+			}
+		})
+		.catch(function (e) {
+			console.error(e)
+		})
 })
 
 scanner.addListener('scan', function (content) {
