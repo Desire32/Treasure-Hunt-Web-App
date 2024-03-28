@@ -14,4 +14,16 @@ burgerOpen.onclick = function () {
 	}
 }
 
+
+window.onload = function () {
+	let sessionID = getCookie('sessionID')
+	let leaderboardLinks = document.querySelectorAll('.leaderboard-link')
+	leaderboardLinks.forEach(link => {
+		if (!sessionID) {
+			link.style.display = 'none'
+		} else {
+			link.style.display = 'block'
+		}
+	})
+}
 //
