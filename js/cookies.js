@@ -1,4 +1,3 @@
-import { fetchTreasureHunts } from 'js/regPage.js'
 
 function setCookie(cookieName, cookieValue, expireDays) {
 	let date = new Date()
