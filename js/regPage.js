@@ -117,7 +117,6 @@ async function loadScore(sessionID) {
 	let response = await fetch(scoreURL)
 	let jsonObject = await response.json()
 	console.log(jsonObject)
-	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 
 	if (jsonObject.status === 'ERROR') {
 		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
@@ -127,6 +126,8 @@ async function loadScore(sessionID) {
 		}
 		return false
 	}
+
+	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 }
 
 
