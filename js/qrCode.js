@@ -106,7 +106,7 @@ Instascan.Camera.getCameras()
 	var scanner = new Instascan.Scanner(opts)
 
 	scanner.addListener('scan', function (content) {
-		console.log(content)
+		alert(content)
 	})
 
 	document
