@@ -12,7 +12,6 @@ async function getQuestion(sessionID) {
 		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
 			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
 				alert(jsonObject.errorMessages[i])
-				
 			}
 		}
 		return false
@@ -138,20 +137,19 @@ async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 	const response = await fetch(answerURL)
 	const jsonObject = await response.json()
 	console.log(jsonObject)
+	if (jsonObject) {
+		await getQuestion(sessionID)
+		await loadScore(sessionID)
+	}
 
-	if (jsonObject.status === 'ERROR') {
+	/*if (jsonObject.status === 'ERROR') {
 		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
 			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
 				alert(jsonObject.errorMessages[i])
 			}
 		}
 		return false
-	}
-
-	if (jsonObject) {
-		await getQuestion(sessionID)
-		await loadScore(sessionID)
-	}
+	}*/
 }
 
 async function skipQuestion(sessionID) {
@@ -171,6 +169,14 @@ async function getLocation(sessionID) {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			showPosition(position, sessionID)
 		})
+	}
+	if (jsonObject.status === 'ERROR') {
+		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
+			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+				alert(jsonObject.errorMessages[i])
+			}
+		}
+		return false
 	}
 }
 
