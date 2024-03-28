@@ -56,3 +56,4 @@ document
 	.addEventListener('click', () => fetchAndCreateTable(sessionID))
 
 fetchAndCreateTable(sessionID)
+//

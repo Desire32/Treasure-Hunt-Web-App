@@ -72,6 +72,7 @@ function generateQuestionHTML(jsonObject) {
 	html += `</div>`
 	return html
 }
+//
 
 function isNumberKey(evt) {
 	var charCode = evt.which ? evt.which : event.keyCode
