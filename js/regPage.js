@@ -118,7 +118,6 @@ elements.nameButton.addEventListener('click', async function () {
 	}
 })
 
-
 async function loadScore(sessionID) {
 	let scoreURL = 'https://codecyprus.org/th/api/score?session=' + sessionID
 	let response = await fetch(scoreURL)

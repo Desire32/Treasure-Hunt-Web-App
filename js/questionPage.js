@@ -85,7 +85,9 @@ function checkInputValue() {
 	let inputValue = document.getElementById('PlayerAnswer').value.trim()
 	if (inputValue === '') {
 		alert('Please enter a value for this field.')
+		return false
 	}
+	return true
 }
 
 document.addEventListener('click', async function (event) {
