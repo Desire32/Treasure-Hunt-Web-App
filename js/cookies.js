@@ -22,6 +22,36 @@ function getCookie(name) {
 
 const LOCATION_REQUESTED = 'locationRequested'
 
+document.addEventListener('DOMContentLoaded', async function () {
+	let sessionID = getCookie('sessionID')
+	let locationRequested = getCookie(LOCATION_REQUESTED)
+	let uuid = getCookie('uuid')
+	let playerName = getCookie('playerName')
+	let currentQuestion = getCookie('currentQuestion')
+
+	if (!locationRequested) {
+		await getLocation(sessionID)
+		setCookie(LOCATION_REQUESTED, 'true', 30)
+	}
+
+	if (!sessionID) {
+		sessionID = await start()
+		setCookie('sessionID', sessionID, 30)
+	}
+
+	if (currentQuestion) {
+		currentQuestion = JSON.parse(currentQuestion)
+		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
+	}
+
+	if (uuid && playerName) {
+		elements.userInput.style.display = 'block'
+		elements.treasureHuntsListElement.style.display = 'none'
+		elements.playerNameInput.value = playerName
+		await start()
+	}
+})
+
 async function getLocation(sessionID) {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
@@ -40,33 +70,12 @@ async function showPosition(position) {
 	setCookie('longitude', position.coords.longitude, 30)
 }
 
-async function loadSessionCookies(jsonObject) {
+function onQuestionAnswered(jsonObject) {
 	var currentQuestion = {
 		questionText: jsonObject.questionText,
 		questionType: jsonObject.questionType,
 	}
 	setCookie('currentQuestion', JSON.stringify(currentQuestion), 30)
-
-	let sessionID = getCookie('sessionID')
-	let locationRequested = getCookie(LOCATION_REQUESTED)
-	let uuid = getCookie('uuid')
-	let playerName = getCookie('playerName')
-
-	if (!locationRequested) {
-		await getLocation(sessionID)
-		setCookie(LOCATION_REQUESTED, 'true', 30)
-	}
-
-	if (!sessionID && uuid && playerName) {
-		sessionID = await start()
-		setCookie('sessionID', sessionID, 30)
-	}
-
-	if (uuid && playerName) {
-		elements.userInput.style.display = 'block'
-		elements.treasureHuntsListElement.style.display = 'none'
-		elements.playerNameInput.value = playerName
-	}
-
 	console.log(currentQuestion)
 }
+//
