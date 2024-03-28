@@ -25,8 +25,6 @@ const LOCATION_REQUESTED = 'locationRequested'
 document.addEventListener('DOMContentLoaded', async function () {
 	let sessionID = getCookie('sessionID')
 	let locationRequested = getCookie(LOCATION_REQUESTED)
-	let uuid = getCookie('uuid')
-	let playerName = getCookie('playerName')
 	let currentQuestion = getCookie('currentQuestion')
 
 	if (!locationRequested) {
@@ -44,12 +42,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
 	}
 
-	if (uuid && playerName) {
-		elements.userInput.style.display = 'block'
-		elements.treasureHuntsListElement.style.display = 'none'
-		elements.playerNameInput.value = playerName
-		await start()
-	}
+	
 })
 
 async function getLocation(sessionID) {

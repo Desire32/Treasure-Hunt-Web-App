@@ -102,8 +102,6 @@ async function start() {
 }
 
 elements.nameButton.addEventListener('click', async function () {
-	let playerName = elements.playerNameInput.value.trim()
-	setCookie('playerName', playerName, 30)
 	let sessionID = await start()
 	if (sessionID) {
 		loadScore(sessionID)
