@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
 	}
 
-	fetchTreasureHunts()
+	//fetchTreasureHunts()
 
 	//setInterval(() => getLocation(sessionID), 30000)
 })
