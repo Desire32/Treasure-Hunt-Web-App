@@ -50,7 +50,10 @@ function generateQuestionHTML(jsonObject) {
 			default:
 				break
 		}
-		if (jsonObject.canBeSkipped) {
+		if (
+			jsonObject.canBeSkipped &&
+			jsonObject.currentQuestionIndex < jsonObject.numOfQuestions - 1
+		) {
 			html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
 		}
 	} else {
