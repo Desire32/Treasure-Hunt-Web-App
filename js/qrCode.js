@@ -32,8 +32,7 @@ function startCamera() {
 
 function switchCamera() {
 	currentCameraIndex = (currentCameraIndex + 1) % cameras.length
-	stopCamera()
-	startCamera()
+
 }
 
 document.getElementById('CameraButton').addEventListener('click', function () {
