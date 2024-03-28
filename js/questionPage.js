@@ -31,13 +31,13 @@ function generateQuestionHTML(jsonObject) {
 				break
 			case 'INTEGER':
 				html +=
-					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" pattern="^-?[0-9]+$"/>'
+					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" onkeypress="return isNumberKey(event)"/>'
 				html +=
 					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
 			case 'NUMERIC':
 				html +=
-					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" pattern="^-?[0-9]*[.,]?[0-9]+$"/>'
+					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" onkeypress="return isNumberKey(event)"/>'
 				html +=
 					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
@@ -76,6 +76,11 @@ function generateQuestionHTML(jsonObject) {
 	return html
 }
 
+function isNumberKey(evt) {
+	var charCode = evt.which ? evt.which : event.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57)) return false
+	return true
+}
 
 function checkInputValue() {
 	let inputValue = document.getElementById('PlayerAnswer').value.trim()
