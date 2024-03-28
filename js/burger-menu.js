@@ -17,10 +17,18 @@ burgerOpen.onclick = function () {
 
 window.onload = function () {
 	let sessionID = getCookie('sessionID')
-	let leaderboardLink = document.getElementById('leaderboard-link')
 	if (!sessionID) {
-		leaderboardLink.style.display = 'none'
-	} else {
-		leaderboardLink.style.display = 'block'
+		console.log('Session ID not found')
+		return
 	}
+
+	let leaderboardLinks = document.querySelectorAll('.leaderboard-link')
+	if (!leaderboardLinks.length) {
+		console.log('Leaderboard links not found')
+		return
+	}
+
+	leaderboardLinks.forEach(link => {
+		link.style.display = 'none'
+	})
 }
