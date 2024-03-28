@@ -90,6 +90,10 @@ main {
     margin: 3% 0px 3% 0px;
 }
 
+#CameraButton, #SwitchCameraButton{
+  font-size: 2rem;
+}
+
 #buttonStart:hover{
   background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
 
