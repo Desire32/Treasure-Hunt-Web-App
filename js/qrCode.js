@@ -18,21 +18,6 @@ function stopCamera() {
 		scanner.stop()
 		document.getElementById('preview').style.display = 'none'
 		isActive = false
-	} else {
-		Instascan.Camera.getCameras()
-			.then(function (availableCameras) {
-				cameras = availableCameras
-				if (cameras.length > 0) {
-					startCamera()
-				} else {
-					console.error('No cameras found.')
-					alert('No cameras found.')
-				}
-			})
-			.catch(function (err) {
-				console.error('Error accessing camera:', err)
-				alert('Error accessing camera')
-			})
 	}
 }
 
@@ -48,10 +33,27 @@ function startCamera() {
 function switchCamera() {
 	currentCameraIndex = (currentCameraIndex + 1) % cameras.length
 	stopCamera()
+	startCamera()
 }
 
 document.getElementById('CameraButton').addEventListener('click', function () {
 	stopCamera()
+	if (!isActive) {
+		Instascan.Camera.getCameras()
+			.then(function (availableCameras) {
+				cameras = availableCameras
+				if (cameras.length > 0) {
+					startCamera()
+				} else {
+					console.error('No cameras found.')
+					alert('No cameras found.')
+				}
+			})
+			.catch(function (err) {
+				console.error('Error accessing camera:', err)
+				alert('Error accessing camera')
+			})
+	}
 })
 
 document
