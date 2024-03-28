@@ -61,5 +61,6 @@ function onQuestionAnswered(jsonObject) {
 		questionType: jsonObject.questionType,
 	}
 	setCookie('currentQuestion', JSON.stringify(currentQuestion), 30)
+	console.log(currentQuestion)
 }
 //
