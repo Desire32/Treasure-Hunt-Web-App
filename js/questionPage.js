@@ -74,6 +74,7 @@ function generateQuestionHTML(jsonObject) {
 		let longitude = getCookie('longitude')
 		if (latitude && longitude) {
 			html += `<li class="PersonInfoPanel2">Your current location is: Latitude ${latitude}, Longitude ${longitude}</li>`
+			html += `<img src="images/QR_Code.png" id="CameraButton" style="display: none" alt="QR_Code ">`
 			elements.QrCodeElement.style.display = 'block'
 		} else {
 			html += `<li class="PersonInfoPanel">This question requires your location.</li>`
