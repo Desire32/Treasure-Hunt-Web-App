@@ -30,12 +30,14 @@ function generateQuestionHTML(jsonObject) {
 				html += `<button class="PersonInfoPanel falseButton">False</button>`
 				break
 			case 'INTEGER':
-				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
+				html +=
+					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" pattern="^-?[0-9]+$"/>'
 				html +=
 					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
 			case 'NUMERIC':
-				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
+				html +=
+					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" pattern="^-?[0-9]*[.,]?[0-9]+$"/>'
 				html +=
 					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
@@ -46,7 +48,8 @@ function generateQuestionHTML(jsonObject) {
 				html += `<button class="PersonInfoPanel mcqOption" value="D">D</button>`
 				break
 			case 'TEXT':
-				html += '<input class="PersonInfoPanel" id="PlayerAnswer" type="text"/>'
+				html +=
+					'<input class="PersonInfoPanel" id="PlayerAnswer" type="text" pattern="^[a-zA-Zs]*$"/>'
 				html +=
 					'<input class="PersonInfoPanel" id="SubmitButton" type="button" value="Submit" onclick="checkInputValue()"/>'
 				break
