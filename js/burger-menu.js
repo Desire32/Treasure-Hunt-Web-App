@@ -14,11 +14,12 @@ burgerOpen.onclick = function () {
 	}
 }
 
-
 window.onload = function () {
 	let sessionID = getCookie('sessionID')
-	let leaderboardLink = document.getElementById('leaderboard-link')
-	if (sessionID) {
-		leaderboardLink.style.display = 'block'
+	if (!window.location.href.includes('app.html') && sessionID) {
+		let leaderboardLink = document.getElementById('leaderboard-link')
+		if (leaderboardLink) {
+			leaderboardLink.style.display = 'block'
+		}
 	}
 }

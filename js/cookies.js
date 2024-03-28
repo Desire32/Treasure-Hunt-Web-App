@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 	//setInterval(() => getLocation(sessionID), 30000)
 })
 
+//
+
 async function getLocation(sessionID) {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
