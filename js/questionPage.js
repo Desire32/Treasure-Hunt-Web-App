@@ -81,7 +81,6 @@ function generateQuestionHTML(jsonObject) {
 	html += `</div>`
 	return html
 }
-//
 
 function isNumberKey(evt) {
 	var charCode = evt.which ? evt.which : event.keyCode
@@ -141,15 +140,6 @@ async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 		await getQuestion(sessionID)
 		await loadScore(sessionID)
 	}
-
-	/*if (jsonObject.status === 'ERROR') {
-		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
-			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-				alert(jsonObject.errorMessages[i])
-			}
-		}
-		return false
-	}*/
 }
 
 async function skipQuestion(sessionID) {
@@ -169,14 +159,6 @@ async function getLocation(sessionID) {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			showPosition(position, sessionID)
 		})
-	}
-	if (jsonObject.status === 'ERROR') {
-		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
-			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-				alert(jsonObject.errorMessages[i])
-			}
-		}
-		return false
 	}
 }
 
