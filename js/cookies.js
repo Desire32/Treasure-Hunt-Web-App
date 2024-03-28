@@ -1,3 +1,5 @@
+import { fetchTreasureHunts } from './regPage.js'
+
 function setCookie(cookieName, cookieValue, expireDays) {
 	let date = new Date()
 	date.setTime(date.getTime() + expireDays * 24 * 60 * 60 * 1000)
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
 	}
 
-	//fetchTreasureHunts()
+	fetchTreasureHunts()
 
 	//setInterval(() => getLocation(sessionID), 30000)
 })
