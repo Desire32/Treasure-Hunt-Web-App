@@ -70,7 +70,7 @@ async function showPosition(position) {
 	setCookie('longitude', position.coords.longitude, 30)
 }
 
-function onQuestionAnswered(jsonObject) {
+function loadCookies(jsonObject) {
 	var currentQuestion = {
 		questionText: jsonObject.questionText,
 		questionType: jsonObject.questionType,
