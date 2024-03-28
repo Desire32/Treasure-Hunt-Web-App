@@ -108,6 +108,8 @@ document.addEventListener('click', async function (event) {
 		setCookie(LOCATION_REQUESTED, '', -1)
 
 		fetchTreasureHunts()
+
+		this.location.reload()
 	}
 })
 
