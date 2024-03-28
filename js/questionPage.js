@@ -107,9 +107,9 @@ document.addEventListener('click', async function (event) {
 		setCookie('currentQuestion', '', -1)
 		setCookie(LOCATION_REQUESTED, '', -1)
 
-		fetchTreasureHunts()
+		await fetchTreasureHunts()
 
-		this.location.reload()
+		location.reload()
 	}
 })
 
