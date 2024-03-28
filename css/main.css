@@ -91,21 +91,19 @@ main {
 }
 
 #CameraButton, #SwitchCameraButton{
-  font-size: 2rem;
+  max-width: 100px;
   margin-right: 10px;
     padding: 8px 16px;
-    background-color: #4caf50;
     color: white;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
-    box-shadow: 0 0 5px rgb(76, 175, 80);
+    
 }
 
-#CameraButton:hover,  #SwitchCameraButton:hover {
-  background-color: #bc1621;
-    box-shadow: 0 0 5px rgb(255, 0, 0);
+#CameraButton:hover{
+  background-color: #c9b6b8;
+    box-shadow: 0 0 5px rgb(207, 181, 181);
 }
+
 #buttonStart:hover{
   background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
 

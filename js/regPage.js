@@ -110,7 +110,6 @@ elements.nameButton.addEventListener('click', async function () {
 	if (sessionID) {
 		loadScore(sessionID)
 		elements.scoreElement.style.display = 'block'
-		elements.QrCodeElement.style.display = 'block'
 	}
 })
 
