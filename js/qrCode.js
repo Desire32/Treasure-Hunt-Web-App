@@ -16,6 +16,10 @@ let cameras = []
 function stopCamera() {
 	if (isActive) {
 		scanner.stop()
+
+
+
+
 		document.getElementById('preview').style.display = 'none'
 		isActive = false
 	}
@@ -25,6 +29,10 @@ function startCamera() {
 	if (!isActive && cameras.length > 0) {
 		var camera = cameras[currentCameraIndex]
 		scanner.start(camera)
+
+
+
+
 		document.getElementById('preview').style.display = 'block'
 		isActive = true
 	}
@@ -32,11 +40,10 @@ function startCamera() {
 
 function switchCamera() {
 	currentCameraIndex = (currentCameraIndex + 1) % cameras.length
-
 }
 
 document.getElementById('CameraButton').addEventListener('click', function () {
-	stopCamera()
+	//stopCamera()
 	if (!isActive) {
 		Instascan.Camera.getCameras()
 			.then(function (availableCameras) {
