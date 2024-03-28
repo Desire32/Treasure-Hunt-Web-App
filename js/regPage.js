@@ -4,7 +4,7 @@ const elements = {
 	playerNameInput: document.getElementById('playerName'),
 	nameButton: document.getElementById('nameButton'),
 	userInput: document.querySelector('.userInput'),
-	scoreElement: document.getElementById('score')
+	scoreElement: document.getElementById('score'),
 }
 
 fetchTreasureHunts()
@@ -35,6 +35,7 @@ function fetchTreasureHunts() {
 								elements.treasureHuntsListElement.style.display = 'none'
 								sessionID = await start()
 								setCookie('sessionID', sessionID, 30)
+								history.pushState({ uuid: uuid }, '')
 							}
 						} else {
 							alert('This treasure hunt is unavailable')
@@ -46,6 +47,13 @@ function fetchTreasureHunts() {
 		getQuestion(sessionID)
 		loadScore(sessionID)
 		elements.scoreElement.style.display = 'block'
+	}
+}
+
+window.onpopstate = function (event) {
+	if (event.state && event.state.uuid) {
+		elements.userInput.style.display = 'none'
+		elements.treasureHuntsListElement.style.display = 'block'
 	}
 }
 
@@ -117,7 +125,6 @@ async function loadScore(sessionID) {
 	let response = await fetch(scoreURL)
 	let jsonObject = await response.json()
 	console.log(jsonObject)
-	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 
 	if (jsonObject.status === 'ERROR') {
 		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
@@ -127,6 +134,6 @@ async function loadScore(sessionID) {
 		}
 		return false
 	}
+
+	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 }
-
-
