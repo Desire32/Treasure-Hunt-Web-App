@@ -36,9 +36,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 		setCookie('sessionID', sessionID, 30)
 	}
 
+	// Загрузка текущего вопроса из cookie
 	let currentQuestion = getCookie('currentQuestion')
 	if (currentQuestion) {
 		currentQuestion = JSON.parse(currentQuestion)
+		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
 	}
 })
 
