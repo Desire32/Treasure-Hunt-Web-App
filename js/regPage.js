@@ -55,11 +55,11 @@ async function start() {
 
 	if (playerName !== '') {
 		try {
-			let storedWords = JSON.parse(getCookie('storedWords')) || []
+			/*let storedWords = JSON.parse(getCookie('storedWords')) || []
 			if (storedWords.includes(playerName)) {
 				alert('This name is already in use, try a new one')
 				return false
-			}
+			}*/
 			if (
 				playerName === '' ||
 				/^\d+$/.test(playerName) ||
@@ -74,8 +74,8 @@ async function start() {
 				}
 				return false
 			}
-			storedWords.push(playerName)
-			setCookie('storedWords', JSON.stringify(storedWords), 30)
+			//storedWords.push(playerName)
+			//setCookie('storedWords', JSON.stringify(storedWords), 30)
 			elements.playerNameInput.value = ''
 		} catch (error) {
 			console.error('Reading error')
