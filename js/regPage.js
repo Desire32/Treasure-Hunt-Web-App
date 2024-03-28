@@ -28,7 +28,7 @@ function fetchTreasureHunts() {
 					async function (event) {
 						let clickedElement = event.target
 						let uuid = clickedElement.getAttribute('data-uuid')
-						if (treasureHunts[uuid].maxDuration !== 0) {
+						if (treasureHunts[uuid].shuffled) {
 							setCookie('uuid', uuid, 30)
 							if (uuid) {
 								elements.userInput.style.display = 'block'
