@@ -55,18 +55,11 @@ async function start() {
 
 	if (playerName !== '') {
 		try {
-			if (
-				playerName === '' ||
-				/^\d+$/.test(playerName) ||
-				playerName.length > 50
-			) {
-				if (/^\d+$/.test(playerName)) {
-					alert('Name cannot consist only of numbers.')
-				} else if (playerName.length > 50) {
-					alert('Name should not exceed 50 characters.')
-				} else {
-					alert('Please enter a valid name.')
-				}
+			if (/^\d+$/.test(playerName)) {
+				alert('Name cannot consist only of numbers.')
+				return false
+			} else if (playerName.length > 50) {
+				alert('Name should not exceed 50 characters.')
 				return false
 			}
 			elements.playerNameInput.value = ''
@@ -117,7 +110,6 @@ async function loadScore(sessionID) {
 	let response = await fetch(scoreURL)
 	let jsonObject = await response.json()
 	console.log(jsonObject)
-	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 
 	if (jsonObject.status === 'ERROR') {
 		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
@@ -127,6 +119,8 @@ async function loadScore(sessionID) {
 		}
 		return false
 	}
+
+	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
 }
 
 
