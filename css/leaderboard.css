@@ -14,7 +14,6 @@ td {
 }
 
 #tableContainer {
-    width: 100%;
     margin: 2% auto;
     overflow: auto;
 }
@@ -61,7 +60,6 @@ main h1{
 @media only screen and (max-width: 1192px) {
 #tableContainer th,
     td {
-        
         font-size: 18px;
     }
 }
@@ -69,8 +67,6 @@ main h1{
 @media only screen and (max-width: 768px) {
     #tableContainer th,
         td {
-            padding: 40px;
-            text-align: center;
             font-size: 14px;
         }
 }
