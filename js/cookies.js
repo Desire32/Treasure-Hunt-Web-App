@@ -23,18 +23,12 @@ function getCookie(name) {
 const LOCATION_REQUESTED = 'locationRequested'
 
 document.addEventListener('DOMContentLoaded', async function () {
-	let sessionID = getCookie('sessionID')
 	let locationRequested = getCookie(LOCATION_REQUESTED)
 	let currentQuestion = getCookie('currentQuestion')
 
 	if (!locationRequested) {
-		await getLocation(sessionID)
+		await getLocation()
 		setCookie(LOCATION_REQUESTED, 'true', 30)
-	}
-
-	if (!sessionID) {
-		sessionID = await start()
-		setCookie('sessionID', sessionID, 30)
 	}
 
 	if (currentQuestion) {
@@ -42,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
 	}
 
-	
+	fetchTreasureHunts()
 })
 
 async function getLocation(sessionID) {
