@@ -60,6 +60,7 @@ function generateQuestionHTML(jsonObject) {
 	} else {
 		html += `<li class="PersonInfoPanel2">Congratulations! Game over</li>`
 		html += `<a class="PersonInfoPanel2" id="showLeaderboardButton" href="leaderboard.html">Leaderboard</a>`
+		html += `<button class="PersonInfoPanel2" id="playAgainButton">Play Again</button>`
 	}
 	if (jsonObject.requiresLocation) {
 		let latitude = getCookie('latitude')
@@ -101,6 +102,12 @@ document.addEventListener('click', async function (event) {
 		await submitAnswer(null, mcqAnswer, sessionID)
 	} else if (event.target.classList.contains('skipButton')) {
 		await skipQuestion(sessionID)
+	} else if (event.target && event.target.id === 'playAgainButton') {
+		setCookie('sessionID', '', -1)
+		setCookie('currentQuestion', '', -1)
+		setCookie(LOCATION_REQUESTED, '', -1)
+
+		fetchTreasureHunts()
 	}
 })
 
