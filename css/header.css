@@ -47,6 +47,10 @@
   display: none;
 }
 
+#leaderboard-link{
+  display: none;
+}
+
 .header-main-nav {
   width: fit-content;
   padding: 15px 30px;

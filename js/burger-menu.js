@@ -18,9 +18,7 @@ burgerOpen.onclick = function () {
 window.onload = function () {
 	let sessionID = getCookie('sessionID')
 	let leaderboardLink = document.getElementById('leaderboard-link')
-	if (!sessionID) {
-		leaderboardLink.style.display = 'none'
-	} else {
+	if (sessionID) {
 		leaderboardLink.style.display = 'block'
 	}
 }
