@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 		sessionID = await start()
 		setCookie('sessionID', sessionID, 30)
 	}
+
+	let currentQuestion = getCookie('currentQuestion')
+	if (currentQuestion) {
+		currentQuestion = JSON.parse(currentQuestion)
+	}
 })
 
 async function getLocation(sessionID) {
