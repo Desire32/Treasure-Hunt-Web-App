@@ -17,27 +17,37 @@ function stopCamera() {
 		document.getElementById('preview').style.display = 'none'
 		isActive = false
 	} else {
-		scanner.start()
-		document.getElementById('preview').style.display = 'block'
-		isActive = true
+		Instascan.Camera.getCameras()
+			.then(function (cameras) {
+				if (cameras.length > 0) {
+					scanner.start(cameras[0])
+					document.getElementById('preview').style.display = 'block'
+					isActive = true
+				} else {
+					alert('Camera is not found')
+				}
+			})
+			.catch(function (err) {
+				console.error('Error accessing camera:', err)
+				alert('Error accessing camera')
+			})
 	}
 }
 
-document
-	.getElementById('qrCode')
-	.addEventListener('click', stopCamera)
+document.getElementById('qrCode').addEventListener('click', function () {
+	stopCamera()
+})
 
 document.getElementById('button').addEventListener('click', function () {
-	Instascan.Camera.getCameras()
-		.then(function (cameras) {
-			if (cameras.length > 0) {
-				scanner.start(cameras[0])
-				isActive = true
-				document.getElementById('preview').style.display = 'block'
-			} else {
-				alert('Camera is not found')
-			}
-		})
+	Instascan.Camera.getCameras().then(function (cameras) {
+		if (cameras.length > 0) {
+			scanner.start(cameras[0])
+			isActive = true
+			document.getElementById('preview').style.display = 'block'
+		} else {
+			alert('Camera is not found')
+		}
+	})
 })
 
 scanner.addListener('scan', function (content) {
