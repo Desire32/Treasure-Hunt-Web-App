@@ -51,7 +51,7 @@ function fetchTreasureHunts() {
 
 async function start() {
 	let uuid = getCookie('uuid')
-	let playerName = elements.playerNameInput.value.trim() // maybe delete
+	let playerName = elements.playerNameInput.value.trim()
 
 	if (playerName !== '') {
 		try {
