@@ -7,7 +7,6 @@ async function getQuestion(sessionID) {
 		document.getElementById('userInput').style.display = 'none'
 		elements.SeenQuestion.style.display = 'block'
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
-		 loadCookies(jsonObject)
 	}
 }
 
@@ -104,10 +103,7 @@ document.addEventListener('click', async function (event) {
 		await skipQuestion(sessionID)
 	} else if (event.target && event.target.id === 'playAgainButton') {
 		setCookie('sessionID', '', -1)
-		//setCookie('currentQuestion', '', -1)
-
 		await fetchTreasureHunts()
-		
 		window.location.assign(window.location.href)
 	}
 })
