@@ -55,11 +55,6 @@ async function start() {
 
 	if (playerName !== '') {
 		try {
-			/*let storedWords = JSON.parse(getCookie('storedWords')) || []
-			if (storedWords.includes(playerName)) {
-				alert('This name is already in use, try a new one')
-				return false
-			}*/
 			if (
 				playerName === '' ||
 				/^\d+$/.test(playerName) ||
@@ -74,8 +69,6 @@ async function start() {
 				}
 				return false
 			}
-			//storedWords.push(playerName)
-			//setCookie('storedWords', JSON.stringify(storedWords), 30)
 			elements.playerNameInput.value = ''
 		} catch (error) {
 			console.error('Reading error')
@@ -90,16 +83,17 @@ async function start() {
 			'&treasure-hunt-id=' +
 			uuid
 
-		let urlObj = new URL(url)
-		if (!urlObj.searchParams.has('app')) {
-			alert(jsonObject.errorMessages[1])
-			return false
-		}
-
 		let response = await fetch(url)
 		let jsonObject = await response.json()
 		console.log(jsonObject)
-		if (jsonObject.status === 'OK') {
+		if (jsonObject.status === 'ERROR') {
+			if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
+				for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+					alert(jsonObject.errorMessages[i])
+				}
+			}
+			return false
+		} else if (jsonObject.status === 'OK') {
 			let sessionID = jsonObject.session
 			setCookie('sessionID', sessionID, 30)
 			getQuestion(sessionID)
@@ -124,6 +118,15 @@ async function loadScore(sessionID) {
 	let jsonObject = await response.json()
 	console.log(jsonObject)
 	elements.scoreElement.textContent = `Score: ${jsonObject.score}`
+
+	if (jsonObject.status === 'ERROR') {
+		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
+			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+				alert(jsonObject.errorMessages[i])
+			}
+		}
+		return false
+	}
 }
 
 

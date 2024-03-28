@@ -6,6 +6,17 @@ async function fetchLeaderboard(sessionID) {
 		'https://codecyprus.org/th/api/leaderboard?session=' + sessionID
 	let response = await fetch(leaderboardURL)
 	let jsonObject = await response.json()
+	
+
+	if (jsonObject.status === 'ERROR') {
+		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
+			for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+				alert(jsonObject.errorMessages[i])
+			}
+		}
+		return false
+	}
+
 	return jsonObject
 }
 
