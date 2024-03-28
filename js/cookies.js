@@ -25,7 +25,6 @@ const LOCATION_REQUESTED = 'locationRequested'
 document.addEventListener('DOMContentLoaded', async function () {
 	let locationRequested = getCookie(LOCATION_REQUESTED)
 	let currentQuestion = getCookie('currentQuestion')
-	let sessionID = getCookie('sessionID')
 
 	if (!locationRequested) {
 		await getLocation()
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	fetchTreasureHunts()
 
-	setInterval(() => getLocation(sessionID), 30000)
+	//setInterval(() => getLocation(sessionID), 30000)
 })
 
 async function getLocation(sessionID) {
