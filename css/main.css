@@ -255,9 +255,10 @@ footer {
   bottom: 0;
   justify-content: space-between;
   padding: 15px 2%;
-  height: 175px
+  height: 175px;
+  margin-top: 80px;
+  
 }
-
 
 .progress-bar {
   display: flex;
@@ -335,6 +336,7 @@ footer {
     font-size: 4rem
   }
 
+
   #testLinks {
     color: #34516c;
     font-weight: 650;
@@ -352,7 +354,7 @@ footer {
   }
 
   .socialNetworksTable img {
-    width: 75px
+    width: 50px
   }
 
   #robot {
