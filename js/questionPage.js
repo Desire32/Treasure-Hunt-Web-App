@@ -7,6 +7,7 @@ async function getQuestion(sessionID) {
 		document.getElementById('userInput').style.display = 'none'
 		elements.SeenQuestion.style.display = 'block'
 		elements.SeenQuestion.innerHTML = generateQuestionHTML(jsonObject)
+		updateProgressBar(jsonObject.currentQuestionIndex)
 	}
 	if (jsonObject.status === 'ERROR') {
 		if (jsonObject.errorMessages && jsonObject.errorMessages.length > 0) {
@@ -16,6 +17,20 @@ async function getQuestion(sessionID) {
 		}
 		return false
 	}
+}
+
+function updateProgressBar(currentQuestionIndex) {
+	for (let i = 1; i <= 6; i++) {
+		let point = document.getElementById(`point-${i}`)
+		if (i <= currentQuestionIndex) {
+			point.style.backgroundColor = 'green'
+		} else {
+			point.style.backgroundColor = '#ddd'
+		}
+	}
+	let line = document.querySelector('.progress-bar-line')
+	line.style.width = `${(currentQuestionIndex / 6) * 100}%`
+	line.style.backgroundColor = 'green'
 }
 
 function generateQuestionHTML(jsonObject) {
