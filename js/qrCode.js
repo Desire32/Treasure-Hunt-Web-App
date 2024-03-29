@@ -49,43 +49,37 @@ var opts = {
 }
 
 var scanner = new Instascan.Scanner(opts)
+var currentCameraIndex = 0
+var cameras = []
 
-let isActive = false
-
-function stopCamera() {
-	if (isActive) {
-		scanner.stop()
-		document.getElementById('preview').style.display = 'none'
-		isActive = false
+function startCamera(index) {
+	if (cameras.length > 0) {
+		scanner.stop() 
+		scanner.start(cameras[index])
 	} else {
-		scanner.start()
-		document.getElementById('preview').style.display = 'block'
-		isActive = true
+		console.error('No cameras found.')
+		alert('No cameras found.')
 	}
 }
 
-document
-	.getElementById('SwitchCameraButton')
-	.addEventListener('click', stopCamera)
-
 document.getElementById('CameraButton').addEventListener('click', function () {
 	Instascan.Camera.getCameras()
-		.then(function (cameras) {
-			if (cameras.length > 0) {
-				scanner.start(cameras[1])
-				isActive = true
-				document.getElementById('preview').style.display = 'block'
-			} else {
-				console.error('No cameras found.')
-				alert('No cameras found.')
-			}
+		.then(function (cams) {
+			cameras = cams
+			startCamera(currentCameraIndex)
 		})
 		.catch(function (e) {
 			console.error(e)
 		})
 })
 
+document
+	.getElementById('SwitchCameraButton')
+	.addEventListener('click', function () {
+		currentCameraIndex = (currentCameraIndex + 1) % cameras.length
+		startCamera(currentCameraIndex)
+	})
+
 scanner.addListener('scan', function (content) {
-	console.log(content)
-	document.getElementById('content').innerHTML = content
+	alert(content)
 })
