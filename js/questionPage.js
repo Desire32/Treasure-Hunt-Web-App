@@ -19,8 +19,8 @@ async function getQuestion(sessionID) {
 	}
 }
 
-function updateProgressBar(currentQuestionIndex, jsonObject) {
-	for (let i = 1; i <= jsonObject.numOfQuestions; i++) {
+function updateProgressBar(currentQuestionIndex) {
+	for (let i = 1; i <= 6; i++) {
 		
 		let point = document.getElementById(`point-${i}`)
 		
@@ -33,9 +33,7 @@ function updateProgressBar(currentQuestionIndex, jsonObject) {
 		point.innerText = i
 	}
 	let line = document.querySelector('.progress-bar-line')
-	line.style.width = `${
-		(currentQuestionIndex / jsonObject.numOfQuestions) * 50
-	}%`
+	line.style.width = `${(currentQuestionIndex / 6) * 50}%`
 	line.style.backgroundColor = 'gray'
 }
 
