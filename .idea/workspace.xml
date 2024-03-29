@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="Added roles to the landing page html">
+    <list default="true" id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="Added User Acceptance Test Plan Update Tables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/User_Acceptance_Test_Plan_Table_JSS_Requirements_Update.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "OJBallard"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0f8393af-d35a-4de3-ac98-e61efaaaf574" />
+        <option name="url" value="https://github.com/Desire32/Treasure-Hunt-Web-App.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -203,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711705785908</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added User Acceptance Test Plan Update Tables">
+      <option name="closed" value="true" />
+      <created>1711717784452</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1711717784452</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +243,8 @@
     <MESSAGE value="Previous added new notes now adding those notes to the html notes page" />
     <MESSAGE value="added new notes now adding those notes to the html notes page" />
     <MESSAGE value="Added roles to the landing page html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added roles to the landing page html" />
+    <MESSAGE value="Updates test Page to split it into multiple Sections.&#10;Added multiple Tables for testing, including an updataed unit test for the start API, some User Acceptance Testing, and a Heuristic Evaluation" />
+    <MESSAGE value="Added User Acceptance Test Plan Update Tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added User Acceptance Test Plan Update Tables" />
   </component>
 </project>
