@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 	fetchTreasureHunts()
 
 	setInterval(() => {
-		getLocation(sessionID)
+		getLocation()
 			.then(() => {
 				console.log('Location updated successfully.')
 			})
@@ -53,12 +53,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 //
 
-async function getLocation(sessionID) {
+async function getLocation() {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				function (position) {
-					showPosition(position, sessionID)
+					showPosition(position)
 					resolve()
 				},
 				function (error) {
