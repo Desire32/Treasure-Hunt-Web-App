@@ -25,7 +25,6 @@ function switchCamera() {
 			let backCam = cameras.find(function (camera) {
 				return camera.name.indexOf('back') !== -1
 			})
-
 			if (backCam) {
 				scanner.start(backCam)
 				isActive = true
