@@ -1,5 +1,16 @@
 const cacheName = 'Treasure-Hunt'
-const filesToCache = ['/', 'index.html', 'style.css', 'main.js']
+const filesToCache = [
+	'/',
+	'index.html',
+	'style.css',
+	'main.js',
+	'header.css',
+	'main.css',
+	'leaderboard.css',
+	'leaderboard.js',
+	'regPage.js',
+	'cookies.js',
+]
 
 
 //Start the service worker and cache all the app's content.
