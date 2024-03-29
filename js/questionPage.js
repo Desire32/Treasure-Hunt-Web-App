@@ -25,7 +25,7 @@ function updateProgressBar(currentQuestionIndex) {
 		let point = document.getElementById(`point-${i}`)
 		
 		if (i <= currentQuestionIndex) {
-			point.style.backgroundColor = 'green'
+			point.style.backgroundColor = 'black'
 		} else {
 		
 			point.style.backgroundColor = '#ddd'
@@ -34,7 +34,7 @@ function updateProgressBar(currentQuestionIndex) {
 	}
 	let line = document.querySelector('.progress-bar-line')
 	line.style.width = `${(currentQuestionIndex / 6) * 100}%`
-	line.style.backgroundColor = 'green'
+	line.style.backgroundColor = 'gray'
 }
 
 function generateQuestionHTML(jsonObject) {
