@@ -41,9 +41,9 @@ function generateQuestionHTML(jsonObject) {
 	let html = ''
 	html += `<div class="questionContainer">`
 	if (jsonObject.currentQuestionIndex < jsonObject.numOfQuestions) {
-		html += `<h3 style="font-size: 2rem;">Question ${
+		/*html += `<h3 style="font-size: 2rem;">Question ${
 			jsonObject.currentQuestionIndex + 1
-		}</h3>`
+		}</h3>`*/
 		html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
