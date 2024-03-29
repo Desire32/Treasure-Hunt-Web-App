@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 	fetchTreasureHunts()
 
 	//setInterval(() => getLocation(sessionID), 30000)
+
+	startUpdatingLocation(sessionID)
 })
 
 //
@@ -47,23 +49,27 @@ document.addEventListener('DOMContentLoaded', async function () {
 async function getLocation(sessionID) {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(
-				function (position) {
-					showPosition(position, sessionID)
-					resolve()
-				},
-				function (error) {
-					reject(error)
-				},
-				{
-					maximumAge: 60000
-				}
-			)
+			navigator.geolocation.getCurrentPosition(function (position) {
+				showPosition(position)
+				resolve()
+			})
 		} else {
 			reject(new Error('Geolocation is not supported'))
 		}
 	})
 }
+
+async function startUpdatingLocation(sessionID) {
+	try {
+		await getLocation(sessionID)
+		setInterval(async () => {
+			await getLocation(sessionID)
+		}, 30000) 
+	} catch (error) {
+		console.error(error)
+	}
+}
+
 
 async function showPosition(position) {
 	setCookie('latitude', position.coords.latitude, 30)
