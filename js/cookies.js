@@ -47,10 +47,18 @@ document.addEventListener('DOMContentLoaded', async function () {
 async function getLocation(sessionID) {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function (position) {
-				showPosition(position, sessionID)
-				resolve()
-			})
+			navigator.geolocation.getCurrentPosition(
+				function (position) {
+					showPosition(position, sessionID)
+					resolve()
+				},
+				function (error) {
+					reject(error)
+				},
+				{
+					maximumAge: 60000
+				}
+			)
 		} else {
 			reject(new Error('Geolocation is not supported'))
 		}
