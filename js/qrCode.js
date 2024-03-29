@@ -10,9 +10,6 @@
 
 	var scanner = new Instascan.Scanner(opts)
 
-	scanner.addListener('scan', function (content) {
-		alert(content)
-	})
 
 	document
 		.getElementById('CameraButton')
@@ -20,6 +17,7 @@
 			Instascan.Camera.getCameras()
 				.then(function (cameras) {
 					if (cameras.length > 0) {
+						stopCamera()
 						scanner.start(cameras[0])
 					} else {
 						console.error('No cameras found.')
@@ -30,4 +28,28 @@
 					alert('Error accessing camera')
 				})
 		})
+
+		document
+			.getElementById('StopCameraButton')
+			.addEventListener('click', stopCamera)
+
+
+		let isActive = false
+
+		function stopCamera() {
+			if (isActive) {
+				scanner.stop()
+				document.getElementById('preview').style.display = 'none'
+				isActive = false
+			} else {
+				scanner.start()
+				document.getElementById('preview').style.display = 'block'
+				isActive = true
+			}
+		}
+
+		scanner.addListener('scan', function (content) {
+			alert(content)
+		})
+
 
