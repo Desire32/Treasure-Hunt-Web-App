@@ -93,7 +93,7 @@ Instascan.Camera.getCameras()
 	})*/
 
 
-
+/
   var opts = {
 		continuous: true,
 		video: document.getElementById('preview'),
