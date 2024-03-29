@@ -44,6 +44,9 @@ function generateQuestionHTML(jsonObject) {
 	let html = ''
 	html += `<div class="questionContainer">`
 	if (jsonObject.currentQuestionIndex < jsonObject.numOfQuestions) {
+		/*html += `<h3 style="font-size: 2rem;">Question ${
+			jsonObject.currentQuestionIndex + 1
+		}</h3>`*/
 		html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
@@ -78,7 +81,6 @@ function generateQuestionHTML(jsonObject) {
 				break
 		}
 		if (
-			// For the API to work correctly, remove the skip button from the last question
 			jsonObject.canBeSkipped &&
 			jsonObject.currentQuestionIndex < jsonObject.numOfQuestions - 1
 		) {
@@ -99,6 +101,34 @@ function generateQuestionHTML(jsonObject) {
 		} else {
 			html += `<li class="PersonInfoPanel">This question requires your location.</li>`
 		}
+		var opts = {
+			continuous: true,
+			video: document.getElementById('preview'),
+			captureImage: false,
+			backgroundScan: true,
+			refractoryPeriod: 5000,
+			scanPeriod: 1,
+		}
+		var scanner = new Instascan.Scanner(opts)
+		document
+			.getElementById('CameraButton')
+			.addEventListener('click', function () {
+				Instascan.Camera.getCameras()
+					.then(function (cameras) {
+						if (cameras.length > 0) {
+							scanner.start(cameras[0])
+						} else {
+							console.error('No cameras found.')
+							alert('No cameras found.')
+						}
+					})
+					.catch(function (e) {
+						console.error(e)
+					})
+			})
+		scanner.addListener('scan', function (content) {
+			alert(content)
+		})
 	} else {
 		elements.QrCodeElement.style.display = 'none'
 	}
