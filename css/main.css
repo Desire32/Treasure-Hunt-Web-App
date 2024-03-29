@@ -243,6 +243,10 @@ main {
   margin: 3%0
 }
 
+#robot{
+  width: 300px;
+}
+
 footer {
   background-color: #acb3b8;
   width: 100%;
