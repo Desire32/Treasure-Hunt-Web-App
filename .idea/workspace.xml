@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="added new notes now adding those notes to the html notes page" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Treasure-Hunt-Web-App\exportToHTML" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2e2dP97hFC4eyzqjNXO2sxEK31g" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alexp\WebstormProjects\Treasure-Hunt-Web-App\images" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="" />
+      <created>1711106579432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711106579432</updated>
+      <workItem from="1711106580981" duration="1997000" />
+      <workItem from="1711113072609" duration="5823000" />
+      <workItem from="1711375678119" duration="4000" />
+      <workItem from="1711387277227" duration="4991000" />
+      <workItem from="1711541009958" duration="2183000" />
+      <workItem from="1711625799303" duration="1608000" />
+      <workItem from="1711703608123" duration="1841000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added social medias and links">
+      <option name="closed" value="true" />
+      <created>1711114103549</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711114103549</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added social icons and fixed landing page">
+      <option name="closed" value="true" />
+      <created>1711115756053</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711115756053</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added social icons and fixed landing page icons">
+      <option name="closed" value="true" />
+      <created>1711115919873</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711115919873</updated>
+    </task>
+    <task id="LOCAL-00004" summary="General fixes to landing page">
+      <option name="closed" value="true" />
+      <created>1711116435963</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711116435963</updated>
+    </task>
+    <task id="LOCAL-00005" summary="General fixes to landing page">
+      <option name="closed" value="true" />
+      <created>1711116588947</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711116588947</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixing code errors">
+      <option name="closed" value="true" />
+      <created>1711116809099</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711116809099</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added a notes file so me AlexPh can update what the team is doing and what has been completed for the team work path on the marking scheme">
+      <option name="closed" value="true" />
+      <created>1711117860895</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711117860895</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added a notes file so me AlexPh can update what the team is doing and what has been completed for the team work path on the marking scheme">
+      <option name="closed" value="true" />
+      <created>1711118447935</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711118447935</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added a notes file so me AlexPh can update what the team is doing and what has been completed for the team work path on the marking scheme">
+      <option name="closed" value="true" />
+      <created>1711118623062</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711118623062</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added a notes file so me AlexPh can update what the team is doing and what has been completed for the team work path on the marking scheme">
+      <option name="closed" value="true" />
+      <created>1711390262584</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711390262584</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added a notes file so me AlexPh can update what the team is doing and what has been completed for the team work path on the marking scheme">
+      <option name="closed" value="true" />
+      <created>1711391330041</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711391330041</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added the notes to the notes html file">
+      <option name="closed" value="true" />
+      <created>1711391968200</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711391968200</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added the notes to the notes html file">
+      <option name="closed" value="true" />
+      <created>1711542389268</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711542389268</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Previous added new notes now adding those notes to the html notes page">
+      <option name="closed" value="true" />
+      <created>1711542601135</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711542601135</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added new notes now adding those notes to the html notes page">
+      <option name="closed" value="true" />
+      <created>1711704855866</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1711704855866</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="images in folder" />
+    <MESSAGE value="Added social medias and links" />
+    <MESSAGE value="Added social icons and fixed landing page" />
+    <MESSAGE value="Added social icons and fixed landing page icons" />
+    <MESSAGE value="General fixes to landing page" />
+    <MESSAGE value="fixing code errors" />
+    <MESSAGE value="Added a notes file so me AlexPh can update what the team is doing and what has been completed for the team work path on the marking scheme" />
+    <MESSAGE value="Added the notes to the notes html file" />
+    <MESSAGE value="Previous added new notes now adding those notes to the html notes page" />
+    <MESSAGE value="added new notes now adding those notes to the html notes page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new notes now adding those notes to the html notes page" />
+  </component>
+</project>
