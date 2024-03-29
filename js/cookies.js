@@ -79,8 +79,6 @@ async function getLocation() {
 	})
 }
 
-
-
 async function showPosition(position) {
 	setCookie('latitude', position.coords.latitude, 30)
 	setCookie('longitude', position.coords.longitude, 30)
