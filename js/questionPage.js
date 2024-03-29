@@ -84,6 +84,7 @@ function generateQuestionHTML(jsonObject) {
 			html += `<button class="PersonInfoPanel skipButton" value="SKIP">SKIP</button>`
 		}
 	} else {
+		scanner.stop()
 		html += `<li class="PersonInfoPanel">Congratulations! Game over</li>`
 		html += `<a class="PersonInfoPanel" id="showLeaderboardButton" href="leaderboard.html">Leaderboard</a>`
 		html += `<button class="PersonInfoPanel" id="playAgainButton">Play Again</button>`
@@ -126,7 +127,7 @@ function generateQuestionHTML(jsonObject) {
 		scanner.addListener('scan', function (content) {
 			alert(content)
 		})
-		
+
 		elements.disableButtonElement.addEventListener('click', function () {
 			scanner.stop()
 		})
