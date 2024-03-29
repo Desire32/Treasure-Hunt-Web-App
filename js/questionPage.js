@@ -89,6 +89,7 @@ function generateQuestionHTML(jsonObject) {
 		html += `<button class="PersonInfoPanel" id="playAgainButton">Play Again</button>`
 	}
 	if (jsonObject.requiresLocation) {
+		elements.QrCodeElement.style.display = 'block'
 		let latitude = getCookie('latitude')
 		let longitude = getCookie('longitude')
 		if (latitude && longitude) {
