@@ -12,6 +12,7 @@ main {
   min-height: 80vh
 }
 
+
 .frontPage h1,
 .frontPage h2 {
   color: #34516c;
@@ -137,8 +138,7 @@ main {
   margin: 0 auto
 }
 
-.PersonInfoPanel,
-.PersonInfoPanel2 {
+.PersonInfoPanel{
   padding: 10px 26px;
   margin: 25px;
   cursor: pointer
@@ -173,13 +173,6 @@ main {
 
 #questionField {
   list-style: none
-}
-
-.PersonInfoPanel2 {
-  font-size: 2rem;
-  font-style: italic;
-  line-height: 1.5;
-  font-family: Arial, sans-serif
 }
 
 #treasureHunts li,
