@@ -139,18 +139,31 @@ main {
   cursor: pointer
 }
 
-.PersonInfoPanel button,
-#disableButton {
+.PersonInfoPanel button {
   background-color: #4caf50;
   border: 0;
   border-radius: 4px;
-  box-shadow: 0 0 5px #4caf50;
+  box-shadow: 0 0 5px #4caf50
 }
 
-.PersonInfoPanel button:hover,
-#disableButton:hover {
+.PersonInfoPanel button:hover {
   background-color: #bc1621;
-  box-shadow: 0 0 5px red;
+  box-shadow: 0 0 5px red
+}
+
+#disableButton{
+  margin-top: 20px;
+  font-size: 1.8rem;
+  padding: 10px;
+  background-color: #4caf50;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #4caf50
+}
+
+#disableButton:hover{
+  background-color: #bc1621;
+    box-shadow: 0 0 5px red
 }
 
 .PersonInfoPanel input[type=button],
