@@ -11,16 +11,30 @@
 
 <body>
 
-<header class="header-main" id="header">
-    <div class="header-main-logo">
-        <a href="index.html">
-            <img src="images/logo.png" alt="logo Uni" id="logo">
-        </a>
-        <div class="header-main-name">Treasure Hunt</div>
-        <div class="header-main-name" id="score" style="display: none;"></div>
-    </div>
-    <nav class="header-main-nav">
-        <ul class="logoList">
+    <header class="header-main" id="header">
+        <div class="header-main-logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="logo Uni" id="logo">
+            </a>
+            <div class="header-main-name">Treasure Hunt</div>
+            <div class="header-main-name" id="score" style="display: none;"></div>
+        </div>
+        <nav class="header-main-nav">
+            <ul class="logoList">
+                <li><a href="index.html">Main page</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="test.html">Test</a></li>
+                <li><a href="leaderboard.html" id="leaderboard-link">Leaderboard</a></li>
+
+            </ul>
+        </nav>
+        <div class="burger-menu-button">
+        </div>
+    </header>
+
+    <!--Burger menu-->
+    <nav class="burger-menu">
+        <ul>
             <li><a href="index.html">Main page</a></li>
             <li><a href="notes.html">Notes</a></li>
             <li><a href="test.html">Test</a></li>
@@ -28,50 +42,35 @@
 
         </ul>
     </nav>
-    <div class="burger-menu-button">
-    </div>
-</header>
 
-<!--Burger menu-->
-<nav class="burger-menu">
-    <ul>
-        <li><a href="index.html">Main page</a></li>
-        <li><a href="notes.html">Notes</a></li>
-        <li><a href="test.html">Test</a></li>
-        <li><a href="leaderboard.html" id="leaderboard-link">Leaderboard</a></li>
+    <main>
+        <div class="frontPage" id="testText">
+            <h1>Heuristic Evaluation Log:</h1>
+            <h2>27/03/24 22:50. Heuristic Evaluation Plan:</h2>
+            <img src="images/Heuristic_Evaluation_Table.png" width="100%" alt="Heuristic Evaluation Table">
+        </div>
+    </main>
 
-    </ul>
-</nav>
+    <footer id="footer">
+        <div class="socialNetworksTable">
+            <ul>
+                <li><a href="https://www.youtube.com/channel/UC6CIxgtDVaCsJXH6aXn187g" target="_blank"><img
+                            src="images/Youtube.png" alt="YouTube"></a></li>
+                <li><a href="https://twitter.com/TeamBestTeam4" target="_blank"><img src="images/twitter.png"
+                            alt="Twitter"></a></li>
+                <li> <a href="https://www.instagram.com/computer_legends1/" target="_blank"><img
+                            src="images/instagram-logo-icone4.png" alt="Instagram"></a></li>
+                <li> <a href="https://github.com/Desire32/Treasure-Hunt-Web-App" target="_blank"><img
+                            src="images/github.png" alt="GitHub"></a></li>
+                <li> <a href="https://discord.com/channels/@me/1218189609947893794/1221559334761136328"
+                        target="_blank"><img src="images/discord.png" alt="Discord"></a></li>
+            </ul>
+        </div>
+    </footer>
 
-<main>
-    <div class="frontPage" id="testText">
-        <h1>Heuristic Evaluation Log:</h1>
-        <h2>27/03/24 22:50. Heuristic Evaluation Plan:</h2>
-        <img src="images/Heuristic Evaluation Table.png" width ="100%" height="auto">
-    </div>
-</main>
-
-<footer id="footer">
-    <div class="socialNetworksTable">
-        <ul>
-            <li><a href="https://www.youtube.com/channel/UC6CIxgtDVaCsJXH6aXn187g" target="_blank"><img
-                        src="images/Youtube.png" alt="YouTube" height="auto" width="100%" /></a></li>
-            <li><a href="https://twitter.com/TeamBestTeam4" target="_blank"><img src="images/twitter.png" alt="Twitter"
-                        height="auto" width="100%" /></a></li>
-            <li> <a href="https://www.instagram.com/computer_legends1/" target="_blank"><img
-                        src="images/instagram-logo-icone4.png" alt="Instagram" height="auto" width="100%" /></a></li>
-            <li> <a href="https://github.com/Desire32/Treasure-Hunt-Web-App" target="_blank"><img
-                        src="images/github.png" alt="GitHub" height="auto" width="100%" /></a></li>
-            <li> <a href="https://discord.com/channels/@me/1218189609947893794/1221559334761136328" target="_blank"><img
-                        src="images/discord.png" alt="Discord" height="auto" width="100%" /></a></li>
-        </ul>
-    </div>
-</footer>
+    <script src='js/burger-menu.js'></script>
+    <script src='js/cookies.js'></script>
 
 </body>
 
-<script src='js/burger-menu.js'></script>
-<script src='js/cookies.js'></script>
-
 </html>
-
