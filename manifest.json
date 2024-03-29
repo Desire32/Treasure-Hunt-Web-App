@@ -8,16 +8,22 @@
 	"theme_color": "teal",
 	"icons": [
 		{
-			"src": "logo.png",
+			"src": "images/logo.png",
 			"sizes": "512x512",
 			"type": "image/png",
 			"purpose": "maskable"
 		},
 		{
-			"src": "logo.png",
+			"src": "images/logo.png",
 			"sizes": "512x512",
 			"type": "image/png",
 			"purpose": "any"
+		},
+		{
+			"src": "images/logo.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "monochrome"
 		}
 	]
 }
