@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="added new notes now adding those notes to the html notes page" />
+    <list default="true" id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="Added roles to the landing page html">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +63,7 @@
       <workItem from="1711541009958" duration="2183000" />
       <workItem from="1711625799303" duration="1608000" />
       <workItem from="1711703608123" duration="1841000" />
+      <workItem from="1711705477782" duration="297000" />
     </task>
     <task id="LOCAL-00001" summary="Added social medias and links">
       <option name="closed" value="true" />
@@ -182,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711704855866</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added roles to the landing page html">
+      <option name="closed" value="true" />
+      <created>1711705516226</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711705516226</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +210,7 @@
     <MESSAGE value="Added the notes to the notes html file" />
     <MESSAGE value="Previous added new notes now adding those notes to the html notes page" />
     <MESSAGE value="added new notes now adding those notes to the html notes page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new notes now adding those notes to the html notes page" />
+    <MESSAGE value="Added roles to the landing page html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added roles to the landing page html" />
   </component>
 </project>
