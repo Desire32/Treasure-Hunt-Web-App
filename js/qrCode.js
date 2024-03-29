@@ -59,19 +59,22 @@ var opts = {
 
 var scanner = new Instascan.Scanner(opts)
 
-Instascan.Camera.getCameras()
-	.then(function (cameras) {
-		if (cameras.length > 0) {
-			scanner.start(cameras[0])
-		} else {
-			console.error('No cameras found.')
-			alert('No cameras found.')
-		}
-	})
-	.catch(function (e) {
-		console.error(e)
-	})
 
-	scanner.addListener('scan', function (content) {
+document.getElementById('CameraButton').addEventListener('click', function () {
+	Instascan.Camera.getCameras()
+		.then(function (cameras) {
+			if (cameras.length > 0) {
+				scanner.start(cameras[0])
+			} else {
+				console.error('No cameras found.')
+				alert('No cameras found.')
+			}
+		})
+		.catch(function (e) {
+			console.error(e)
+		})
+})
+
+scanner.addListener('scan', function (content) {
 	alert(content)
-	})
+})
