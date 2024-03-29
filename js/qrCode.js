@@ -1,57 +1,6 @@
+
+
 /*var opts = {
-	continuous: true,
-	video: document.getElementById('preview'),
-	captureImage: false,
-	backgroundScan: true,
-	refractoryPeriod: 5000,
-	scanPeriod: 1,
-}
-
-var scanner = new Instascan.Scanner(opts)
-
-document.getElementById('CameraButton').addEventListener('click', startCamera)
-
-function startCamera() {
-	Instascan.Camera.getCameras()
-		.then(function (cameras) {
-			if (cameras.length > 0) {
-				stopCamera()
-				scanner.start(cameras[0])
-				document.getElementById('preview').style.display = 'block'
-				isActive = true
-			} else {
-				console.error('No cameras found.')
-			}
-		})
-		.catch(function (err) {
-			console.error('Error accessing camera:', err)
-			alert('Error accessing camera')
-		})
-}
-
-document
-	.getElementById('StopCameraButton')
-	.addEventListener('click', stopCamera)
-
-let isActive = false
-
-function stopCamera() {
-	if (isActive) {
-		scanner.stop()
-		document.getElementById('preview').style.display = 'none'
-		isActive = false
-	} else {
-		scanner.start()
-		document.getElementById('preview').style.display = 'block'
-		isActive = true
-	}
-}
-
-scanner.addListener('scan', function (content) {
-	alert(content)
-})*/
-
-var opts = {
 	continuous: true,
 	video: document.getElementById('preview'),
 	captureImage: false,
@@ -97,4 +46,29 @@ document.getElementById('button').addEventListener('click', function () {
 
 scanner.addListener('scan', function (content) {
 	alert(content)
-})
+})*/
+
+
+var opts = {
+	continuous: true,
+	video: document.getElementById('preview'),
+	captureImage: false,
+	backgroundScan: true,
+	refractoryPeriod: 5000,
+	scanPeriod: 1,
+}
+
+var scanner = new Instascan.Scanner(opts)
+
+Instascan.Camera.getCameras()
+	.then(function (cameras) {
+		if (cameras.length > 0) {
+			scanner.start(cameras[0])
+		} else {
+			console.error('No cameras found.')
+			alert('No cameras found.')
+		}
+	})
+	.catch(function (e) {
+		console.error(e)
+	})
