@@ -49,10 +49,6 @@ var opts = {
 	scanPeriod: 5,
 }
 
-var scanner = new Instascan.Scanner(opts)
-var currentCameraIndex = 0
-var cameras = []
-
 let scanner = new Instascan.Scanner(opts)
 scanner.addListener('scan', function (content) {
 	console.log(content)
