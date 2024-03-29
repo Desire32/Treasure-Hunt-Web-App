@@ -21,17 +21,18 @@ async function getQuestion(sessionID) {
 
 function updateProgressBar(currentQuestionIndex) {
 	for (let i = 1; i <= 6; i++) {
+		
 		let point = document.getElementById(`point-${i}`)
+		
 		if (i <= currentQuestionIndex) {
 			point.style.backgroundColor = 'green'
 		} else {
+		
 			point.style.backgroundColor = '#ddd'
 		}
-		point.innerText = i
 	}
-
 	let line = document.querySelector('.progress-bar-line')
-	line.style.height = `${(currentQuestionIndex / 6) * 100}%`
+	line.style.width = `${(currentQuestionIndex / 6) * 100}%`
 	line.style.backgroundColor = 'green'
 }
 
