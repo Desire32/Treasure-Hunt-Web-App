@@ -99,6 +99,8 @@ function generateQuestionHTML(jsonObject) {
 			html += `<li class="PersonInfoPanel">This question requires your location.</li>`
 			
 		}
+	} else {
+		elements.QrCodeElement.style.display = 'none'
 	}
 	html += `</div>`
 	return html

@@ -25,7 +25,6 @@ document.getElementById('CameraButton').addEventListener('click', function () {
 		})
 })
 
-
 scanner.addListener('scan', function (content) {
 	alert(content)
 })
