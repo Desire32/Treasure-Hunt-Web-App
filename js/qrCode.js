@@ -52,36 +52,22 @@ var scanner = new Instascan.Scanner(opts)
 var currentCameraIndex = 0
 var cameras = []
 
-function startCamera(index) {
-	if (cameras.length > 0) {
-		scanner.stop().then(function () {
-			// остановить текущую камеру перед запуском новой
-			scanner.start(cameras[index])
-		})
-	} else {
-		console.error('No cameras found.')
-		alert('No cameras found.')
-	}
-}
+Instascan.Camera.getCameras()
+	.then(function (cameras) {
+		if (cameras.length > 0) {
+			var selectedCam = cameras[0]
+			$.each(cameras, (i, c) => {
+				if (c.name.indexOf('back') != -1) {
+					selectedCam = c
+					return false
+				}
+			})
 
-document.getElementById('CameraButton').addEventListener('click', function () {
-	Instascan.Camera.getCameras()
-		.then(function (cams) {
-			cameras = cams
-			startCamera(currentCameraIndex)
-		})
-		.catch(function (e) {
-			console.error(e)
-		})
-})
-
-document
-	.getElementById('SwitchCameraButton')
-	.addEventListener('click', function () {
-		currentCameraIndex = (currentCameraIndex + 1) % cameras.length
-		startCamera(currentCameraIndex)
+			scanner.start(selectedCam)
+		} else {
+			console.error('No cameras found.')
+		}
 	})
-
-scanner.addListener('scan', function (content) {
-	alert(content)
-})
+	.catch(function (e) {
+		console.error(e)
+	})
