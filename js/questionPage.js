@@ -30,6 +30,7 @@ function updateProgressBar(currentQuestionIndex) {
 		
 			point.style.backgroundColor = '#ddd'
 		}
+		point.innerText = i
 	}
 	let line = document.querySelector('.progress-bar-line')
 	line.style.width = `${(currentQuestionIndex / 6) * 100}%`
