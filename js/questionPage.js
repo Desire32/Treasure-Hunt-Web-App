@@ -134,7 +134,7 @@ function generateQuestionHTML(jsonObject) {
 		elements.QrCodeElement.style.display = 'none'
 		elements.disableButtonElement.style.display = 'none'
 	}
-	if (jsonObject.currentQuestionIndex >= jsonObject.numOfQuestions) {
+	if (jsonObject.currentQuestionIndex >= 6) {
 		scanner.stop()
 	}
 	html += `</div>`
