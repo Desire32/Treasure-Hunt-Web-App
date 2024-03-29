@@ -1,3 +1,6 @@
+
+
+// fetching a question from the server using the provided sessionID
 async function getQuestion(sessionID) {
 	let questionURL =
 		'https://codecyprus.org/th/api/question?session=' + sessionID
@@ -19,15 +22,13 @@ async function getQuestion(sessionID) {
 	}
 }
 
+// creating a kind of road map for the application, which in a convenient form shows the questions, on which question and how much is left until the end
 function updateProgressBar(currentQuestionIndex) {
 	for (let i = 1; i <= 6; i++) {
-		
 		let point = document.getElementById(`point-${i}`)
-		
 		if (i <= currentQuestionIndex) {
 			point.style.backgroundColor = 'green'
 		} else {
-		
 			point.style.backgroundColor = '#ddd'
 		}
 		point.dataset.number = i
@@ -37,13 +38,12 @@ function updateProgressBar(currentQuestionIndex) {
 	line.style.backgroundColor = 'gray'
 }
 
+
+// the generation of the question itself from the database, which reads the data, depending on the type of question, location, pass, qr code, and displays the corresponding data
 function generateQuestionHTML(jsonObject) {
 	let html = ''
 	html += `<div class="questionContainer">`
 	if (jsonObject.currentQuestionIndex < jsonObject.numOfQuestions) {
-		/*html += `<h3 style="font-size: 2rem;">Question ${
-			jsonObject.currentQuestionIndex + 1
-		}</h3>`*/
 		html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
@@ -78,6 +78,7 @@ function generateQuestionHTML(jsonObject) {
 				break
 		}
 		if (
+			// For the API to work correctly, remove the skip button from the last question
 			jsonObject.canBeSkipped &&
 			jsonObject.currentQuestionIndex < jsonObject.numOfQuestions - 1
 		) {
@@ -136,12 +137,14 @@ function generateQuestionHTML(jsonObject) {
 	return html
 }
 
+// character checking to prevent the user from entering inappropriate characters
 function isNumberKey(evt) {
 	var charCode = evt.which ? evt.which : event.keyCode
 	if (charCode > 31 && (charCode < 48 || charCode > 57)) return false
 	return true
 }
 
+// checking the field to ensure that the user does not enter an empty character
 function checkInputValue() {
 	let inputValue = document.getElementById('PlayerAnswer').value.trim()
 	if (inputValue === '') {
@@ -151,6 +154,7 @@ function checkInputValue() {
 	return true
 }
 
+// click handler depending on the button pressed, loads a specific function
 document.addEventListener('click', async function (event) {
 	let sessionID = getCookie('sessionID')
 	if (event.target && event.target.id === 'SubmitButton') {
@@ -171,6 +175,7 @@ document.addEventListener('click', async function (event) {
 	}
 })
 
+// submits an answer to the server
 async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 	let answerInput
 	if (booleanAnswer !== null) {
@@ -196,6 +201,7 @@ async function submitAnswer(booleanAnswer = null, mcqAnswer = null, sessionID) {
 	}
 }
 
+// skips a question
 async function skipQuestion(sessionID) {
 	let skipURL = 'https://codecyprus.org/th/api/skip?session=' + sessionID
 
@@ -208,6 +214,7 @@ async function skipQuestion(sessionID) {
 	}
 }
 
+// gets the user's location
 async function getLocation(sessionID) {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
@@ -216,4 +223,3 @@ async function getLocation(sessionID) {
 	}
 }
 
-//

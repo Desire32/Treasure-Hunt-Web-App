@@ -1,4 +1,6 @@
 
+// functions for basic implementation of cookies
+
 function setCookie(cookieName, cookieValue, expireDays) {
 	let date = new Date()
 	date.setTime(date.getTime() + expireDays * 24 * 60 * 60 * 1000)
@@ -23,6 +25,9 @@ function getCookie(name) {
 
 const LOCATION_REQUESTED = 'locationRequested'
 
+
+
+// reading the player's location and constantly updating the session
 document.addEventListener('DOMContentLoaded', async function () {
 	let locationRequested = getCookie(LOCATION_REQUESTED)
 	let currentQuestion = getCookie('currentQuestion')
@@ -51,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 })
 
-//
+// functions that calculate the user’s coordinates and actually add them to cookies
 
 async function getLocation() {
 	return new Promise((resolve, reject) => {
