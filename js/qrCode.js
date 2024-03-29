@@ -44,8 +44,7 @@ document.getElementById('button').addEventListener('click', function () {
 		})
 })
 
-scanner.addListener('scan', function (content) {
-	alert(content)
+
 })*/
 
 
@@ -71,4 +70,8 @@ Instascan.Camera.getCameras()
 	})
 	.catch(function (e) {
 		console.error(e)
+	})
+
+	scanner.addListener('scan', function (content) {
+	alert(content)
 	})
