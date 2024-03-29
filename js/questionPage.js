@@ -25,7 +25,7 @@ function updateProgressBar(currentQuestionIndex) {
 		let point = document.getElementById(`point-${i}`)
 		
 		if (i <= currentQuestionIndex) {
-			point.style.backgroundColor = 'black'
+			point.style.backgroundColor = 'green'
 		} else {
 		
 			point.style.backgroundColor = '#ddd'
