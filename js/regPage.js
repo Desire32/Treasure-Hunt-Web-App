@@ -21,6 +21,7 @@ function fetchTreasureHunts() {
 		fetch('https://codecyprus.org/th/api/list')
 			.then(response => response.json())
 			.then(jsonObject => {
+				console.log(jsonObject)
 				let html = ''
 				let treasureHunts = {}
 				jsonObject.treasureHunts.forEach(treasureHunt => {
