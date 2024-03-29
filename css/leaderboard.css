@@ -8,13 +8,13 @@
 
 #tableContainer th,
 td {
-    padding: 40px;
+    padding: 20px;
     text-align: center;
     font-size: 24px;
 }
 
 #tableContainer {
-    overflow: auto;
+    overflow-x: auto;
 }
 
 #tableContainer th:nth-child(2),
@@ -64,8 +64,9 @@ main h1{
 }
 
 @media only screen and (max-width: 768px) {
+
     #tableContainer th,
-        td {
-            font-size: 14px;
-        }
+    #tableContainer td {
+        font-size: 14px;
+    }
 }
