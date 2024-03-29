@@ -1,4 +1,4 @@
-var opts = {
+/*var opts = {
 	continuous: true,
 	video: document.getElementById('preview'),
 	captureImage: false,
@@ -27,5 +27,5 @@ document.getElementById('CameraButton').addEventListener('click', function () {
 
 scanner.addListener('scan', function (content) {
 	alert(content)
-})
+})*/
 
