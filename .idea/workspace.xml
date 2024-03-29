@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1614654c-93ee-47e9-9743-7c72cf33e7cf" name="Changes" comment="Added roles to the landing page html">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,8 @@
       <workItem from="1711541009958" duration="2183000" />
       <workItem from="1711625799303" duration="1608000" />
       <workItem from="1711703608123" duration="1841000" />
-      <workItem from="1711705477782" duration="297000" />
+      <workItem from="1711705477782" duration="322000" />
+      <workItem from="1711710579081" duration="1525000" />
     </task>
     <task id="LOCAL-00001" summary="Added social medias and links">
       <option name="closed" value="true" />
@@ -193,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711705516226</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added roles to the landing page html">
+      <option name="closed" value="true" />
+      <created>1711705785908</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1711705785908</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
