@@ -25,10 +25,6 @@ main {
   margin: 30px 0 10px
 }
 
-.socialNetworksTable {
-  width: 25%
-}
-
 .PersonInfoPanel {
   font-size: 2.3rem
 }
@@ -40,7 +36,7 @@ main {
 
 .socialNetworksTable img {
   width: 90px;
-  margin-right: 20px;
+  margin-right: 4%;
   border: solid #b9c1ca;
   border-radius: 1px;
   transition: .3s ease
