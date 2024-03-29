@@ -1,24 +1,24 @@
-/* header.css, header, which used for every page, and also includes some basic parts for css styling */
-
-*, *::before, *::after {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+*,
+::after,
+::before {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 62.5%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 .logoList a {
   text-decoration: none;
-  color: black;
+  color: #000
 }
 
 #logo {
-  transition: brightness 0.3s ease;
+  transition: brightness .3s ease
 }
 
 #logo:hover {
-  cursor: pointer;
+  cursor: pointer
 }
 
 .header-main {
@@ -26,119 +26,114 @@
   height: 130px;
   background-color: #acb3b8;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 .header-main-logo {
   width: fit-content;
   display: flex;
-  align-items: center;
+  align-items: center
 }
 
 .header-main-logo img {
   height: 100px;
   align-self: center;
   padding-left: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 
+#leaderboard-link,
 .burger-menu,
 .burger-menu-button {
-  display: none;
-}
-
-#leaderboard-link{
-  display: none;
+  display: none
 }
 
 .header-main-nav {
   width: fit-content;
-  padding: 15px 30px;
+  padding: 15px 30px
 }
 
 .header-main-nav ul li {
   display: inline-block;
   font-size: 3rem;
   font-weight: lighter;
-  font-style: italic;
+  font-style: italic
 }
 
 .header-main-nav ul li a {
   padding: 0 15px;
-  line-height: 75px;
+  line-height: 75px
 }
 
 .header-main-name {
   width: fit-content;
   margin-left: 15px;
   align-self: center;
-  font-weight:lighter;
+  font-weight: lighter;
   font-size: 3.8rem;
-  color: black;
+  color: #000
 }
 
 body {
-  background-image: url('/images/background.jpg');
+  background-image: url(/images/background.jpg);
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed
 }
 
-@media only screen and (max-width: 1192px) {
+@media only screen and (max-width:1192px) {
 
-  .header-main-nav ul li{
-    font-size: 3rem;
-  }
-  .header-main-name {
-    font-size: 3rem;
+  .header-main-name,
+  .header-main-nav ul li {
+    font-size: 3rem
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
   .header-main-logo img {
     width: 200px;
-    height: auto;
+    height: auto
   }
 
   .header-main-name {
-    font-size: 2.7rem;
+    font-size: 2.7rem
   }
 
   .header-main-nav {
-    display: none;
+    display: none
   }
 
   .burger-menu-button {
     display: block;
     width: 50px;
     height: 50px;
-    background-image: url('/images/burger-menu.png');
-    background-size: cover;
+    background-image: url(/images/burger-menu.png);
+    background-size: cover
   }
 
   .burger-menu {
     display: none;
     position: relative;
-    width: 100%;
+    width: 100%
   }
 
   .burger-menu ul {
     width: 100%;
     display: flex;
-    background-color: #A4D3F2;
-    opacity: 0.5;
+    background-color: #a4d3f2;
+    opacity: .5
   }
 
   .burger-menu ul li {
     margin: 0 20px;
     list-style-type: none;
-    color: black;
+    color: #000
   }
 
   .burger-menu ul li a {
     display: block;
     font-size: 2rem;
     padding: 18px 0;
-    color: black;
-    text-decoration: none;
+    color: #000;
+    text-decoration: none
   }
 }
