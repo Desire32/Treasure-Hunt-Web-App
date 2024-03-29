@@ -72,6 +72,9 @@ async function startUpdatingLocation(sessionID) {
 
 
 async function showPosition(position) {
+	console.log(
+		`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`
+	)
 	setCookie('latitude', position.coords.latitude, 30)
 	setCookie('longitude', position.coords.longitude, 30)
 }
