@@ -263,6 +263,21 @@ footer {
   position: relative;
 }
 
+#point-1,
+#point-2,
+#point-3,
+#point-4,
+#point-5,
+#point-6 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
 .progress-bar-line {
   position: absolute;
   bottom: 0;
