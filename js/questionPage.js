@@ -27,6 +27,7 @@ function updateProgressBar(currentQuestionIndex) {
 		} else {
 			point.style.backgroundColor = '#ddd'
 		}
+		point.innerText = i
 	}
 
 	let line = document.querySelector('.progress-bar-line')
