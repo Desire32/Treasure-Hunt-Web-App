@@ -3,7 +3,6 @@ async function getQuestion(sessionID) {
 		'https://codecyprus.org/th/api/question?session=' + sessionID
 	const response = await fetch(questionURL)
 	const jsonObject = await response.json()
-	document.getElementById('progress-bar').style.display = 'block'
 	if (jsonObject) {
 		document.getElementById('userInput').style.display = 'none'
 		elements.SeenQuestion.style.display = 'block'
