@@ -151,6 +151,10 @@ main {
   box-shadow: 0 0 5px red
 }
 
+#disableButton{
+  font-size: 1.5rem;
+}
+
 .PersonInfoPanel input[type=button],
 .PersonInfoPanel input[type=text] {
   padding: 8px;

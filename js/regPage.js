@@ -7,7 +7,8 @@ const elements = {
 	nameButton: document.getElementById('nameButton'),
 	userInput: document.querySelector('.userInput'),
 	scoreElement: document.getElementById('score'),
-  QrCodeElement: document.getElementById('CameraButton')
+  QrCodeElement: document.getElementById('CameraButton'),
+	disableButtonElement: document.getElementById('disableButton')
 }
 // fetching treasure hunt data from a server and handling user interactions with the fetched data
 fetchTreasureHunts()

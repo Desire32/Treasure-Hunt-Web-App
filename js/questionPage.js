@@ -44,9 +44,6 @@ function generateQuestionHTML(jsonObject) {
 	let html = ''
 	html += `<div class="questionContainer">`
 	if (jsonObject.currentQuestionIndex < jsonObject.numOfQuestions) {
-		/*html += `<h3 style="font-size: 2rem;">Question ${
-			jsonObject.currentQuestionIndex + 1
-		}</h3>`*/
 		html += `<li class="PersonInfoPanel">${jsonObject.questionText}</li>`
 		switch (jsonObject.questionType) {
 			case 'BOOLEAN':
@@ -93,11 +90,11 @@ function generateQuestionHTML(jsonObject) {
 	}
 	if (jsonObject.requiresLocation) {
 		elements.QrCodeElement.style.display = 'block'
+		elements.disableButtonElement.style.display = 'block'
 		let latitude = getCookie('latitude')
 		let longitude = getCookie('longitude')
 		if (latitude && longitude) {
 			html += `<li class="PersonInfoPanel">Your current location is: Latitude ${latitude}, Longitude ${longitude}</li>`
-			//html += `<img src="images/QR_Code.png" id="CameraButton" alt="QR_Code ">`
 		} else {
 			html += `<li class="PersonInfoPanel">This question requires your location.</li>`
 		}
@@ -129,8 +126,13 @@ function generateQuestionHTML(jsonObject) {
 		scanner.addListener('scan', function (content) {
 			alert(content)
 		})
+		
+		elements.disableButtonElement.addEventListener('click', function () {
+			scanner.stop()
+		})
 	} else {
 		elements.QrCodeElement.style.display = 'none'
+		elements.disableButtonElement.style.display = 'none'
 	}
 	html += `</div>`
 	return html
