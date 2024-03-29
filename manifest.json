@@ -1,0 +1,29 @@
+{
+	"name": "Treasure Hunt Web app",
+	"short_name": "Treasure Hunt",
+	"lang": "en-US",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "teal",
+	"theme_color": "teal",
+	"icons": [
+		{
+			"src": "images/logo.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "images/logo.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "images/logo.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "monochrome"
+		}
+	]
+}

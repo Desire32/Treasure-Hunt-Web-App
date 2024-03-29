@@ -1,3 +1,6 @@
+
+// functions for basic implementation of cookies
+
 function setCookie(cookieName, cookieValue, expireDays) {
 	let date = new Date()
 	date.setTime(date.getTime() + expireDays * 24 * 60 * 60 * 1000)
@@ -22,34 +25,54 @@ function getCookie(name) {
 
 const LOCATION_REQUESTED = 'locationRequested'
 
+
+
+// reading the player's location and constantly updating the session
 document.addEventListener('DOMContentLoaded', async function () {
-	let sessionID = getCookie('sessionID')
 	let locationRequested = getCookie(LOCATION_REQUESTED)
+	let currentQuestion = getCookie('currentQuestion')
 
 	if (!locationRequested) {
-		await getLocation(sessionID)
+		await getLocation()
 		setCookie(LOCATION_REQUESTED, 'true', 30)
 	}
 
-	if (!sessionID) {
-		sessionID = await start()
-		setCookie('sessionID', sessionID, 30)
+	if (currentQuestion) {
+		currentQuestion = JSON.parse(currentQuestion)
+		elements.SeenQuestion.innerHTML = generateQuestionHTML(currentQuestion)
 	}
-	//loadScore(sessionID)
 
-	//let storedWordsCookie = getCookie('storedWords')
-	//if (storedWordsCookie) {
-	//	let storedWords = JSON.parse(storedWordsCookie)
-	//}
+	fetchTreasureHunts()
+
+	setInterval(() => {
+		getLocation()
+			.then(() => {
+				console.log('Location updated successfully.')
+			})
+			.catch(error => {
+				console.error('Error updating location:', error)
+			})
+	}, 30000)
+
 })
 
-async function getLocation(sessionID) {
+// functions that calculate the user’s coordinates and actually add them to cookies
+
+async function getLocation() {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function (position) {
-				showPosition(position, sessionID)
-				resolve()
-			})
+			navigator.geolocation.getCurrentPosition(
+				function (position) {
+					showPosition(position)
+					resolve()
+				},
+				function (error) {
+					reject(error)
+				},
+				{
+					enableHighAccuracy: true,
+				}
+			)
 		} else {
 			reject(new Error('Geolocation is not supported'))
 		}

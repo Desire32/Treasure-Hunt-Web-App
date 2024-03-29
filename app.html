@@ -7,6 +7,7 @@
     <title>Treasure Hunt</title>
     <link rel="stylesheet" type="text/css" href="css/header.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/instascan.min.js"></script>
 </head>
 
 <body>
@@ -18,12 +19,14 @@
             </a>
             <div class="header-main-name">Treasure Hunt</div>
             <div class="header-main-name" id="score" style="display: none;"></div>
+            <img src="images/QR_Code.png" id="qrCode" alt="QR_Code" style="display: none;">
         </div>
         <nav class="header-main-nav">
             <ul class="logoList">
                 <li><a href="index.html">Main page</a></li>
                 <li><a href="notes.html">Notes</a></li>
                 <li><a href="test.html">Test</a></li>
+                
     
             </ul>
         </nav>
@@ -37,14 +40,28 @@
             <li><a href="index.html">Main page</a></li>
             <li><a href="notes.html">Notes</a></li>
             <li><a href="test.html">Test</a></li>
+            
     
         </ul>
     </nav>
 
     <main>
-
         <img id="robot" src="images/logo.png" alt="logo Uni">
+
+        <div class="progress-bar">
+            <div class="progress-bar-line"></div>
+            <div class="progress-bar-point" id="point-1"></div>
+            <div class="progress-bar-point" id="point-2"></div>
+            <div class="progress-bar-point" id="point-3"></div>
+            <div class="progress-bar-point" id="point-4"></div>
+            <div class="progress-bar-point" id="point-5"></div>
+            <div class="progress-bar-point" id="point-6"></div>
+        </div>
+
         <ul id="treasureHunts"></ul>
+
+        <video id="preview"></video>
+        
 
         <ul id="userInput" class="userInput" style="display: none;">
             <li>
@@ -57,12 +74,14 @@
         </ul>
 
 
-
         <ul class="PersonInfoPanel" id="questionField" style="display: none;">
             <li>
                 <input class="PersonInfoPanel" type="text" id="playerAnswer" name="playerAnswer" />
             </li>
         </ul>
+
+        <img src="images/QR_Code.png" id="CameraButton" style="display: none;" alt="QR_Code">
+        <button id="disableButton" style="display: none;">Disable Camera</button>
 
     </main>
 
@@ -70,28 +89,15 @@
         <div class="socialNetworksTable">
             <ul>
                 <li><a href="https://www.youtube.com/channel/UC6CIxgtDVaCsJXH6aXn187g" target="_blank"><img
-                            src="images/Youtube_logo new.png" height="auto" width="100%" /></a></li>
-                <li><a href="https://twitter.com/TeamBestTeam4" target="_blank"><img src="images/x new logo.png"
-                            height="auto" width="100%" /></a></li>
+                            src="images/Youtube.png" alt="YouTube" /></a></li>
+                <li><a href="https://twitter.com/TeamBestTeam4" target="_blank"><img src="images/twitter.png"
+                            alt="Twitter" /></a></li>
                 <li> <a href="https://www.instagram.com/computer_legends1/" target="_blank"><img
-                            src="images/instagram-logo-icone4.png" height="auto" width="100%" /></a></li>
+                            src="images/instagram-logo-icone4.png" alt="Instagram" /></a></li>
                 <li> <a href="https://github.com/Desire32/Treasure-Hunt-Web-App" target="_blank"><img
-                            src="images/github.png" height="auto" width="100%" /></a></li>
+                            src="images/github.png" alt="GitHub" /></a></li>
                 <li> <a href="https://discord.com/channels/@me/1218189609947893794/1221559334761136328" target="_blank"><img
-                            src="images/discord.png" height="auto" width="100%" /></a></li>
-            </ul>
-        </div>
-    
-        <div class="teamTable">
-            <ul>
-                <li>
-                    <h1>Team Members Include:</h1>
-                </li>
-                <li>Orlando Ballard</li>
-                <li>Alexander Photiou</li>
-                <li>Nikita Markov</li>
-                <li>Constantinos koliaros</li>
-                <li>Giorgos Poullou</li>
+                            src="images/discord.png" alt="Discord" /></a></li>
             </ul>
         </div>
     </footer>
