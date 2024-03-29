@@ -54,8 +54,10 @@ var cameras = []
 
 function startCamera(index) {
 	if (cameras.length > 0) {
-		scanner.stop() 
-		scanner.start(cameras[index])
+		scanner.stop().then(function () {
+			// остановить текущую камеру перед запуском новой
+			scanner.start(cameras[index])
+		})
 	} else {
 		console.error('No cameras found.')
 		alert('No cameras found.')
