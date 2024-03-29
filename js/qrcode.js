@@ -23,7 +23,7 @@ function switchCamera() {
 		//getLocation()
 		Instascan.Camera.getCameras().then(function (cameras) {
 			let backCam = cameras.find(function (camera) {
-				return camera.name.indexOf('back') !== -1
+				return camera.name && camera.name.indexOf('back') !== -1
 			})
 			if (backCam) {
 				scanner.start(backCam)
