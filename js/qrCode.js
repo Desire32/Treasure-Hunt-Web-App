@@ -14,7 +14,7 @@ document.getElementById('CameraButton').addEventListener('click', function () {
 	Instascan.Camera.getCameras()
 		.then(function (cameras) {
 			if (cameras.length > 0) {
-				scanner.start(cameras[currentCameraIndex])
+				scanner.start(cameras[0])
 			} else {
 				console.error('No cameras found.')
 				alert('No cameras found.')
