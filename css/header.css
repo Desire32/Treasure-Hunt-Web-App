@@ -86,16 +86,16 @@ body {
   .header-main-nav ul li {
     font-size: 3rem
   }
+    .header-main-logo img{
+      height: 90px;
+    }
 }
 
 @media only screen and (max-width:768px) {
-  .header-main-logo img {
-    width: 200px;
-    height: auto
-  }
+  
 
   .header-main-name {
-    font-size: 2.7rem
+    font-size: 2rem
   }
 
   .header-main-nav {
