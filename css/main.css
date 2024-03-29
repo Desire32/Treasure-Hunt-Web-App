@@ -1,380 +1,346 @@
+.socialNetworksTable ul,
+main {
+  display: flex;
+  align-items: center
+}
 
 main {
   padding-bottom: 200px;
-  display: flex;
-  align-items: center;
   margin: 4% 2%;
   flex-direction: column;
   width: auto;
-  min-height: 80vh;
+  min-height: 80vh
 }
 
-.frontPage h1 {
-  color: #34516c;
-  font-weight: 650;
-  font-size: 6rem;
-  margin: 3% 0px 3% 0px;
-}
-
+.frontPage h1,
 .frontPage h2 {
   color: #34516c;
   font-weight: 650;
+  margin: 3%0
+}
+
+.frontPage h2 {
   font-size: 2.8rem;
-  margin: 30px 0 10px 0;
+  margin: 30px 0 10px
 }
 
-.socialNetworksTable{
-  width: 25%;
+.socialNetworksTable {
+  width: 25%
 }
 
-.PersonInfoPanel{
-  font-size: 2.3rem;
+.PersonInfoPanel {
+  font-size: 2.3rem
 }
 
-.socialNetworksTable ul{
-  display: flex;
+.socialNetworksTable ul {
   flex-direction: row;
-  
-  align-items: center;
-  list-style-type: none;
+  list-style-type: none
 }
 
 .socialNetworksTable img {
-  width: 75px;
-  border:solid #b9c1ca;
+  width: 90px;
+  margin-right: 20px;
+  border: solid #b9c1ca;
   border-radius: 1px;
-  transition: border-color 0.3s ease;
-
+  transition: .3s ease
 }
 
 .socialNetworksTable img:hover {
-  border-color: #0056b3;
-  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  border-color: #5c6877;
+  box-shadow: 0 0 5px rgba(179, 179, 206, .5)
 }
-.socialNetworksTable ul li{
+
+.socialNetworksTable ul li {
   flex: 1;
-  padding-right:3%;
+  padding-right: 3%
 }
 
-.teamTable ul{
-  font-size: 2.5rem;
+.teamTable ul {
+  font-size: 4.5rem;
   list-style-type: none;
-  color:#34516c;
+  color: #34516c
+}
 
+.frontPage h1,
+.teamTable ul h1 {
+  font-size: 6rem
 }
-.teamTable ul h1{
-  font-size: 2rem;
-}
+
 .frontPage p {
-  font-size: 1.7rem;
+  font-size: 1.7rem
 }
+
 .frontPage {
-  margin: 0px 2% 0px 2%;
-  width: 65%;
+  margin: 0 2%;
+  width: 65%
+}
+
+.teamTable {
+  margin-bottom: 50px
 }
 
 .frontPage #buttonStart {
-    padding: 15px 25px;
-  background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgb(79, 187, 241);
-    font-size: 3rem;
-    text-decoration: none;
+  padding: 15px 25px;
+  background: linear-gradient(45deg, #0e0404, #4fbbf1);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #4fbbf1;
+  font-size: 3rem;
+  text-decoration: none
 }
 
 .frontPage .descriptionIndex {
   color: #040404;
-    font-size: 2.7rem;
-    font-style: italic;
-    margin: 3% 0px 100px 0px;
+  font-size: 2.7rem;
+  font-style: italic;
+  margin: 3%0 100px
 }
 
-#CameraButton, #SwitchCameraButton{
-  max-width: 100px;
+#CameraButton,
+#SwitchCameraButton,
+.PersonInfoPanel button {
   margin-right: 10px;
-    padding: 8px 16px;
-    color: white;
-    cursor: pointer;
-    
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer
 }
 
-#CameraButton:hover{
+#CameraButton,
+#SwitchCameraButton {
+  max-width: 100px
+}
+
+#CameraButton:hover {
   background-color: #c9b6b8;
-    box-shadow: 0 0 5px rgb(207, 181, 181);
+  box-shadow: 0 0 5px #cfb5b5
 }
 
-#buttonStart:hover{
-  background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
-
+#buttonStart:hover,
+#treasureHunts li:hover,
+.StarButton:hover {
+  background: linear-gradient(45deg, #4fbbf1, #0e0404)
 }
 
 .errorMessagesSize {
   font-size: 3rem;
-  margin: 15px 0px 15px 0px;
+  margin: 15px 0
 }
 
 #treasureHunts {
-  list-style-type: none;
+  list-style-type: none
 }
 
 #quizContainer {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto
+}
 
+.PersonInfoPanel,
+.PersonInfoPanel2 {
+  padding: 10px 26px;
+  margin: 25px;
+  cursor: pointer
 }
 
 .PersonInfoPanel {
-  margin-bottom: 10px;
+  border: 2px solid #0e0404;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #4fbbf1
 }
 
 .PersonInfoPanel button {
-  margin-right: 10px;
-  padding: 8px 16px;
   background-color: #4caf50;
-  color: white;
-  border: none;
+  border: 0;
   border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 0 5px rgb(76, 175, 80);
+  box-shadow: 0 0 5px #4caf50
 }
 
 .PersonInfoPanel button:hover {
   background-color: #bc1621;
-  box-shadow: 0 0 5px rgb(255, 0, 0);
-
+  box-shadow: 0 0 5px red
 }
 
-.PersonInfoPanel input[type="text"],
-.PersonInfoPanel input[type="button"] {
+.PersonInfoPanel input[type=button],
+.PersonInfoPanel input[type=text] {
   padding: 8px;
   width: calc(100% - 20px);
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4px
 }
 
-#questionField{
-  list-style: none;
-}
-
-
-.PersonInfoPanel {
-  border: 2px solid #0e0404;
-  padding: 10px 26px;
-  margin: 25px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgb(79, 187, 241);
-  cursor: pointer
+#questionField {
+  list-style: none
 }
 
 .PersonInfoPanel2 {
-  padding: 10px 26px;
-  margin: 25px;
-  cursor: pointer;
   font-size: 2rem;
   font-style: italic;
   line-height: 1.5;
   font-family: Arial, sans-serif
 }
 
-
-.StarButton{
-  border: 2px solid rgb(14, 4, 4);
-  padding: 10px 26px;
-  margin: 7px;
-  border-radius: 5px;
-  background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
-  box-shadow: 0 0 5px rgb(79, 187, 241);
+#treasureHunts li,
+.StarButton {
+  background: linear-gradient(45deg, #0e0404, #4fbbf1);
   cursor: pointer;
-  font-size:25px;
-  color:white;
-  margin-left: 110px;
+  box-shadow: 0 0 5px #4fbbf1;
+  color: #fff
 }
 
-.StarButton:hover{
-  background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
+.StarButton {
+  border: 2px solid #0e0404;
+  padding: 10px 26px;
+  border-radius: 5px;
+  font-size: 25px;
+  margin: 7px 7px 7px 110px
 }
 
-
-.trueButton,
+#SubmitButton,
 .falseButton,
 .mcqOption,
-#SubmitButton {
-  border: 1px solid rgba(14, 7, 7, 0.53);
-  background-color: rgba(49, 48, 48, 0.46);
+.trueButton {
+  border: 1px solid rgba(14, 7, 7, .53);
+  background-color: rgba(49, 48, 48, .46);
   color: #fff;
   padding: 5px 10px;
   margin: 5px;
-  cursor: pointer;
+  cursor: pointer
 }
 
-.trueButton:hover,
+#SubmitButton:hover,
 .falseButton:hover,
 .mcqOption:hover,
-#SubmitButton:hover {
+.trueButton:hover {
   background-color: #4caf50;
-  box-shadow: 0 0 10px rgb(76, 175, 80);
+  box-shadow: 0 0 10px #4caf50
 }
 
 #PlayerAnswer {
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid #fff;
   padding: 5px;
   margin: 5px;
-  width: 275px;
+  width: 275px
 }
-
 
 #SeenQuestion {
-  display: none;
+  display: none
 }
 
-.questionContainer .skipButton{
- position: relative;
- left: 20%;
+.questionContainer .skipButton {
+  position: relative;
+  left: 20%
 }
 
 #treasureHunts li {
-  border: 1px solid #ffffff;
+  border: 1px solid #fff;
   padding: 25px 50px;
   border-radius: 10px;
-  background: linear-gradient(45deg, rgb(14, 4, 4), rgb(79, 187, 241));
-  margin-top: 10px;
-  cursor: pointer;
-  box-shadow: 0 0 5px rgb(79, 187, 241);
-  color: white;
-}
-#treasureHunts li:hover {
-  background: linear-gradient(45deg, rgb(79, 187, 241), rgb(14, 4, 4));
+  margin-top: 10px
 }
 
 .treasureHuntFontSize {
   font-size: 3rem;
-  margin: 30px 0px 30px 0px;
+  margin: 30px 0
 }
 
-#testLinks{
+#testLinks {
   color: #34516c;
   font-weight: 650;
   font-size: 10rem;
   width: 65%;
-  margin: 3% 0px 3% 0px;
-}
-
-@media only screen and (max-width: 1192px) {
-  .frontPage h1 {
-    font-size: 5rem;
-  }
-  #testLinks{
-    color: #34516c;
-    font-weight: 650;
-    font-size: 6rem;
-    width: 65%;
-    margin: 3% 0px 3% 0px;
-  }
-
-  .frontPage p {
-    font-size: 1.8rem;
-  }
-  .teamTable ul{
-    font-size: 2rem;
-    color:#34516c;
-
-  }
-  .teamTable ul h1{
-    font-size: 2rem;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .frontPage h1 {
-    font-size: 4rem;
-  }
-  #testLinks{
-    color: #34516c;
-    font-weight: 650;
-    font-size: 5rem;
-    width: 65%;
-    margin: 3% 0px 3% 0px;
-  }
-  .frontPage p {
-    font-size: 1.5rem;
-  }
-  .teamTable ul{
-    font-size: 1.5rem;
-  }
-  .teamTable ul h1{
-    font-size: 1.5rem;
-  }
-  .socialNetworksTable img {
-       width: 75px;
-  }
+  margin: 3%0
 }
 
 footer {
   background-color: #acb3b8;
   width: 100%;
-  color: white;
+  color: #fff;
   display: flex;
   position: relative;
-  bottom: 0px;
+  bottom: 0;
   justify-content: space-between;
   padding: 15px 2%;
-  height: 175px;
+  height: 175px
 }
 
-#robot{
-  width:200px;
+@media only screen and (max-width:1192px) {
+
+  .frontPage h1,
+  .teamTable ul h1 {
+    font-size: 5rem
+  }
+
+  #testLinks {
+    color: #34516c;
+    font-weight: 650;
+    font-size: 6rem;
+    width: 65%;
+    margin: 3%0
+  }
+
+  .teamTable ul {
+    font-size: 4rem;
+    color: #34516c
+  }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
+
+  .frontPage h1,
+  .teamTable ul h1 {
+    font-size: 4rem
+  }
+
+  #testLinks {
+    color: #34516c;
+    font-weight: 650;
+    font-size: 5rem;
+    width: 65%;
+    margin: 3%0
+  }
+
+  .frontPage p {
+    font-size: 1.3rem
+  }
+
+  .teamTable ul {
+    font-size: 3rem
+  }
+
+  .socialNetworksTable img {
+    width: 75px
+  }
+
+  #robot {
+    width: 200px
+  }
 
   .header-main-logo {
     width: 80%;
-    text-align: center;
+    text-align: center
   }
+
   .header-main-name {
     display: block;
-    text-align: center;
+    text-align: center
   }
+
   .header-main-nav {
-    display: none;
+    display: none
   }
+
   .burger-menu-button {
-    display: block;
+    display: block
   }
+
   .burger-menu {
-    display: none;
+    display: none
   }
-  main {
-    padding-bottom: 100px;
-  }
-  #robot {
-    width: 150px;
-  }
-  .frontPage h1 {
-    font-size: 3rem;
-  }
-  .frontPage h2 {
-    font-size: 2rem;
-  }
+
   .socialNetworksTable {
-    width: 60%;
+    width: 80%
   }
-  .socialNetworksTable img {
-    width: 50px;
-  }
-  .teamTable ul,
-  .teamTable ul h1 {
-    font-size: 1.5rem;
-  }
-  .frontPage p {
-    font-size: 1.3rem;
-  }
-
 }
-
-
-
